@@ -5,9 +5,10 @@
       <view class="weui-tabs-bar__content">
         <block wx:for="{{tabs}}" wx:key="title">
           <view id="item_{{index}}" class="weui-tabs-bar__item" style="background-color: {{tabBackgroundColor}}; color: {{activeTab === index ? tabActiveTextColor : tabInactiveTextColor}};" bindtap="handleTabClick" data-index="{{index}}">
-            <view class="weui-tabs-bar__title {{tabClass}} {{activeTab === index ? activeClass : ''}}" style="border-bottom-color: {{activeTab === index ? tabUnderlineColor : 'transparent'}}">
+            <view class="weui-tabs-bar__title {{tabClass}} {{activeTab === index ? activeClass : ''}}">
               <view class="badge">{{orderNums[index] ? orderNums[index] : ''}}</view>
               <text class="tab-text">{{item.title}}</text>
+              <view class="indicator-line" wx:if="{{activeTab === index}}"></view>
             </view>
           </view>
         </block>

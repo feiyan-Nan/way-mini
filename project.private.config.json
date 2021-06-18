@@ -178,6 +178,12 @@
           "pathName": "pages/sex-select/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/homepage/index",
+          "pathName": "pages/homepage/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

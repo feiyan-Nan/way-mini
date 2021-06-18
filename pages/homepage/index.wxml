@@ -1,2 +1,6 @@
 <!--pages/homepage/index.wxml-->
-<text>pages/homepage/index.wxml</text>
+<view class="homepage">
+  <tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+
+  </tabs>
+</view>

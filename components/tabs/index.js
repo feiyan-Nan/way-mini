@@ -15,9 +15,9 @@ Component({
     swiperClass: { type: String, value: '' },
     activeClass: { type: String, value: '' },
     tabUnderlineColor: { type: String, value: '#E88C73' },
-    tabActiveTextColor: { type: String, value: '#031c24' },
-    tabInactiveTextColor: { type: String, value: '#031c24' },
-    tabBackgroundColor: { type: String, value: '#ffffff' },
+    tabActiveTextColor: { type: String, value: '#FFFFFF' },
+    tabInactiveTextColor: { type: String, value: '#97FFDD' },
+    tabBackgroundColor: { type: String, value: 'transparent' },
     activeTab: { type: Number, value: 0 },
     swipeable: { type: Boolean, value: true },
     animation: { type: Boolean, value: true },
@@ -48,7 +48,7 @@ Component({
       const statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
       // 定义导航栏的高度   方便对齐
       this.setData({
-        height: menuRect.height + 2 * (menuRect.top - statusBarHeight) + statusBarHeight,
+        height: wx.getSystemInfoSync().statusBarHeight,
       });
     },
   },
