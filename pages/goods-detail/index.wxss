@@ -1,0 +1,279 @@
+page {
+  height: 100vh;
+}
+/* 通用字体样式 */
+.text-blod {
+  font-size: 32rpx;
+  /*font-family: SourceHanSansCN-Medium, SourceHanSansCN;*/
+  font-weight: 500;
+  color: #031c24;
+  line-height: 1;
+}
+.text-normal {
+  font-size: 32rpx;
+  /*font-family: SourceHanSansCN-Light, SourceHanSansCN;*/
+  font-weight: 300;
+  color: #031c24;
+  line-height: 1;
+}
+.containers {
+  height: 100vh;
+}
+/* 吸顶 电梯 */
+.sticky-wrap {
+  width: 100vw;
+  height: 88rpx;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  /*justify-content: space-around;*/
+  justify-content: space-between;
+  z-index: 999;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+.sticky-wrap .sticky-item {
+   /*flex: 1;*/
+  width: 25%;
+  font-size: 14px;
+  /*font-family: SourceHanSansCN-Light, SourceHanSansCN;*/
+  font-weight: 300;
+  color: #031c24;
+  padding: 0 8rpx 6rpx;
+  z-index: 998;
+  text-align: center;
+  box-sizing: border-box;
+  border-bottom: 1px dashed rgba(0,0,0,0);
+  /*position: relative;*/
+}
+
+.sticky-wrap .sticky-item.active {
+  position: relative;
+  font-weight: 500;
+}
+.sticky-wrap .sticky-item.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 72rpx;
+  height: 1rpx;
+  border-bottom: 1px dashed #db9078;
+}
+
+/* 轮播图样式 */
+.swiper-wrap {
+  position: relative;
+  /* margin-bottom: 40rpx; */
+}
+.goods-info-wrap,
+.choose-size,
+.goods-detail .tip,
+.goods-detail .detail-video {
+  padding: 0 40rpx;
+}
+
+
+/* 商品信息 */
+.goods-info-wrap {
+  display: flex;
+  padding-top: 40rpx;
+}
+.goods-info-wrap .goods-info {
+  flex: 1;
+}
+.goods-info .brand,
+.goods-info .designer {
+  margin-bottom: 8rpx;
+}
+.goods-info .designer {
+  margin-top: 4rpx;
+}
+.goods-info .name {
+  margin-top: 12rpx;
+  line-height: 48rpx;
+}
+.goods-info .money {
+  margin-top: 12rpx;
+}
+.goods-info-wrap .godds-share {
+  width: 48rpx;
+  height: 48rpx;
+  margin-top: 34rpx;
+}
+
+/* 选择尺寸 */
+.choose-size {
+  font-size: 28rpx;
+  margin-top: 90rpx;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.choose-size .size-picker {
+  flex: 1;
+  font-size: 28rpx;
+  /*font-family: SourceHanSansCN-Light, SourceHanSansCN;*/
+  font-weight: 300;
+  color: #031c24;
+}
+.choose-size .right-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+.choose-size .bottom-line {
+  margin-top: 30rpx;
+  /*padding-top: 30rpx;*/
+  width: 100%;
+  height: 2rpx;
+  /*border-bottom: 1px dashed #031c24;*/
+  background: url("http://oss.cogo.club/3a25d58e-a362-40e6-92b6-52712330fd21.png") repeat-x center;
+  background-size: auto 2rpx;
+}
+.choose-size .tip {
+  width: 100%;
+  text-align: center;
+  margin-top: 20rpx;
+  font-size: 24rpx;
+}
+/* 商品详情 */
+.goods-detail {
+  margin-top: 120rpx;
+  padding-bottom: 130rpx;
+}
+.goods-detail .tip {
+  margin-bottom: 40rpx;
+}
+.goods-detail .detail-item {
+  font-size: 0;
+  position: relative;
+  /* width: 100%; */
+  z-index: 0;
+}
+.goods-detail .detail-item > image,
+.goods-detail .detail-item video {
+  width: 100%;
+}
+
+.goods-detail .detail-item > image{
+  padding: -1rpx 0;
+}
+
+.goods-detail .detail-item .detail-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* 底部按钮 */
+.button-left-content {
+  width: 120rpx;
+  height: 100%;
+}
+.earphone {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 40rpx 32rpx 0rpx 20rpx;
+}
+.x-wrap {
+  width: 100vw;
+  height: 68rpx;
+}
+
+.liaojie {
+  width: 100%;
+  height: 148rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+
+.liaojie image{
+  width: 8rpx;
+  height: 10rpx;
+  margin-left: 10rpx;
+}
+
+
+.m-desginer-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82rpx;
+  margin-top: 40rpx;
+  padding: 0 40rpx 40rpx 40rpx;
+}
+.m-desginer-detail .m-desginer-person {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 82rpx;
+}
+.m-desginer-detail .m-desginer-person .m-desginer-avator {
+  width: 82rpx;
+  height: 82rpx;
+  position: relative;
+}
+.m-desginer-detail .m-desginer-person .m-desginer-avator .renzheng {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 32rpx;
+  height: 32rpx;
+  /*background-color: red;*/
+}
+
+.m-desginer-detail .m-desginer-person .m-desginer-avator .renzheng image {
+  width: 100%;
+}
+.m-desginer-detail .m-desginer-person .m-desginer-introduce {
+  padding-left: 20rpx;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.m-desginer-detail .m-desginer-person .m-desginer-introduce .m-desginer-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #031C24;
+  line-height: 1;
+}
+.m-desginer-detail .m-desginer-person .m-desginer-introduce .m-desginer-tip {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #999999;
+  line-height: 1;
+}
+.m-desginer-detail .m-desginer-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.m-desginer-detail .m-desginer-product > view {
+  line-height: 1;
+  white-space: nowrap;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.m-desginer-detail .m-desginer-product > view:last-of-type {
+  opacity: 0;
+}
+
+
+.empty-view{
+  position: fixed;
+  z-index: -9999;
+  width: 100%;
+  height: 20rpx;
+  background: red;
+  opacity: 0;
+  padding: 0 40rpx;
+}

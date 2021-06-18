@@ -1,0 +1,11 @@
+<view class='good_nav'>
+  <view>
+    <button open-type="contact" class="contact">
+      <image src="/assets/images/customer-service.png" />
+    </button>
+  </view>
+<!--  <view>-->
+<!--    <bottom-button buttonTyep="doubleButton" leftButtonText="leftButtonText" buttonText="buttonText"></bottom-button>-->
+<!--  </view>-->
+<!--  <bottom-button buttonText="buttonText"></bottom-button>-->
+</view>

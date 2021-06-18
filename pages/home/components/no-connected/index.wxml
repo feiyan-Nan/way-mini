@@ -1,0 +1,6 @@
+<view class="wrap">
+  <view class="content">
+    <view class="tip">似乎已断开与互联网的连接 请稍后再试</view>
+    <button class="refresh-btn" bindtap="refresh">刷新</button>
+  </view>
+</view>

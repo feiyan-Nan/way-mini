@@ -1,0 +1,19 @@
+<view class="image_box {{isShowQing}}">
+  <image mode="aspectFill" style="height: {{fill ? '150vw' : '64vw'}}" class="new_goods-image" src="{{src}}" lazy-load="{{true}}" webp />
+</view>
+<view class="info-wrap">
+  <view class="goods-text tip">
+    <text class="{{isLeft}}">{{topText}}</text>
+  </view>
+  <view class="goods-text tip2">
+    <text class="{{isLeft}}">with Fabrique</text>
+  </view>
+  <view class="goods-text name">
+    <view class="{{isBlock ? 'mr-left mr-right' : ''}}">
+      {{goodsName}}
+    </view>
+  </view>
+  <view class="goods-text money">
+    <text class="{{isLeft}}">{{money}}</text>
+  </view>
+</view>

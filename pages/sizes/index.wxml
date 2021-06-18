@@ -1,0 +1,24 @@
+<view class='sizes' style="{{ style }}">
+  <navbar close bind:back="handleBack" />
+  <view class='header'>
+    <image src="{{info.sizeTileImg}}" mode="widthFix"  />
+  </view>
+
+  <view class='main' wx:if="{{info}}">
+    <view class='main_title'>平铺尺寸</view>
+    <view class='main_tip'>{{ info.sizeTips }}</view>
+
+    <view class='main_table'>
+      <view
+        wx:for="{{info.sizeTileVoList}}"
+        wx:key="index"
+        class="{{ index == 0 ? 'header': 'row' }} {{(info.hasRecommendedSize && info.recommendedSizeIndex == index) ? 'selected' : ''}}"
+      >
+        <view wx:for="{{item.valuesList}}" style="width: {{100 / info.sizeTileVoList[0].valuesList.length}}%" wx:for-item="val" wx:for-index="idx" wx:key="idx">{{ val }}</view>
+      </view>
+    </view>
+  </view>
+
+
+
+</view>

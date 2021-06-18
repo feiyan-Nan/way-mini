@@ -1,0 +1,13 @@
+
+<view class="modal" wx:if="{{isShow}}">
+  <view class="title">{{title}}</view>
+  <view class="desc">{{desc}}</view>
+  <view class="footer">
+    <view class="left" bind:tap="hide">拒绝</view>
+    <view class="right" >
+      <custom-button text="允许" openType="getPhoneNumber" bind:tapHandle="getPhoneNumber"  />
+    </view>
+  </view>
+</view>
+
+<view class="modal-bg" wx:if="{{isShow && isShowBg}}"></view>

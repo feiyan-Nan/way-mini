@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Item": "./components/item/index",
+    "custom-loading": "/components/custom-loading/custom-loading"
+  }
+}

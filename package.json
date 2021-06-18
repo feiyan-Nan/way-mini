@@ -1,0 +1,22 @@
+{
+  "name": "fabrique_mini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@home.cogo.club:liguigong/mini-glamor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@miniprogram-component-plus/sticky": "^1.0.0",
+    "miniprogram-computed": "^2.1.1",
+    "qs": "^6.9.4",
+    "weui-miniprogram": "^1.0.5"
+  }
+}

@@ -1,0 +1,38 @@
+<wxs module="test" src="./index.wxs"></wxs>
+<bottom-button
+  buttonTyep="{{buttonType}}"
+  extraStyle="{{_showStat ? '' : 'background: #EDF0F0;color: #999999;font-family: SourceHanSansCN-Light, SourceHanSansCN;border: 0;'}}"
+  extraClass="no-border"
+  leftButtonText="加入购物袋"
+  bind:handleLeftButtonClick="addShopCar"
+  buttonText="{{buttonType === 'doubleButton' ? '立即购买' : _showStat ? '确定' : '已售罄'}}"
+  bind:handleBottomButtonClick="bottomButtonClick"
+  bind:maskClick="maskClick"
+  isContact="{{buttonType === 'doubleButton'}}"
+  isLogged="{{isLogged}}"
+  bind:toLogin="toLogin"
+  no-check-net="{{true}}">
+</bottom-button>
+<!-- showMask="{{showChooseSize}}" -->
+<view class="mask" wx:if="{{showChooseSize}}" bind:tap="maskClick"></view>
+<view class="piker-wrap"  style="padding-bottom: {{ isX ? 68: 0 }}rpx" change:prop="{{test.propObserver}}" prop="{{showChooseSize}}">
+  <!-- {{showChooseSize ? 'show' : 'hide'}} -->
+  <m-picker  sizeChatUrl="{{sizeChatUrl}}" sizeTips="{{ sizeTips }}" id="mPicker" class="m-picker" show="{{true}}" range="{{sizeArr}}" range-key="name" bind:close="handleHiddenSize" bind:change="handleSizeChange" selected="{{sizeIndex}}"></m-picker>
+  <view wx:if="{{buttonType === 'singleButton'}}" class="button-wrap">
+    <button
+      class="bottom-button no-border"
+      style="{{_showStat ? '' : 'background: #EDF0F0;color: #999999;font-family: SourceHanSansCN-Light, SourceHanSansCN;border: 0;'}}"
+      form-type="submit"
+      bind:tap="bottomButtonClick">
+      {{_showStat ? '确定' : '已售罄'}}
+    </button>
+  </view>
+  <view wx:elif="{{buttonType === 'doubleButton'}}" class="button-wrap">
+    <button wx:if="{{isLogged}}" open-type="contact" class="contact" bind:contact="handleContact" session-from="{{sessionFrom}}">
+      <image src="/assets/images/customer-service.png" />
+    </button>
+    <image wx:else src="/assets/images/customer-service.png" class="contact" bindtap="toLogin" />
+    <button class="first-bottom-button" bind:tap="addShopCar">加入购物袋</button>
+    <button class="bottom-button" form-type="submit" bind:tap="handlePay">立即购买</button>
+  </view>
+</view>

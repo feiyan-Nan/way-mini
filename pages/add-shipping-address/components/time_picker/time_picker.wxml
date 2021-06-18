@@ -1,0 +1,24 @@
+
+<view class="container">
+
+
+  <view class="picker_box" animation="{{animation}}">
+    <view class="picker_header">
+      <text class="cancel">取消</text>
+      <text class="ok">确定</text>
+    </view>
+    <picker-view class="picker_row" indicator-style="height: 50px;" bindchange="onchange" value="{{ _value }}">
+      <picker-view-column class="picker_column">
+        <view wx:for="{{ provinces }}" wx:key="item">{{ item }}</view>
+      </picker-view-column>
+
+      <picker-view-column class="picker_column">
+        <view wx:for="{{ citys }}" wx:key="item">{{ item }}</view>
+      </picker-view-column>
+
+      <picker-view-column class="picker_column">
+        <view wx:for="{{ countrys }}" wx:key="item">{{ item }}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<navbar class="navbar" bind:back="back" title="积分规则" />
+
+
+<view class='rules'>
+  <mp-sticky offset-top="{{h.navH}}">
+    <view class='sticky'>
+      <view
+        class='sticky-item {{index == activeIndex ? "active" : ""}}'
+        wx:for="{{sticky}}"
+        wx:key="index"
+        mark:index="{{index}}"
+        bind:tap="tapHandle"
+      >
+        <text>{{item.text}}</text>
+        <image src="/assets/images/myscore/active_line.png" mode="widthFix" />
+      </view>
+    </view>
+  </mp-sticky>
+
+  <view class='content'>
+    <view class='section' wx:for="{{rules[activeIndex]}}" wx:key="index">
+      <view class='title'>{{item.title}}</view>
+      <view
+        class="detail {{idx == 0 ? 'detail_first_of_type' : ''}} {{item.accentColor == idx ? 'accentColor' : undefined}}"
+        wx:for="{{item.content}}"
+        wx:for-item="it"
+        wx:for-index="idx"
+        wx:key="idx"
+      >
+        {{it}}
+      </view>
+    </view>
+  </view>
+</view>

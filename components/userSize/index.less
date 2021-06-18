@@ -1,0 +1,211 @@
+.scroll-view{
+  //padding-bottom: 60px;
+  .userSize{
+    padding-bottom: 120rpx;
+    .main{
+      margin-top: 20rpx;
+      padding: 0 40rpx;
+      padding-bottom: 60px;
+      .header{
+        margin-bottom: 120rpx;
+        .title {
+          font-size: 36rpx;
+          font-weight: 500;
+          color: #031C24;
+          line-height: 1;
+        }
+        .subtitle{
+          font-size: 24rpx;
+          font-weight: 300;
+          color: #031C24;
+          line-height: 1;
+          margin-top: 20rpx;
+        }
+        .tmp{
+          //color: red;
+          font-size: 28rpx;
+        }
+        .tip {
+          font-size: 24rpx;
+          font-weight: 300;
+          color: #999;
+          margin-top: 20rpx;
+        }
+      }
+
+      .active {
+        color: #031C24;
+      }
+      .warning {
+        color: #031C24;
+        .value {
+          font-weight: 300;
+          color: #E88C73;
+        }
+      }
+
+      .box {
+        margin-bottom: 60rpx;
+        &:last-of-type{
+          margin-bottom: 148rpx;
+        }
+        .title {
+          font-size: 28rpx;
+          font-weight: 300;
+          color: #031C24;
+        }
+        .genders{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 20rpx;
+          .gender {
+            width: 200rpx;
+            height: 72rpx;
+            border: 1rpx solid #E6E6E6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28rpx;
+            font-weight: 300;
+            color: #031C24;
+          }
+          .selected {
+            border: 1rpx solid #031C24;
+          }
+        }
+      }
+
+      .more {
+        //background: red;
+        padding-top: 60rpx;
+        padding-bottom: 60rpx;
+        //margin-bottom: 160rpx;
+        .title {
+          font-size: 32rpx;
+          font-weight: 500;
+          color: #031C24;
+        }
+      }
+
+      .minesize{
+        padding-top: 60rpx;
+        .title {
+          font-size: 32rpx;
+          font-weight: 500;
+          color: #031C24;
+        }
+        .area {
+          height: 200rpx;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 32rpx;
+          font-weight: 300;
+          color: #999999;
+        }
+        .val{
+          font-size: 32rpx;
+          font-weight: 500;
+          color: #031C24;
+        }
+        .warning{
+          font-size: 32rpx;
+          font-weight: 300;
+          color: #E88C73;
+        }
+      }
+
+      .btn{
+        background-color: #031C24;
+        border-radius: 0;
+        color: #FFFFFF;
+        width: 670rpx;
+        height: 88rpx;
+        line-height: 88rpx;
+        font-size: 28rpx;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .tip{
+        font-size: 24rpx;
+        font-weight: 300;
+        color: #999999;
+        margin-top: 30rpx;
+        line-height: 1;
+        //padding-bottom: 60px;
+      }
+      .footer{
+        padding-bottom: 60px;
+      }
+    }
+
+
+    .custom_mask{
+      .body{
+        padding: 0 44rpx;
+        .header{
+          height: 100rpx;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          font-size: 28rpx;
+          font-weight: 300;
+          color: #031C24;
+          & > view:first-of-type {
+            color: #999;
+          }
+          & > view:nth-of-type(2) {
+            font-weight: 500;
+          }
+          & > view:last-of-type {
+            color: #031C24;
+          }
+        }
+
+        .picker_box{
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            height: 100rpx;
+            z-index: 888;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            height: 100rpx;
+            z-index: 888;
+          }
+          height: 500rpx;
+          .row{
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26rpx;
+            font-weight: 300;
+            color: #000000;
+          }
+          .curr {
+            background: rgb(237,240,240);
+          }
+        }
+        .selected{
+          font-size: 28rpx;
+          background: rgb(237,240,240);
+          color: #031C24;
+          height: 100rpx;
+        }
+      }
+    }
+  }
+}

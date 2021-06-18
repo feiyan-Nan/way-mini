@@ -1,0 +1,31 @@
+<view class='box' bind:tap="handleTap">
+  <view class='title'>我的{{title}}：</view>
+  <view class="input_info" data-unit="{{unit}}">
+    <input
+      type="number"
+      maxlength="{{3}}"
+      placeholder="{{placeholder}}"
+      placeholder-class="placeholder"
+      bind:input="inputHandle"
+      data-type="height"
+      value="{{_value}}"
+      disabled="{{picker}}"
+      style="text-align: {{ _value ? 'center': 'left' }};"
+      adjust-position
+      focus="{{_focus}}"
+      always-embed
+    />
+<!--    <text>{{unit}}</text>-->
+  </view>
+
+  <Mask
+    wx:if="{{_isShowMask}}"
+    class="mask"
+    title="{{title}}"
+    range="{{range}}"
+    unit="{{unit}}"
+    startNum="{{_startNum}}"
+    bind:maskHide="maskHide"
+    bind:ok="handleOk"
+  />
+</view>

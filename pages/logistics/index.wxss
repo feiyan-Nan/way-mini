@@ -1,0 +1,198 @@
+page{
+  background: #FFF;
+}
+
+.logistics{
+  padding: 0 40rpx;
+}
+
+.logistics .logistics_title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #031C24;
+}
+
+.logistics_info {
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+  line-height: 1;
+  margin-top: 60rpx;
+  padding-bottom: 60rpx;
+  /*border-bottom: 2rpx dashed #031C24;*/
+  /*background: red;*/
+  position: relative;
+}
+
+.logistics_info::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2rpx;
+  background: url("http://oss.cogo.club/3a25d58e-a362-40e6-92b6-52712330fd21.png") repeat-x center;
+  background-size: auto 2rpx;
+}
+
+.logistics_info .logistics_id{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 20rpx;
+  line-height: 1;
+}
+
+.logistics_info .logistics_id .copy{
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #E88C73;
+}
+
+.logistics_detail{
+
+}
+
+.left_line {
+  border-left: 2rpx dashed #E6E6E6;
+}
+
+.logistics_detail_item{
+  margin-top: 60rpx;
+  font-weight: 300;
+  padding-left: 44rpx;
+}
+
+.logistics_detail_item_title{
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 1;
+}
+.dot, .gray{
+  position: relative;
+}
+
+.logistics_detail_item:first-of-type .dot::before{
+  position: absolute;
+  content: '';
+  width: 12rpx;
+  background: #FFF;
+  //left: -45rpx;
+  left: -45rpx;
+  top: 0;
+  height: calc( 50% - 6rpx );
+  transform: translateX(-50%);
+}
+
+.logistics_detail_item:last-of-type .dot::before{
+  position: absolute;
+  content: '';
+  width: 12rpx;
+  background: #FFF;
+  left: -45rpx;
+  bottom: 0;
+  height: calc( 50% - 6rpx );
+  transform: translateX(-50%);
+}
+
+.dot::after{
+  position: absolute;
+  content: '';
+  width: 12rpx;
+  height: 12rpx;
+  background: #031C24;
+  overflow: hidden;
+  border-radius: 50%;
+  left: -45rpx;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.gray{
+  color: #CCCCCC;
+}
+
+.gray .dot::after{
+  background: #CCCCCC;
+}
+
+.gray::after{
+  background: #CCCCCC;
+}
+
+.logistics_detail_item_context{
+  font-size: 24rpx;
+  font-weight: 300;
+  line-height: 36rpx;
+  margin-top: 20rpx;
+}
+
+.logistics_detail_item_time{
+  font-size: 24rpx;
+  margin-top: 20rpx;
+  line-height: 1;
+}
+
+.makeup{
+  position: relative;
+}
+
+.makeup::after{
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 0;
+  height: calc( 100% - 28rpx );
+  width: 4px;
+  background: #FFF;
+  transform: translateX(-50%);
+}
+
+
+.contact-customer-service {
+  height: 148rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 62rpx;
+  position: relative;
+}
+
+.contact-customer-service::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url('http://oss.cogo.club/3e05e393-2c58-4e83-a225-beed24e03a7b.png') repeat-x center;
+  background-size: auto 2rpx;
+  height: 2rpx;
+  width: 100%;
+
+}
+
+.button-contact {
+  width: 200rpx;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031c24;
+  background: #fff;
+  border-radius: 0;
+  position: relative;
+}
+
+.button-contact::after {
+  border: none;
+}
+
+.button-contact::before {
+  content: '';
+  position: absolute;
+  top: 51%;
+  transform: translateY(-50%);
+  right: 15rpx;
+  width: 0;
+  height: 0;
+  border-top: 8rpx solid transparent;
+  border-left: 10rpx solid #031c24;
+  border-bottom: 8rpx solid transparent;
+}

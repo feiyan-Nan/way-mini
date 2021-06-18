@@ -1,0 +1,9 @@
+
+<custom-loading id="loading" />
+<!-- 购物车 -->
+  <view class="float-shop-car" style="bottom:{{bottom}};right:{{right}};">
+    <view class="bg"></view>
+    <mp-badge content="{{ num }}" ext-class="shop-badge" wx:if="{{num}}"/>
+    <image src="/assets/images/home/shop_card.png" wx:if="{{ type === 'bag' }}" />
+    <image src="/assets/images/map.png" wx:if="{{ type === 'map' }}" />
+  </view>

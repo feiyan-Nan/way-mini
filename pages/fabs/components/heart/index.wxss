@@ -1,0 +1,27 @@
+.heart {
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.heart .img {
+  width: 64rpx;
+  height: 64rpx;
+}
+.heart .img image {
+  width: 64rpx;
+  height: 64rpx;
+}
+.heart .tip {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.heart .tip text {
+  font-size: 20rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.heart .tip view {
+  opacity: 0;
+}

@@ -1,0 +1,34 @@
+/* pages/start-page/index.wxss */
+
+.logo, .features {
+  display: flex;
+  justify-content: center;
+}
+.features image{
+  width: 619rpx;
+  height: 586rpx;
+}
+.logo image{
+  width: 564rpx;
+  height: 139rpx;
+  margin-bottom: 82rpx;
+  margin-top: 20rpx;
+}
+.login_btn {
+  background: linear-gradient(to right, #00C184, #00E871);
+  height: 100rpx;
+  width: 630rpx;
+  margin: 60rpx auto 0;
+  border-radius: 10rpx 50rpx;
+  font-size: 36rpx;
+  color: #ffffff;
+  font-weight: bolder;
+}
+.bottom-train {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 185rpx;
+  /*opacity: 0.3;*/
+}

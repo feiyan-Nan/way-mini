@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "purchase-product-details": "/businessComponents/purchase-product-details/index",
+    "return-button": "./components/return-button/index",
+    "pay-type": "./components/pay-type/index",
+    "sticky-tip": "./components/sticky-tip/index"
+  }
+}

@@ -1,0 +1,18 @@
+<view class="purchase-product-details">
+  <view class="product-img">
+    <image mode="aspectFill" lazy-load src="{{productDetails.skuImg}}" webp />
+  </view>
+  <view class="product-desc">
+    <view class="product-properties">
+      <view class="title">{{productDetails.designerName}}</view>
+      <view class="title">{{productDetails.brandSuffix}}</view>
+      <view class="product-name">{{productDetails.spuName}}</view>
+      <view class="property">{{productDetails.skuSpecs}}</view>
+      <view class="product-tips">{{productDetails.skuDesc}}</view>
+    </view>
+    <view class="unit-price-num">
+      <view>{{price}}</view>
+      <view class="num">x{{productDetails.totalNum}}</view>
+    </view>
+  </view>
+</view>

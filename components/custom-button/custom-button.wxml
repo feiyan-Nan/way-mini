@@ -1,0 +1,11 @@
+<view class="btn">
+  <button open-type="{{openType}}" bindgetuserinfo="onTap" wx:if="{{openType == 'getUserInfo'}}">{{text}}</button>
+  <button open-type="{{openType}}" bindgetphonenumber="onTap" wx:elif="{{openType == 'getPhoneNumber'}}">{{text}}</button>
+  <button bind:tap="onTap" wx:else>{{text}}</button>
+</view>
+
+
+<!--<view class="btn">-->
+<!--  <button open-type="{{openType}}" bindgetuserinfo="onTap" wx:if="{{openType == 'getUserInfo'}}">{{text}}</button>-->
+<!--  <button open-type="{{openType}}" bindgetphonenumber="onTap" wx:if="{{openType == 'getPhoneNumber'}}">{{text}}</button>-->
+<!--</view>-->

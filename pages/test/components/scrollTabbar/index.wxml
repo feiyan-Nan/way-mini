@@ -1,0 +1,15 @@
+<view class='scroll-tab-bar'>
+  <scroll-view class="scroll-warp" scroll-x enhanced bounces>
+    <view
+      class='scroll-item {{_activeIndex == index ? "active" : undefined}}'
+      wx:for="{{list}}"
+      wx:key="index"
+      mark:item="{{item}}"
+      data-index="{{index}}"
+      bind:tap="tapHandle"
+    >
+      {{item.name}}
+      <image src="/assets/images/myscore/active_line.png" mode="widthFix" />
+    </view>
+  </scroll-view>
+</view>

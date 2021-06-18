@@ -1,0 +1,92 @@
+<view class='item' wx:if="{{_item}}">
+  <view class='header'>
+    <view class='avator'>
+      <center-image src="{{item.avatar}}" />
+    </view>
+    <view class='name'>{{item.nickName}}</view>
+  </view>
+
+<!--  单图的时候-->
+  <block wx:if="{{item.imageSrc.length == 1}}" >
+    <block
+      wx:for="{{item.imageSrc}}"
+      wx:for-item="it"
+      wx:key="index"
+    >
+      <view class="singleImage">
+        <single-image info="{{it}}" />
+
+        <image
+          class="shopbag"
+          src="/assets/images/fabs/shop-bag-new.png"
+          mode="widthFix"
+          bind:tap="toSpuDetail"
+          mark:id="{{_item.relationId}}"
+        />
+      </view>
+    </block>
+  </block>
+
+  <view class="swiperBox" wx:else>
+    <swiper class="swiper" style="height: {{ _item.imageSrc[0].parentHeight}};" bind:animationfinish="animationfinish">
+      <swiper-item
+        class="swiper-item"
+        wx:for="{{_item.imageSrc}}"
+        wx:for-item="it"
+        wx:key="index"
+      >
+        <suit-image info="{{it}}" index="{{ index }}" />
+      </swiper-item>
+    </swiper>
+
+    <view class='swiper-dots'>
+      <view class='dot {{index == _current ? "active" : undefined}}' wx:for="{{_item.imageSrc}}" wx:key="index" />
+    </view>
+
+    <image
+      class="shopbag"
+      src="/assets/images/fabs/shop-bag-new.png"
+      mode="widthFix"
+      bind:tap="toSpuDetail"
+      mark:id="{{_item.relationId}}"
+    />
+  </view>
+
+
+
+  <view class='section' bind:tap="toSpuDetail" mark:id="{{_item.relationId}}">
+    <view class='img'>
+      <image mode="heightFix" src="{{_item.goodsImg}}" lazy-load />
+    </view>
+
+    <view class="desc">
+      <view class='name'>{{_item.spuName}}</view>
+      <view class='size'>{{_item.specsValName1}}</view>
+    </view>
+  </view>
+
+  <view class='tip {{showOverflow ? "show-overflow" : ""}}'>
+    {{_item.content}}
+    <image src="/assets/images/down_arrow.png" mode="widthFix" class="down-arrow" wx:if="{{showOverflow}}" bindtap="hideOverflow" />
+  </view>
+
+  <view class='tip markTip'>
+    文字
+  </view>
+
+  <view class="beLoved" wx:if="{{_item.designerName}}">
+    被<text>@{{_item.designerName}}</text>喜欢
+  </view>
+
+
+  <view class='info'>
+    <view class='time'>{{_item.publishTimeStr}}</view>
+
+    <Heart
+      isLike="{{_item.isLike}}"
+      cntLike="{{_item.cntLike}}"
+      bind:love="love"
+      bind:cancel_like="cancel_like"
+    />
+  </view>
+</view>

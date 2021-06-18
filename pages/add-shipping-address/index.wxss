@@ -1,0 +1,124 @@
+.add-shipping-address {
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  /*height: 106vh;*/
+  color: #031C24;
+  /*padding-top: 100rpx;*/
+  /*margin-top: 150rpx;*/
+  height: calc(100vh + 600rpx);
+}
+
+.placeholder-element {
+  height: 100rpx;
+}
+
+.form-item {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.line{
+  margin: 60rpx 0;
+  border-top: 1rpx solid rgba(0,0,0,0);
+  position: relative;
+  /*background: red;*/
+}
+
+.line::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: url("http://oss.cogo.club/a6f92407-ad0a-4670-8350-598f50b2cf6e.png") repeat-x center;
+  background-size: auto 2rpx;
+  height: 2rpx;
+}
+
+.addressMask{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+}
+
+.form-item-babel {
+  width: 188rpx;
+  font-weight: 300;
+  line-height: 1;
+  font-size: 28rpx;
+}
+
+.form-item-input {
+  /*margin-left: 40rpx;*/
+  font-weight: 300 !important;
+  width: calc(100% - 40rpx - 188rpx);
+  font-size: 28rpx;
+}
+
+.form-item-textarea {
+  align-items: flex-start;
+}
+
+textarea {
+  height: 80rpx;
+  line-height: 46rpx;
+  font-weight: 300;
+  margin-top: -10rpx;
+  border: none;
+  outline: none;
+}
+
+.right-arrow {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.picker {
+  position: relative;
+}
+
+.picker::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -30px;
+  bottom: -10px;
+}
+
+
+.clear {
+  width: 38rpx;
+  height: 38rpx;
+  position: relative;
+  z-index: 400;
+  padding: 3rpx;
+}
+.clear::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -30px;
+  bottom: -10px;
+}
+.detail-address {
+  align-self: center;
+}
+
+.delete-address {
+  text-align: center;
+  position: fixed;
+  bottom: 180rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input {
+  font-weight: 300;
+}

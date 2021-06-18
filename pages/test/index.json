@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "ScrollTabbar": "./components/scrollTabbar/index"
+  }
+}

@@ -1,0 +1,50 @@
+<navbar catchback='navigateBack' title="{{title}}" />
+
+<custom-loading id="loading" />
+  <!--
+      3003：支付已超时，请重新购买；
+      3006：本订单已支付；
+      3002：库存不足提示文案，当sku=1时，提示：该尺码库存不足；
+      3009：库存不足提示文案，sku＞1时：商品品牌名+商品名（最多5个字+...）+规格值库存不足；
+      3011：单品信息变化，请重新下单
+      3001：商品已下架
+  -->
+<dialog content="{{ warningText }}" wx:if="{{ orderStatus }}"  destructive="{{0}}" actions="{{['确定']}}" mark:key="normal" bind:onTap="okHandle" />
+<view class="confirm-order">
+  <header-title title="确认订单"/>
+  <view class="placeholder-element"></view>
+  <view wx:if="{{ loaded }}">
+    <address-item isEllipsis="{{false}}" wx:if="{{address.consigneeName}}" bind:handleClickIcon="handleSelectAddress" bind:tap="handleSelectAddress" iconName="right-arrow" address="{{address}}"/>
+    <view wx:else class="no-address" catch:tap="goAddAddress">+ 添加收货地址</view>
+    <view class="line line-color"></view>
+  </view>
+  <view wx:for="{{orderItems}}" wx:for-item="item" wx:key="*this">
+    <purchase-product-details productDetails="{{item}}" />
+  </view>
+
+  <view class="remark" wx:if="{{ loaded }}" bind:tap="tapRemark">
+    <text class="remark-tip">订单备注</text>
+    <input
+      wx:if="{{remarkInputFocus || (!remarkInputFocus && !userRemark.length)}}"
+      class="remark-input"
+      placeholder="选填，请留下你需要备注的信息"
+      placeholder-class="remark-input-placeholder"
+      catch:blur = "blur"
+      focus="{{ remarkInputFocus }}"
+      disabled="{{ remarkInputIsDisabled }}"
+      adjust-position="{{ false }}"
+      always-embed="{{ true }}"
+      value="{{ userRemark }}"
+      maxlength="{{ 100 }}"
+      bind:input="inputChange"
+    />
+    <view class="remark-text" wx:else>{{ userRemark }}</view>
+  </view>
+
+  <bottom-button buttonText="去支付" bind:handleBottomButtonClick="handleToPay">
+    <view slot="button-up-content" class="summary">
+      <view class="amount_of_goods">共{{total}}件</view>
+      <view class="total"><view>总计：</view><view class="price">{{totalPriceRmbStr}}</view></view>
+    </view>
+  </bottom-button>
+</view>

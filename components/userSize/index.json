@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "custom-button": "/components/custom-button/custom-button",
+    "Mask": "./components/mask/index",
+    "custom-input": "./components/custom-input/index"
+  }
+}

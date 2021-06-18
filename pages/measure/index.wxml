@@ -1,0 +1,15 @@
+<view class='measure'>
+  <UserSize
+    close="{{close}}"
+    gender="{{false}}"
+    precise="{{ precise }}"
+    bind:back="handleBack"
+    picker
+    basicTip="{{basicTip}}"
+    bind:upDate="handleUpDate"
+    spuId="{{spuId}}"
+  />
+  <CustomMask />
+
+<!--  <view class="empty"></view>-->
+</view>

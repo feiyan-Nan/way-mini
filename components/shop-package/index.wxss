@@ -1,0 +1,25 @@
+/* 浮动购物车按钮 */
+.float-shop-car {
+  position: fixed;
+  bottom: 80rpx;
+  right: 40rpx;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  /*overflow: hidden;*/
+}
+.float-shop-car .bg {
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: 0.5;
+  border-radius: 50%;
+}
+.float-shop-car image {
+  width: 48rpx;
+  height: 48rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

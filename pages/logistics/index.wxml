@@ -1,0 +1,35 @@
+<view class="logistics">
+  <navbar bind:back="goBack" />
+
+  <view class="logistics_title">
+    {{info.lastStateName}}
+  </view>
+  <view class="logistics_info">
+    <view class="logistics_com">{{info.logisticCom}}</view>
+    <view class="logistics_id">
+      <text>物流单号：{{info.logisticNu}}</text>
+      <text class="copy" bind:tap="goCopy">复制</text>
+    </view>
+  </view>
+
+  <view class="logistics_detail {{ info.details.length > 1 && 'left_line' }}">
+    <view class="logistics_detail_item {{ index === info.details.length - 1 && 'makeup' }}" wx:for="{{info.details}}" wx:key="index">
+      <view class="{{ info.details.length > 1 && index != 0 && 'gray' }}">
+        <view class="logistics_detail_item_title dot">
+          {{item.status}}
+        </view>
+        <view class="logistics_detail_item_context">
+          {{item.context}}
+        </view>
+        <view class="logistics_detail_item_time" style="{{info.details.length > 1 && index == 0 ? 'color: #999;': ''}}">
+          {{item.ftime}}
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="contact-customer-service">
+    <button class="button-contact" open-type="contact" session-from="{{sessionFrom}}" bind:contact="handleContact">联系Stylist</button>
+  </view>
+</view>

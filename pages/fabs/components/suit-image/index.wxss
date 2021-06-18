@@ -1,0 +1,10 @@
+.suit-image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #edf0f0;
+}
+.suit-image image {
+  position: absolute;
+  transition: opacity 0.3s;
+}

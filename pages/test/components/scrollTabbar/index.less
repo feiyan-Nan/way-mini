@@ -1,0 +1,33 @@
+.scroll-tab-bar{
+  white-space: nowrap;
+  .scroll-warp{
+    width: 100vw;
+    height: 88rpx;
+    box-sizing: border-box;
+    .scroll-item {
+      height: 88rpx;
+      line-height: 88rpx;
+      padding: 0 30rpx;
+      display: inline-block;
+      font-size: 28rpx;
+      font-weight: 300;
+      color: #031C24;
+      image {
+        display: none;
+      }
+    }
+    .active {
+      font-weight: 500;
+      position: relative;
+      image {
+        width: 72rpx;
+        height: 4rpx;
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        bottom: 14rpx;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}

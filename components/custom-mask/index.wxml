@@ -1,0 +1,7 @@
+<view class='custom_mask' hidden="{{!shows.all}}">
+  <view class='custom_mask_bg' catch:tap="hide" catch:touchmove />
+
+  <view class='custom_mask_body {{isshow}}' bind:transitionend="transitionend" style="{{ style }}">
+    <slot></slot>
+  </view>
+</view>

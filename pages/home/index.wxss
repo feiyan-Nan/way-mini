@@ -1,0 +1,43 @@
+/* page {
+  height: 100vh;
+} */
+/* 轮播图样式 */
+.swiper-wrap {
+  position: relative;
+  margin-bottom: 60rpx;
+}
+
+/* 商品样式 */
+.goods-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.goods-wrap .goods-item {
+  flex-basis: 42.67%;
+  /* margin-left: 15rpx;
+  margin-right: 15rpx; */
+  margin-bottom: 58rpx;
+  position: relative;
+}
+.goods-wrap .goods-item.left {
+  margin-left: 40rpx;
+  margin-right: 0;
+}
+.goods-wrap .goods-item.right {
+  margin-left: 0;
+  margin-right: 40rpx;
+}
+.goods-wrap .goods-item.fill {
+  flex-basis: 100%;
+  margin: 0;
+  margin-bottom: 58rpx;
+}
+.no-connected {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 31;
+}

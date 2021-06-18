@@ -1,0 +1,4 @@
+<view class="return-button" wx:if="{{_isShow}}">
+  <view class="custom-btn" bind:tap="tap" mark:refundFlag="{{refundFlag}}">{{_btn}}</view>
+  <dialog wx:if="{{_dialog}}" title="{{_title}}" content="{{_content}}" bind:onTap="onTap" actions="{{['取消','确定']}}" />
+</view>

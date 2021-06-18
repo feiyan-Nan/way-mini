@@ -1,0 +1,11 @@
+<view class="shipping-address-item">
+  <view class="item-name">
+    <view class="name-phone">
+      <view class="name">{{address.consigneeName}}</view>
+      <view>{{address.consigneePhone}}</view>
+    </view>
+    <view class="address" style="{{!isEllipsis ? 'display: block': ''}}" wx:if="{{address.shippingAddress}}">{{address.shippingAddress}}</view>
+    <view class="address" style="{{!isEllipsis ? 'display: block': ''}}" wx:else>{{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailAddress}}</view>
+  </view>
+  <image class="edit-icon" src="{{src}}" catch:tap="handleEditShippingAddress"/>
+</view>

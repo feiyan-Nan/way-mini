@@ -1,0 +1,34 @@
+<view>
+  <view class="mask-container" animation="{{maskAnimationData}}"></view>
+  <view animation="{{animationData}}" class="animation-container">
+    <view class="modal-cotainer">
+      <!-- 标题 -->
+      <view wx:if="{{title}}" class="modal-title-container" style="{{content ? '' : 'margin-bottom:40rpx'}}">
+        {{title}}
+        <slot name="title"></slot>
+      </view>
+      <!-- 内容 -->
+      <!-- wx:if="{{content}}" -->
+      <view class="modal-content-container" style="{{title ? content ? 'margin-top:20rpx;margin-bottom:60rpx;' :'margin-top:0;margin-bottom:0;':'margin-top:60rpx'}}">
+        <scroll-view class="content-scroll" scroll-y>
+          <text class="content-title">{{content}}</text>
+          <slot name="content"></slot>
+        </scroll-view>
+      </view>
+      <slot></slot>
+      <!-- 事件 -->
+      <view class="modal-confirm-container">
+        <block wx:for="{{actions}}" wx:key="index">
+          <view wx:if="{{index===destructive && isAuth}}" class="action-item">
+            <button open-type="getUserInfo" class="actionButton" bindgetuserinfo="onAuth" style="{{index===destructive ? style : '' }}" hover-class="none">
+              {{item}}
+            </button>
+          </view>
+          <view wx:else class="action-item" catchtap="onDialogTap" mark:index="{{index}}" style="{{index===destructive ? style : ''}}">
+            {{item}}
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

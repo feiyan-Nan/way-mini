@@ -1,0 +1,12 @@
+<view class='suit-image'>
+  <image
+    mode="{{params.mode}}"
+    style="{{params.style}};opacity: {{opacity}}"
+    src="{{ info.src }}"
+    data-localStyle="{{info.localStyle}}"
+    data-parentStyle="{{info.parentStyle}}"
+    data-width="{{info.width}}"
+    data-height="{{info.height}}"
+    bind:load="load"
+  />
+</view>

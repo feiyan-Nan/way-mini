@@ -1,0 +1,8 @@
+<view class="custom-loading" wx:if="{{ isShow }}">
+  <view class="mask" style="background-color: rgba(0,0,0,0)">
+    <view class="mask-body">
+      <image src="./images/loading.gif" mode="widthFix" />
+      <text>{{ text }}</text>
+    </view>
+  </view>
+</view>

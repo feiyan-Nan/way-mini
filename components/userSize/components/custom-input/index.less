@@ -1,0 +1,55 @@
+.box{
+  margin-bottom: 60rpx;
+  .input_info{
+    width: 200rpx;
+    height: 68rpx;
+    margin-top: 22rpx;
+    position: relative;
+    &::before{
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2rpx;
+      width: 100%;
+      //background: url("https://oss.fabrique.cn/424121be-5226-4ed2-9a4b-34de255b70ae.png") repeat-x center;
+      background: url("https://oss.fabrique.cn/bbf9cab3-bde7-461f-b05e-a1dd6ab22356.png") repeat-x center;
+      background-size: 100% 100%;
+    }
+    &::after {
+      content: attr(data-unit);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(100%, -50%);
+      font-size: 28rpx;
+      font-weight: 300;
+      color: #031C24;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    input{
+      //padding-top: 22rpx;
+      height: 100%;
+      flex: 1;
+      text-align: center;
+      font-size: 28rpx;
+      font-weight: 300;
+      color: #031C24;
+    }
+    .placeholder{
+      text-align: center;
+      font-size: 28rpx;
+      font-weight: 300;
+      color: #999999;
+    }
+    text{
+      font-size: 28rpx;
+      font-weight: 300;
+      color: #031C24;
+      margin-left: 36rpx;
+    }
+  }
+}

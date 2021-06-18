@@ -1,0 +1,15 @@
+<view class="shipping-address">
+  <navbar catchback='navigateBack' title="{{title}}"/>
+  <header-title title="收货地址"/>
+  <view class="placeholder-element"></view>
+  <block wx:if="{{addressList.length > 0}}">
+    <view wx:for="{{addressList}}" wx:key="*this" wx:for-item="item">
+      <view data-address="{{item}}" bind:tap="selectShippingAddress">
+        <address-item isEllipsis="{{false}}" data-address="{{item}}" catch:handleClickIcon="handleEditShippingAddress" address="{{item}}"/>
+      </view>
+      <view class="line"></view>
+    </view>
+  </block>
+  <view wx:else class="no-address">你还没有添加地址</view>
+  <bottom-button buttonText="添加地址" bind:handleBottomButtonClick="handleBottomButtonClick"/>
+</view>

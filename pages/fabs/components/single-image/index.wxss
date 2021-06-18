@@ -1,0 +1,9 @@
+.single-image {
+  width: 100%;
+  position: relative;
+}
+.single-image image {
+  display: block;
+  position: absolute;
+  transition: opacity 0.3s;
+}

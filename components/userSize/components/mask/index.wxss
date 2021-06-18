@@ -1,0 +1,55 @@
+.custom_mask .body {
+  padding: 0 44rpx;
+}
+.custom_mask .body .header {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.custom_mask .body .header > view {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 30%;
+}
+.custom_mask .body .header > view:first-of-type {
+  color: #999;
+  justify-content: flex-start;
+}
+.custom_mask .body .header > view:nth-of-type(2) {
+  font-weight: 500;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom_mask .body .header > view:last-of-type {
+  color: #031C24;
+  justify-content: flex-end;
+}
+.custom_mask .body .picker_box {
+  height: 400rpx;
+}
+.custom_mask .body .picker_box .row {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 300;
+  color: #000000;
+}
+.custom_mask .body .picker_box .curr {
+  font-size: 28rpx;
+}
+.custom_mask .body .selected {
+  font-size: 28rpx;
+  background: #edf0f0;
+  color: #031C24;
+  height: 80rpx;
+  z-index: -1;
+}

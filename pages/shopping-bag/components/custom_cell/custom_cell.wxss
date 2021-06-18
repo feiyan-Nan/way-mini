@@ -1,0 +1,162 @@
+.custom_cell {
+  margin-top: 60rpx;
+  /* 兼容底部btn层级覆盖 具体原因不详 */
+  opacity: 0.9999999;
+}
+
+.item{
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.invalid, .opacity{
+  opacity: .7 !important;
+}
+
+
+.slidecell {
+  height: 360rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+}
+.slidecell .radio {
+  width: 120rpx;
+  height: 100%;
+  display: block;
+}
+
+
+.slidecell .detail {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slidecell .detail .img{
+  width: 240rpx;
+  height: 360rpx;
+  min-width: 240rpx;
+  position: relative;
+}
+.slidecell .detail .img image{
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slidecell .detail .desc{
+  flex: 1;
+  color: #031C24;
+  margin-left: 20rpx;
+  padding: 20rpx 0;
+  padding-bottom: 12rpx;
+  padding-right: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: calc( 100% - 360rpx );
+}
+
+.dead_deac_top {
+  color: #E6E6E6 !important;
+}
+
+
+
+.desc .desc_top .desc_title {
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 1;
+  margin-top: 4rpx;
+}
+
+.desc .desc_top .desc_brandName {
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-top: 8rpx;
+  line-height: 1;
+}
+
+
+.desc .desc_top  .desc_name {
+  margin-top: 4rpx;
+  font-size: 24rpx;
+  font-weight: 300;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+
+.desc .desc_top .desc_type{
+  margin-top: 4rpx;
+  color: #999;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+
+.desc .desc_top .skuDesc{
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #E88C73;
+  margin-top: 8rpx;
+}
+
+.dead_deac_top .desc_type {
+  color: #E6E6E6 !important;
+}
+.desc_type_tap{
+  /*background: blueviolet;*/
+  /*padding: 5rpx;*/
+}
+
+.desc_top .desc_type image{
+  display: inline-block;
+  width: 14rpx;
+  height: 6rpx;
+  margin-left: 10rpx;
+}
+
+.desc .desc_top .desc_type text {
+  margin-left: 10rpx;
+  line-height: 1;
+}
+
+.desc .desc_money{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
+}
+
+.desc .desc_money .desc_total {
+  font-size: 24rpx;
+  font-weight: 300;
+}
+
+.desc .desc_money .desc_btns {
+  display: flex;
+  align-items: center;
+}
+
+.desc .desc_money .desc_btns text:nth-of-type(odd) {
+  font-size: 28rpx;
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #EDF0F0;
+  /*padding: 5rpx;*/
+}
+
+.desc .desc_money .desc_btns text:nth-of-type(even) {
+  font-size: 24rpx;
+  font-weight: 300;
+  margin: 0 20rpx;
+}

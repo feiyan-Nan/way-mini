@@ -1,0 +1,21 @@
+<view class='nav-wrap' style='width: {{titleBarWidth}};height: {{ titleBarHeight }}px; padding-top: {{ statusBarHeight }}px; background-color: {{background}};z-index: {{zIndex}};' catch:tap="goTop">
+
+  <block wx:if="{{ !isHome }}">
+    <view class='nav-back' wx:if="{{showGoHome}}" catch:tap='handleGoHome'>
+      <image src='../../assets/images/home_icon@2x.png' mode='aspectFit' class='back-pre'></image>
+    </view>
+
+    <view class='nav-back' wx:elif="{{close}}" catch:tap='handleClose'>
+      <image src='../../assets/images/sizes_page_close.png' mode='aspectFit' class='back-pre'></image>
+    </view>
+
+    <view class='nav-back' wx:else="{{back}}" catch:tap='handleBack'>
+      <image src='../../assets/images/{{backIconName}}.png' mode='aspectFit' class='back-pre'></image>
+    </view>
+  </block>
+  <view class="nav-logo" wx:if="{{logo}}">
+    <image src="../../assets/images/home/logo.png" mode="widthFix" class="logo"/>
+  </view>
+  <view wx:if="{{title}}" class="title" style="color: {{color}}">{{title}}</view>
+</view>
+<view wx:if="{{!isImmersive}}" style="height: {{titleBarHeight + statusBarHeight}}px;"></view>

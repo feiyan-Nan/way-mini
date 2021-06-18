@@ -1,0 +1,43 @@
+<!-- <view class="container"> -->
+<navbar isImmersive="{{false}}" logo="{{true}}" back="{{false}}" bind:goTop="goTop" />
+<scroll-view
+  class="container"
+  scroll-y="true"
+  style="height: calc(100vh - {{statusBarHeight+titleBarHeight}}px);"
+  bindscrolltoupper="upper"
+  bindscrolltolower="lower"
+  bindscroll="scroll"
+  scroll-top="{{scrollTop}}"
+  scroll-with-animation="true"
+>
+  <!-- 轮播图 -->
+  <view class="swiper-wrap" wx:if="{{swiperItem && swiperItem.length}}">
+    <m-swiper swiper-item="{{swiperItem}}" autoplay="{{autoplay}}" bind:clickItem="clickSwiperItem"></m-swiper>
+  </view>
+  <!-- 商品列表 -->
+  <view class="goods-wrap">
+    <goods-item
+      class="{{index % 8 === 0 || index % 8 === 3 ? 'goods-item fill' : 'goods-item'}} {{index % 8 === 1 || index % 8 === 4 || index % 8 === 6 ? 'left' : ''}} {{index % 8 === 2 || index % 8 === 5 || index % 8 === 7 ? 'right' : ''}}"
+      wx:for="{{goodsItems}}"
+      wx:key="id"
+      src="{{item.coverImage}}"
+      top-text="{{item.spuBrand}}"
+      goods-name="{{item.spuName}}"
+      money="{{item.minSkuPriceStr}}"
+      index="{{index}}"
+      stockNum="{{ item.stockNum }}"
+      bindtap="clickGoods"
+      data-item="{{item}}"
+      fill="{{index % 8 === 0 || index % 8 === 3}}"></goods-item>
+  </view>
+  <view class="bottm-tip" wx:if="{{goodsItems && goodsItems.length}}">
+    <text wx:if="{{pageOptions.empty}}">- Style has no limit. -</text>
+    <text wx:else>加载中...</text>
+  </view>
+
+<!--  <shop-package bottom="200rpx" type="map" bind:tap="goToMap" />-->
+  <!-- 购物车 -->
+  <shop-package bottom="80rpx" bind:tap="goToBag" />
+</scroll-view>
+<custom-loading id="loading" />
+<no-connected class="no-connected" bind:refresh="refresh" noConnecte="{{noConnected}}" wx:if="{{noConnected}}"></no-connected>

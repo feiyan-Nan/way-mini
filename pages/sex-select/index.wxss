@@ -1,0 +1,38 @@
+/* pages/sex-select/index.wxss */
+.title {
+  font-size: 42rpx;
+  text-align: center;
+  font-weight: bold;
+  color: #0f0f0f;
+  margin-top: 110rpx;
+  line-height: 42rpx;
+}
+.tip {
+  font-size: 28rpx;
+  text-align: center;
+  font-weight: bold;
+  color: #fa2e38;
+  margin-top: 20rpx;
+}
+.sex-select {
+  margin: 66rpx 0 100rpx;
+  padding: 0 63rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.sex-select view image {
+  width: 294rpx;
+  height: 370rpx;
+}
+.next-step {
+  width: 625rpx;
+  height: 100rpx;
+  background: linear-gradient(to right, #00C184, #00E871);
+  border-radius: 50rpx;
+  font-size: 36rpx;
+  font-weight: bolder;
+  line-height: 100rpx;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 auto;
+}

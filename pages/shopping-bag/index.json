@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "mp-slideview": "/miniprogram_npm/weui-miniprogram/slideview/slideview",
+    "custom_radio": "./components/custom_radio/custom_radio",
+    "custom-loading": "/components/custom-loading/custom-loading",
+    "custom_cell": "./components/custom_cell/custom_cell",
+    "custom_empty": "./components/custom_empty/custom_empty",
+    "m-mask": "/pages/goods-detail/components/m-mask/index"
+  }
+}

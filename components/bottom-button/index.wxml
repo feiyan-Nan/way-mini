@@ -1,0 +1,28 @@
+<view class="bottom-button-wrapper" style="padding-bottom: {{ isX ? 68: 0 }}rpx">
+  <slot name="button-up-content"></slot>
+  <view wx:if="{{buttonTyep === 'singleButton'}}" class="button-wrap">
+    <button class="bottom-button {{extraClass}}" style="{{extraStyle}}" form-type="submit" bind:tap="handleClick">
+      {{buttonText}}
+    </button>
+  </view>
+  <view wx:elif="{{buttonTyep === 'doubleButton'}}" class="button-wrap">
+    <block wx:if="{{ isContact }}">
+      <button
+        wx:if="{{_isLogged}}"
+        open-type="contact"
+        class="contact"
+        session-from="{{sessionFrom}}"
+        bind:contact="handleContact"
+      >
+        <image src="/assets/images/customer-service.png" />
+      </button>
+      <image wx:elif="{{!_isLogged}}" src="/assets/images/customer-service.png" class="contact" bindtap="toLogin" />
+
+    </block>
+
+
+    <button class="first-bottom-button" bind:tap="handleLeftButtonClick">{{leftButtonText}}</button>
+    <button class="bottom-button" form-type="submit" bind:tap="handleClick">{{buttonText}}</button>
+  </view>
+</view>
+<view class="mask" wx:if="{{showMask}}" bindtap="handleMaskClick"></view>

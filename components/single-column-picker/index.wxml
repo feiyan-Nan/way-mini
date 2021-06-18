@@ -1,0 +1,26 @@
+<view class="picker-wrap show" id="pickerWrap">
+  <image src="/assets/images/close.png" class="close {{_showClose ? 'show' : 'hide'}}" bindtap="close"></image>
+  <view class="sizeBox" wx:if="{{ sizeChatUrl }}">
+    <image src="{{sizeChatUrl}}" mode="widthFix" />
+    <view class="size_tip">{{sizeTips}}</view>
+  </view>
+  <view class="gradual">
+    <view class="top-gradual"></view>
+    <view class="bottom-gradual"></view>
+    <scroll-view scroll-y="{{true}}" class="picker-view" value="{{[selected]}}" style="background: rgba(0,0,0,0);" scroll-into-view="{{ _into }}">
+      <view class="picker-item" style="border-bottom: none"></view>
+      <view
+        wx:for="{{range}}"
+        wx:key="id"
+        class="picker-item {{selected && selected == index ? 'active' : ''}} {{item.showStat && item.stockNum ? '' : 'out-select'}}"
+        bindtap="clickItem"
+        data-item="{{item}}"
+        id="picker-{{index}}"
+        data-index="{{index}}">
+        <view class="item-text">{{item.name}}</view>
+      </view>
+
+      <view class="picker-item"></view>
+    </scroll-view>
+  </view>
+</view>

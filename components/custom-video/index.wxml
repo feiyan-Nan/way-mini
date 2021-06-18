@@ -1,0 +1,40 @@
+<view class="custom-video" bindtap="clickWhite" style="background: {{bgColor}};">
+  <view class="video-wrap" style="width:{{width}};height:{{height}};background: {{bgColor}}">
+    <video
+      id="{{videoId}}"
+      src="{{src}}"
+      initial-time="{{initialTime}}"
+      enable-auto-rotation="{{enableAutoRotation}}"
+      poster="{{coverImage}}"
+      controls="{{showSystemControls}}"
+      show-play-btn="{{showPlayBtn}}"
+      show-mute-btn="{{showMuteBtn}}"
+      show-center-play-btn="{{showCenterPlayBtn && fullScreen}}"
+      show-progress="{{true}}"
+      show-screen-lock-button="{{showScreenLockButton}}"
+      objectFit="{{objectFit}}"
+      enable-progress-gesture="{{false}}"
+      catchtap="handleClickOther"
+      bindtimeupdate="handleTimeupdate"
+      bindended="handleEnd"
+      bindpause="handlePause"
+      bindplay="handlePlay"
+      bindcontrolstoggle="handleControlsToggle"
+      show-fullscreen-btn="{{showFullScreen}}"
+      bindfullscreenchange="handleFullScreenChange"
+      style="display: block;"
+    />
+    <view class="custom-progress" wx:if="{{(controls || fullScreen) && showOptions || sliderChanging}}" catchtap="handleClickProgress" style="padding-top: {{controlsBottom}}rpx;padding-bottom: {{controlsBottom}}rpx;height: {{controlsBottom*2+48}}rpx;">
+      <view class="start-time">{{sliderStart}}</view>
+      <slider class="slider" min="{{0}}" max="{{100}}" value="{{sliderProgress}}" backgroundColor="rgba(255,255,255,0.29)" activeColor="rgba(255,255,2550" block-size="14" bindchange="handleProgressChanged" bindchanging="handleProgressChanging"></slider>
+      <view class="total-time">{{sliderEnd}}</view>
+      <image wx:if="{{showFullScreen && fullScreen}}" class="full-screen" src="/assets/images/custom-video/full-screen-exit.png" catchtap="handleFullScreenExit"></image>
+      <image wx:if="{{showFullScreen && !fullScreen}}" class="full-screen" src="/assets/images/custom-video/full-screen.png" catchtap="handleFullScreen"></image>
+    </view>
+  </view>
+  <image wx:if="{{!isPlay && !fullScreen}}" class="play-btn" style="z-index: 998;" src="/assets/images/goods-detail/play.png" catchtap="trogglePlay" data-by-play="{{true}}" mode="widthFix"></image>
+  <view class="progress-time" wx:if="{{sliderChanging}}">{{sliderStart}}</view>
+  <image wx:elif="{{showOptions && fullScreen}}" class="play-btn" src="/assets/images/goods-detail/{{isPlay ? 'stop' : 'play'}}.png" catchtap="trogglePlay" data-by-play="{{true}}" mode="widthFix"></image>
+  <view wx:if="{{!fullScreen}}" class="progress-line" style="width:{{progress}}%;"></view>
+  <image wx:if="{{showFullScreen && !fullScreen}}" class="full-screen-icon" style="bottom: {{controlsBottom}}rpx;right:{{controlsBottom}}rpx;" src="/assets/images/custom-video/full-screen.png" catchtap="handleFullScreen"  mode="widthFix"></image>
+</view>

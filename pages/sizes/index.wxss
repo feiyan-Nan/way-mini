@@ -1,0 +1,77 @@
+.sizes {
+  padding-bottom: 120rpx;
+}
+.sizes .header {
+  width: 100%;
+}
+.sizes .header > image {
+  display: block;
+  width: 100%;
+}
+.sizes .main {
+  margin-top: 60rpx;
+  padding: 0 40rpx;
+}
+.sizes .main .main_title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #001A23;
+  line-height: 1;
+}
+.sizes .main .main_tip {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #031C24;
+  line-height: 1;
+  margin-top: 40rpx;
+}
+.sizes .main .main_table {
+  margin-top: 20rpx;
+}
+.sizes .main .main_table > view {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100rpx;
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #001B23;
+}
+.sizes .main .main_table > view:nth-of-type(odd) {
+  background: #EDF0F0;
+}
+.sizes .main .main_table > view > view {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sizes .main .main_table > view > view:first-of-type {
+  font-weight: 500;
+  color: #001B23;
+}
+.sizes .main .main_table .header {
+  font-weight: 500;
+  color: #001B23;
+}
+.sizes .main .main_table .selected {
+  border: 1px solid #E88C73;
+  position: relative;
+}
+.sizes .main .main_table .selected::before {
+  content: '推荐尺码';
+  position: absolute;
+  left: 20rpx;
+  top: 0;
+  transform: translateY(-50%);
+  width: 128rpx;
+  height: 28rpx;
+  background: #E88C73;
+  font-size: 20rpx;
+  font-weight: 300;
+  color: #FFFFFF;
+  line-height: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

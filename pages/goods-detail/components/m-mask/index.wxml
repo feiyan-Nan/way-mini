@@ -1,0 +1,63 @@
+<CustomMask class="custom_mask" bind:hide="handleMaskHide">
+  <view class='main' style="{{!_simple ? 'padding-top:0;': undefined}}">
+    <block wx:if="{{_simple}}">
+      <view class='size_test' bind:tap="toMeasure">
+        <view class='recommended_size'>推荐尺码：{{ size }}</view>
+        <view class='measure'>{{_test}} <image src="/assets/images/right_arrow.png" /></view>
+      </view>
+
+      <view class='tile_size' bind:tap="toSizes">
+        <view>平铺尺寸 <image src="/assets/images/xuanguige.png" /></view>
+      </view>
+
+      <view class='tip'>{{_curr.sizeDesc}}</view>
+    </block>
+
+    <view
+      class='picker_box {{ !isShopBag ? "picker_box_line": "picker_box_shopbag" }}'
+      style="{{!_simple ? 'margin-top: 0;position: static': undefined}}"
+      wx:if="{{sizeInfo && _display}}"
+    >
+      <picker-view
+        class="picker"
+        indicator-class="selected"
+        data-content="{{ !_simple ? _curr.desc: '' }}"
+        value="{{value}}"
+        mark:_tip="{{ !_simple ? _curr.desc: '' }}"
+        bind:change="pickerChange"
+      >
+        <picker-view-column>
+          <view
+            class='row'
+            wx:for="{{ sizeInfo.skuInfoVoList }}"
+            wx:key="index">
+            <view>{{item.specsValName1}}</view>
+          </view>
+        </picker-view-column>
+      </picker-view>
+      <view class='picker_tip' wx:if="{{!isShopBag}}">{{ _curr.desc }}</view>
+    </view>
+
+    <view class='line'></view>
+    <block wx:if="{{type == 'all'}}">
+      <bottom-button
+        buttonTyep="doubleButton"
+        isLogged="{{_isLogged}}"
+        isContact
+        leftButtonText="加入购物袋"
+        buttonText="立即购买"
+        bind:handleLeftButtonClick="handleTapLeftBtn"
+        bind:handleBottomButtonClick="handleTapRightBtn"
+        no-check-net="{{true}}"
+        bind:toLogin="toLogin"
+        wx:if="{{_curr.stockNum}}"
+        class="btn"
+      />
+      <view class='btn soldOut' wx:else>已售罄</view>
+    </block>
+    <block wx:else>
+        <view class='btn' wx:if="{{_curr.stockNum}}" bind:tap="handleOk">确定</view>
+        <view class='btn soldOut' wx:else>已售罄</view>
+    </block>
+  </view>
+</CustomMask>

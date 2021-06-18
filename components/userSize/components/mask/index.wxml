@@ -1,0 +1,14 @@
+<view class='mask' catch:tap>
+  <CustomMask class="custom_mask local_custom_mask" bind:hide="handleMaskHide">
+    <view class='body'>
+      <view class='header'>
+        <view catch:tap="cancel">取消</view> <view>{{title}}</view> <view catch:tap="ok">确定</view>
+      </view>
+      <picker-view class="picker_box" indicator-class="selected" value="{{ [startNum] }}" bind:change="change">
+        <picker-view-column>
+          <view wx:for="{{range}}" wx:key="index" class="row {{ index == _index ? 'curr': undefined }}">{{item}}{{unit}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </CustomMask>
+</view>

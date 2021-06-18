@@ -1,0 +1,80 @@
+
+.image_box{
+  width: 100%;
+  position: relative;
+  padding-top: 150%;
+  background-color: #EDF0F0;
+  overflow: hidden;
+  margin-bottom: 20rpx;
+}
+
+.image_box .new_goods-image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.info-wrap {
+  min-height: 170rpx;
+}
+
+.shouqing {
+  position: relative;
+}
+
+.shouqing::after{
+  content: '已售罄';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 32rpx;
+  background: #031C24;
+  font-size: 20rpx;
+  font-weight: 300;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.goods-text {
+  /*font-family: SourceHanSansCN-Light, SourceHanSansCN;*/
+  color: #031c24;
+}
+.goods-text.tip {
+  font-weight: 400;
+  line-height: 28rpx;
+  font-size: 20rpx;
+}
+.goods-text.tip2 {
+  font-weight: 400;
+  line-height: 24rpx;
+  font-size: 20rpx;
+}
+.goods-text.name,
+.goods-text.money {
+  font-weight: 300;
+  line-height: 36rpx;
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.goods-text.money {
+  line-height: 34rpx;
+  margin-top: 6rpx;
+}
+.mr-left {
+  margin-left: 40rpx;
+}
+.mr-right {
+  margin-right: 40rpx;
+}

@@ -1,0 +1,193 @@
+.scroll-view .userSize {
+  padding-bottom: 120rpx;
+}
+.scroll-view .userSize .main {
+  margin-top: 20rpx;
+  padding: 0 40rpx;
+  padding-bottom: 60px;
+}
+.scroll-view .userSize .main .header {
+  margin-bottom: 120rpx;
+}
+.scroll-view .userSize .main .header .title {
+  font-size: 36rpx;
+  font-weight: 500;
+  color: #031C24;
+  line-height: 1;
+}
+.scroll-view .userSize .main .header .subtitle {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #031C24;
+  line-height: 1;
+  margin-top: 20rpx;
+}
+.scroll-view .userSize .main .header .tmp {
+  font-size: 28rpx;
+}
+.scroll-view .userSize .main .header .tip {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #999;
+  margin-top: 20rpx;
+}
+.scroll-view .userSize .main .active {
+  color: #031C24;
+}
+.scroll-view .userSize .main .warning {
+  color: #031C24;
+}
+.scroll-view .userSize .main .warning .value {
+  font-weight: 300;
+  color: #E88C73;
+}
+.scroll-view .userSize .main .box {
+  margin-bottom: 60rpx;
+}
+.scroll-view .userSize .main .box:last-of-type {
+  margin-bottom: 148rpx;
+}
+.scroll-view .userSize .main .box .title {
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.scroll-view .userSize .main .box .genders {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.scroll-view .userSize .main .box .genders .gender {
+  width: 200rpx;
+  height: 72rpx;
+  border: 1rpx solid #E6E6E6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.scroll-view .userSize .main .box .genders .selected {
+  border: 1rpx solid #031C24;
+}
+.scroll-view .userSize .main .more {
+  padding-top: 60rpx;
+  padding-bottom: 60rpx;
+}
+.scroll-view .userSize .main .more .title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #031C24;
+}
+.scroll-view .userSize .main .minesize {
+  padding-top: 60rpx;
+}
+.scroll-view .userSize .main .minesize .title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #031C24;
+}
+.scroll-view .userSize .main .minesize .area {
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  font-weight: 300;
+  color: #999999;
+}
+.scroll-view .userSize .main .minesize .val {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #031C24;
+}
+.scroll-view .userSize .main .minesize .warning {
+  font-size: 32rpx;
+  font-weight: 300;
+  color: #E88C73;
+}
+.scroll-view .userSize .main .btn {
+  background-color: #031C24;
+  border-radius: 0;
+  color: #FFFFFF;
+  width: 670rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-view .userSize .main .tip {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #999999;
+  margin-top: 30rpx;
+  line-height: 1;
+}
+.scroll-view .userSize .main .footer {
+  padding-bottom: 60px;
+}
+.scroll-view .userSize .custom_mask .body {
+  padding: 0 44rpx;
+}
+.scroll-view .userSize .custom_mask .body .header {
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.scroll-view .userSize .custom_mask .body .header > view:first-of-type {
+  color: #999;
+}
+.scroll-view .userSize .custom_mask .body .header > view:nth-of-type(2) {
+  font-weight: 500;
+}
+.scroll-view .userSize .custom_mask .body .header > view:last-of-type {
+  color: #031C24;
+}
+.scroll-view .userSize .custom_mask .body .picker_box {
+  position: relative;
+  height: 500rpx;
+}
+.scroll-view .userSize .custom_mask .body .picker_box::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100rpx;
+  z-index: 888;
+}
+.scroll-view .userSize .custom_mask .body .picker_box::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+  z-index: 888;
+}
+.scroll-view .userSize .custom_mask .body .picker_box .row {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26rpx;
+  font-weight: 300;
+  color: #000000;
+}
+.scroll-view .userSize .custom_mask .body .picker_box .curr {
+  background: #edf0f0;
+}
+.scroll-view .userSize .custom_mask .body .selected {
+  font-size: 28rpx;
+  background: #edf0f0;
+  color: #031C24;
+  height: 100rpx;
+}

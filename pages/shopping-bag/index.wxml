@@ -1,0 +1,74 @@
+<view class="shopping-bag">
+  <navbar title="{{ headerTitle }}" bind:back="goBack" />
+  <dialog wx:if="{{showRemoveAllDialog}}" bind:onTap="onRemoveAllTap" content="确定移除全部失效商品吗？" actions="{{['取消','确定']}}" mark:key="normal"/>
+  <dialog wx:if="{{showRemoveSingDialog}}" bind:onTap="onRemoveSingTap" content="确定移除此商品吗？" actions="{{['取消','确定']}}" mark:key="normal"/>
+  <custom-loading id="loading" />
+
+  <view class="header {{ list.length || invalids.length ? 'line-bottom' : '' }}">
+    <view class="title" id="title">购物袋</view>
+    <view wx:if="{{ list.length }}" class="sub">你将拥有这<text>{{ list.length }}</text>件单品</view>
+  </view>
+  <view class="serviceDesc" wx:if="{{list.length || invalids.length }}">{{ serviceDesc }}</view>
+
+  <block wx:if="{{ isShow }}">
+    <custom_cell
+      wx:if="{{ list.length }}"
+      wx:for="{{ list }}"
+      wx:key="index"
+      bind:change="change"
+      bind:slideButtonTap="slideButtonTap"
+      bind:add="add"
+      bind:sub="sub"
+      bind:reselect="reselect"
+      bind:showEvent="showEvent"
+      show="{{ item.show }}"
+      detail="{{ item }}"
+      type="{{ item.type }}"
+      index="{{ index }}"
+    />
+
+    <view class="dead" wx:if="{{ invalids.length }}">
+      <text class="dead_title">失效商品</text>
+      <text class="dead_remove" bind:tap="openRemoveAllDialog">移除全部</text>
+    </view>
+    <!--    失效的商品-->
+    <custom_cell
+      isDead="{{true}}"
+      wx:if="{{ invalids.length }}"
+      wx:for="{{ invalids }}"
+      wx:key="index"
+      index="{{ index }}"
+      detail="{{ item }}"
+      bind:slideButtonTap="slideButtonTap"
+      show="{{ item.show }}"
+      bind:showEvent="showEvent"
+    />
+
+    <view class="limit" wx:if="{{ list.length || invalids.length }}">- Style has no limit. -</view>
+
+    <custom_empty wx:if="{{ !list.length && !invalids.length }}" />
+
+    <bottom-button buttonText="{{ buttonText }}" bind:handleBottomButtonClick="handleToPay" wx:if="{{ list.length }}">
+      <view slot="button-up-content" class="summary">
+        <view class="amount_of_goods" bind:tap="allSelectChange">
+          <view class="radio_box_bottom">
+            <custom_radio type="{{ radioStatus }}" />
+          </view>
+          <text>全部</text>
+        </view>
+        <view class="total"><view class="text">总计：</view><view class="price">¥{{ totalPrice }}</view></view>
+      </view>
+    </bottom-button>
+  </block>
+
+  <m-mask
+    isShopBag
+    type="addCar"
+    sizeInfo="{{sizeInfo}}"
+    display="{{ display }}"
+    bind:change="handleChange"
+    bind:addCar="okHandle"
+    tip="{{ false }}"
+  />
+
+</view>

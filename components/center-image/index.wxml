@@ -1,0 +1,3 @@
+<view class="box" style="border-radius: {{radius}}">
+  <image src="{{ src }}" style="{{ style }};opacity: {{opacity}};" mode="{{ mode }}" wx:if="{{ mode }}" bind:load="load"  />
+</view>

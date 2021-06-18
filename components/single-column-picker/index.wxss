@@ -1,0 +1,129 @@
+.picker-wrap {
+  padding: 60rpx 0rpx 0;
+  position: relative;
+  /*height: 280rpx;*/
+  /* transition: all ease;   */
+}
+
+.picker-wrap .sizeBox{
+  width: 100%;
+  padding: 20rpx 40rpx 0 40rpx;
+  box-sizing: border-box;
+}
+
+.picker-wrap .sizeBox .size_tip{
+  font-size: 20rpx;
+  font-weight: 300;
+  color: #031C24;
+  line-height: 1;
+  overflow: hidden;
+  padding: 10rpx 0;
+}
+
+.picker-wrap .sizeBox image {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+.picker-wrap.hide{
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  /* transition: all .4s ease; */
+}
+.picker-wrap.show{
+  /*height: 280rpx;*/
+  border-bottom: 1px solid #E6E6E6;
+  /* transition: height .4s ease; */
+}
+.picker-wrap .close {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+}
+.picker-wrap .close.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+.picker-wrap .close.show {
+  visibility: visible;
+  opacity: 1;
+  transition: all .05 ease;
+}
+
+.gradual{
+  position: relative;
+}
+
+.top-gradual, .bottom-gradual{
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 70rpx;
+  z-index: 5;
+}
+
+.top-gradual{
+  top: 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0));
+}
+
+.bottom-gradual{
+  bottom: 0;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 70%);
+}
+
+.picker-view {
+  /*height: 280rpx;*/
+  height: 350rpx;
+  overflow-y: auto;
+  /*padding-bottom: 70rpx;*/
+}
+.picker-view::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+.picker-item {
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+
+/*.picker-item:first-of-type{*/
+/*  margin-top: 70rpx;*/
+/*}*/
+
+/*.picker-item:last-of-type{*/
+/*  !*margin-bottom: 70rpx;*!*/
+/*  background-color: red;*/
+/*}*/
+.picker-wrap .item-text {
+  margin: 0 40rpx;
+}
+.picker-item+.picker-item .item-text{
+  border-top: 1px dashed #E6E6E6;
+}
+.picker-item.active {
+  background: #EDF0F0;
+  vertical-align: middle;
+}
+.picker-item.out-select {
+  color: #E6E6E6;
+}
+
+/* 自定义picker样式 */
+/* 选中框 */
+.indicator {
+  border-width: 1px 0;
+  border-style: dashed;
+  border-color: #E6E6E6;
+  margin: 0 40rpx;
+  width: calc(100% - 80rpx);
+  height: 72rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%)
+}

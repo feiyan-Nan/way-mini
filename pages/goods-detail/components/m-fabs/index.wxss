@@ -1,0 +1,105 @@
+.m-fabs .m-fabs-title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #031C24;
+  padding: 0 40rpx;
+  line-height: 1;
+}
+.m-fabs .m-fabs-scroll {
+  width: 100%;
+  height: 726rpx;
+  margin-top: 40rpx;
+}
+.m-fabs .m-fabs-scroll .box {
+  height: 100%;
+}
+.m-fabs .m-fabs-scroll .box .figure {
+  width: 320rpx;
+  height: 100%;
+  float: left;
+  margin-left: 30rpx;
+}
+.m-fabs .m-fabs-scroll .box .figure .pic {
+  width: 100%;
+  height: 480rpx;
+  overflow: hidden;
+  position: relative;
+}
+.m-fabs .m-fabs-scroll .box .figure .pic > image {
+  position: absolute;
+}
+.m-fabs .m-fabs-scroll .box .figure .lookmore {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.m-fabs .m-fabs-scroll .box .figure .lookmore .dian {
+  margin-left: 10rpx;
+  width: 8rpx;
+  height: 10rpx;
+  position: static;
+}
+.m-fabs .m-fabs-scroll .box .figure .person {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  height: 52rpx;
+  justify-content: flex-start;
+}
+.m-fabs .m-fabs-scroll .box .figure .person .avator {
+  width: 52rpx;
+  height: 52rpx;
+  overflow: hidden;
+}
+.m-fabs .m-fabs-scroll .box .figure .person .desc {
+  height: 52rpx;
+  width: calc(100% - 72rpx);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  justify-content: space-between;
+}
+.m-fabs .m-fabs-scroll .box .figure .person .desc .name {
+  font-size: 24rpx;
+  font-weight: 500;
+  color: #031C24;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-fabs .m-fabs-scroll .box .figure .person .desc .tip {
+  font-size: 20rpx;
+  font-weight: 300;
+  color: #999999;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-fabs .m-fabs-scroll .box .figure .comments {
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #031C24;
+  margin-top: 20rpx;
+  line-height: 36rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.m-fabs .empty {
+  width: 100%;
+  height: 144rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #031C24;
+}

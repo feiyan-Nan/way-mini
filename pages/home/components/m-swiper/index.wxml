@@ -1,0 +1,21 @@
+<swiper
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+  current="{{currentSwiper}}"
+  circular="{{circular}}"
+  bindchange="currentChange"
+  class="swiper">
+  <block wx:for="{{swiperItem}}" wx:key="id">
+    <swiper-item bindtap="clickItem" data-index="{{index}}">
+      <image class="swiper-image" mode="{{item.mode || 'aspectFill'}}" src="{{item.bannerImg}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<!-- 重置小圆点的样式 -->
+<view class="dots" wx:if="{{swiperItem && swiperItem.length >= 2}}">
+  <block wx:for="{{swiperItem}}" wx:key="id">
+    <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>
+  </block>
+</view>

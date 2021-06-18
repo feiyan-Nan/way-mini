@@ -1,0 +1,19 @@
+<view class="login">
+
+  <block wx:if="{{!_fresh}}">
+    <navbar isImmersive="{{ false }}" bind:back="goBack" />
+    <view class="logo">
+      <image src="http://oss.cogo.club/830c5450-8248-4363-81ec-60adfd8d64c7.png" />
+    </view>
+
+    <view class="login_btn">
+      <custom-button text="一键登录" bind:tapHandle="login" openType="getUserInfo" class="btn" />
+    </view>
+    <custom-loading id="loading" />
+    <custom-modal desc="授权绑定你的手机号" class="modal" bind:getPhoneNumHandle="getPhoneNumHandle" />
+  </block>
+
+  <block wx:else>
+    <UserSize gender="{{true}}" bind:startFab="startFab" basicTip="{{ false }}" />
+  </block>
+</view>

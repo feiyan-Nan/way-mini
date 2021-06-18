@@ -1,0 +1,15 @@
+<!--pages/sex-select/index.wxml-->
+<view>
+  <view class="avatar">
+    <image src="/assets/images/start-page/qidongye.png" />
+  </view>
+  <view class="name">Dali</view>
+  <picker mode="date" value="{{date}}" start="1900-01-01" end="2100-01-01" bindchange="bindDateChange">
+    <view class="date-picker">
+      <view class="date">{{date}}</view>
+      <view class="date-arrow-down"><view class="arrow-down"></view></view>
+    </view>
+  </picker>
+  <view class="tip">确认后不可修改!</view>
+  <view class="next-step" bind:tap="foundSomeoneWhoWasInTheWay">发现顺路的人</view>
+</view>

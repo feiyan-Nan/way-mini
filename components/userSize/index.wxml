@@ -1,0 +1,100 @@
+<view style="height:100vh;overflow: hidden;">
+  <navbar wx:if="{{close}}" title="{{_title}}" bind:back="handleBack" class="navbar" />
+  <scroll-view
+    scroll-y
+    class="scroll-view"
+    style="height:calc( 100vh - {{ _navHeight }}px);margin-top:{{_navHeight}}px;"
+    bind:scroll="scroll"
+  >
+    <view class="userSize" style="{{ style }}">
+      <view class='site' style="{{site}}" wx:if="{{!close}}" />
+      <view class='main'>
+        <view class='header'>
+          <view class='title'>获取专属Fabrique尺码</view>
+          <!--      我的尺码页的时候-->
+          <block wx:if="{{ isMeasure && !_lastPageRoute }}">
+            <view class='subtitle tmp'>可以在选择尺码时看到你的推荐尺码哦</view>
+          </block>
+          <!--      登录页的时候-->
+          <view class='subtitle' wx:elif="{{_currRouteIsLogin}}">填写以下信息获得Fab尺码</view>
+          <block wx:elif="{{_lastPageRoute}}">
+            <view class='subtitle' wx:if="{{!_hasText}}">请先填写身高和体重</view>
+            <view class='subtitle' wx:else>小提示：因测量方式不同，有1-2厘米的误差属合理范围</view>
+            <view class="tip">*Fabrique承诺将对你的信息严格保密</view>
+          </block>
+        </view>
+
+
+        <block wx:if="{{ info }}">
+
+          <view class='box' wx:if="{{gender}}">
+            <view class='title'>我的性别</view>
+            <view class='genders'>
+              <view class='gender {{ form.sex === item.value ? "selected" : undefined }}' wx:for="{{genders}}" data-value="{{item.value}}" wx:key="index" bind:tap="changeGender">{{item.label}}</view>
+            </view>
+          </view>
+
+          <block wx:for="{{['height', 'weight']}}" wx:key="item" wx:if="{{info}}">
+            <custom-input
+              title="{{info[item].title}}"
+              unit="{{ item == 'weight' ? 'kg' : 'cm' }}"
+              bind:change="handleChange"
+              mark="{{item}}"
+              picker="{{picker}}"
+              range="{{ info[item].range }}"
+              wx:key="item"
+              startNum="{{ info[item].startNum }}"
+              value="{{ info[item].value }}"
+            />
+          </block>
+
+          <view class="more" wx:if="{{ basicTip }}">
+            <view class='title'>更准确匹配尺码需要完善以下信息：</view>
+          </view>
+
+          <block wx:for="{{ precise }}" wx:key="item" wx:if="{{precise.length}}">
+            <custom-input
+              title="{{info[item].title}}"
+              unit="{{ item == 'weight' ? 'kg' : 'cm' }}"
+              bind:change="handleChange"
+              mark="{{item}}"
+              picker="{{picker}}"
+              range="{{ info[item].range }}"
+              wx:key="item"
+              startNum="{{ info[item].startNum }}"
+              value="{{ info[item].value }}"
+            />
+          </block>
+
+        </block>
+
+        <!--    // 个人中心=没有 其它=都有 ---我的尺码-->
+        <block wx:if="{{_isShow}}">
+          <block wx:if="{{ !_isFromMine || _currRouteIsLogin }}">
+            <view class='minesize'>
+              <view class='title'>我的Fab尺码：</view>
+              <block wx:if="{{!_advice && !isMeasure}}">
+                <view class='area'>待生成尺码</view>
+              </block>
+              <block wx:else>
+                <block wx:if="{{_advice.adviceStatus == 0}}">
+                  <view class='area' wx:if="{{_advice.adviceSize.length == 0}}">待生成尺码</view>
+                  <view wx:else class='area warning'>{{_advice.adviceSize}}</view>
+                </block>
+                <view wx:else class='area val'>{{_advice.adviceSize}}码</view>
+              </block>
+            </view>
+          </block>
+          <block wx:if="{{isMeasure != null}}">
+            <view class="btn" bind:tap="handleBack" wx:if="{{isMeasure}}">完成</view>
+            <view class="btn" bind:tap="startFab" wx:else>开始Fabrique</view>
+          </block>
+          <view class='tip footer' wx:if="{{_currRouteIsLogin}}">*Fabrique会为你保密尺码信息</view>
+          <view class='tip footer' wx:if="{{isMeasure && !_lastPageRoute}}">*Fabrique承诺将对你的信息严格保密</view>
+        </block>
+
+        <dialog content="填写信息生成你的专属尺码" wx:if="{{dialogs.warning}}" bind:onTap="handleOnTap" actions="{{['以后', '好的']}}" />
+      </view>
+    </view>
+  </scroll-view>
+</view>

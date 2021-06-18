@@ -1,0 +1,53 @@
+.box {
+  margin-bottom: 60rpx;
+}
+.box .input_info {
+  width: 200rpx;
+  height: 68rpx;
+  margin-top: 22rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.box .input_info::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2rpx;
+  width: 100%;
+  background: url("https://oss.fabrique.cn/bbf9cab3-bde7-461f-b05e-a1dd6ab22356.png") repeat-x center;
+  background-size: 100% 100%;
+}
+.box .input_info::after {
+  content: attr(data-unit);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(100%, -50%);
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.box .input_info input {
+  height: 100%;
+  flex: 1;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+}
+.box .input_info .placeholder {
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #999999;
+}
+.box .input_info text {
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+  margin-left: 36rpx;
+}

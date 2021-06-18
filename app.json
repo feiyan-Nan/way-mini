@@ -1,0 +1,62 @@
+{
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/homepage/index",
+        "iconPath": "assets/images/home/shop.png",
+        "selectedIconPath": "/assets/images/home/shop_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "iconPath": "/assets/images/home/user.png",
+        "selectedIconPath": "/assets/images/home/user_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "pages": [
+    "pages/sex-select/index",
+    "pages/start-page/index",
+    "pages/home/index",
+    "pages/login/index",
+    "pages/shipping-address/index",
+    "pages/add-shipping-address/index",
+    "pages/confirm-order/index",
+    "pages/order-list/index",
+    "pages/order-status/index",
+    "pages/shopping-bag/index",
+    "pages/goods-detail/index",
+    "pages/errer-status/index",
+    "pages/mine/index",
+    "pages/webview/index",
+    "pages/logistics/index",
+    "pages/sizes/index",
+    "pages/measure/index",
+    "pages/test/index",
+    "pages/fabs/index",
+    "pages/myscore/index",
+    "pages/rules/index",
+    "pages/fill-birthday/index",
+    "pages/homepage/index"
+  ],
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar",
+    "bottom-button": "/components/bottom-button/index",
+    "header-title": "/components/header-title/index",
+    "dialog": "/components/dialog/dialog"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "我顺路",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "打开定位，找到和你顺路的人"
+    }
+  }
+}

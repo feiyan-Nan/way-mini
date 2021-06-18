@@ -1,0 +1,27 @@
+<wxs module="test" src="./index.wxs" />
+
+<bottom-button
+  buttonTyep="{{buttonType}}"
+  extraStyle="{{ extraStyle }}"
+  extraClass="no-border"
+  leftButtonText="加入购物袋"
+  bind:handleLeftButtonClick="handleTapLeftBtn"
+  buttonText="{{buttonType === 'doubleButton' ? '立即购买' : _showStat ? '确定' : '已售罄'}}"
+  bind:handleBottomButtonClick="handleTapRightBtn"
+  isContact="{{buttonType === 'doubleButton'}}"
+  isLogged="{{isLogged}}"
+  bind:toLogin="toLogin"
+  no-check-net="{{true}}"
+/>
+
+<m-mask
+  class="m-mask"
+  sizeInfo="{{sizeInfo}}"
+  display="{{ _display }}"
+  type="{{_type}}"
+  isLogged="{{isLogged}}"
+  bind:addCar="handleAddCar"
+  bind:buy="handleBuy"
+  bind:change="handleChange"
+  bind:toLogin="toLogin"
+/>

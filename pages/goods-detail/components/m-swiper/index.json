@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "custom-video": "/components/custom-video/index"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "address-item": "/businessComponents/address-item/index"
+  }
+}

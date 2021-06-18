@@ -1,0 +1,41 @@
+.pay-type {
+  padding: 60rpx 0rpx 64rpx;
+}
+.pay-type .title {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #031C24;
+}
+.pay-type .info {
+  margin-top: 40rpx;
+  height: 152rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pay-type .info .left {
+  font-size: 28rpx;
+  font-weight: 300;
+  color: #031C24;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.pay-type .info .left .add {
+  margin: 0 6rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pay-type .info .left .score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6rpx;
+}
+.pay-type .info .left .score image {
+  width: 28rpx;
+}
+.pay-type .info .right image {
+  width: 40rpx;
+}

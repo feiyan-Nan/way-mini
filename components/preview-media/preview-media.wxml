@@ -1,0 +1,70 @@
+<navbar wx:if="{{fullScreen}}" isImmersive="{{true}}" bind:back="exitFullScreen" background="rgba(255,255,255,0)" zIndex="1002" backIconName="back_arrow_white" titleBarWidth="0" />
+<swiper
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+  current="{{current}}"
+  bindchange="currentChange"
+  style="{{fullScreen ? '' : 'height:' + _height + 'px;'}}"
+  class="swiper {{fullScreen ? 'full-screen' : ''}}">
+  <block wx:for="{{swiperItem}}" wx:key="index" bindtap="handleClickSwiper">
+    <swiper-item class="swiper-item">
+      <view class="bottom-mask" wx:if="{{item.type !== 'video'}}"></view>
+      <movable-area scale-area style="width:100%;height:100%">
+        <movable-view y="{{fullScreen && item.defaultY || 0}}" animation="{{false}}" direction="all" bindchange="onChange" bindscale="onScale" scale scale-min="1" scale-max="{{item.type === 'video' ? 1 : 3}}" scale-value="{{item.scale}}" class="movable-view" style="width: 100%;height: {{(item.type == 'video' || item.scale === 1) ? '100%' : item.height}};" data-index="{{index}}">          
+          <view wx:if="{{item.type !== 'video'}}" class="swiper-image-wrap" bindtap="handleClickImg" data-index="{{index}}" bindtouchmove="handleTouchMove">            
+            <image            
+            class="swiper-image {{item.isLoadOrigin ? 'hide' : ''}}"
+            mode="{{item.mode || 'aspectFill'}}"
+            src="{{item.src}}"
+            style="height:{{_height}}px;"
+            bindload="load"
+            data-index="{{index}}"></image>
+            <image
+              wx:if="{{item.startLoadOrigin}}"
+              class="swiper-image origin"
+              mode="{{item.mode || 'aspectFill'}}"
+              src="{{item.srcOrigin}}"
+              style="height:{{_height}}px;"
+              bindload="loadOrigin"
+              data-index="{{index}}"></image>
+            <image
+              class="swiper-image cover"
+              mode="{{item.mode || 'aspectFill'}}"
+              src="/assets/images/image-cover.png"
+              style="height:{{_height}}px;"
+              wx:if="{{!item.isLoad}}"></image>
+          </view>
+          <custom-video
+            catchtap="catchtap"
+            id="swiper{{index}}"
+            videoId="swiper{{index}}"
+            class="swiper-video"
+            src="{{item.src}}"
+            model:is-play="{{item.isPlay}}"
+            model:full-screen="{{fullScreen}}"
+            showFullScreen="{{true}}"
+            bind:clickOther="clickOther"
+            bind:trogglePlay="trogglePlay"
+            data-index="{{index}}"
+            data-item="{{item}}"
+            width="{{item.width}}"
+            height="{{item.height}}"
+            cover="{{cover}}"
+            initial-time="{{item.initialTime}}"
+            bind:progress-change="handleProgressChange"
+            bind:click-white="handleCLickWhite"
+            user-custom="{{true}}"
+            duration="{{item.duration / 1000}}"
+            objectFit="contain" 
+            wx:else>
+          </custom-video>
+
+        </movable-view>
+      </movable-area>
+      <!-- coverImage="{{item.coverImage}}" -->
+    </swiper-item>
+  </block>
+</swiper>
+<view wx:if="{{_tipCurrent}}" class="current-tip" style="padding-bottom: {{ isX ? 68: 0 }}rpx">{{_tipCurrent}}/{{_tipTotal}}</view>

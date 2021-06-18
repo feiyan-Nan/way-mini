@@ -1,0 +1,185 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/shipping-address/index",
+          "pathName": "pages/shipping-address/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/add-shipping-address/index",
+          "pathName": "pages/add-shipping-address/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/confirm-order/index",
+          "pathName": "pages/confirm-order/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/shopping-bag/index",
+          "pathName": "pages/shopping-bag/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "pages/home/index",
+          "pathName": "pages/home/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/goods-detail/index",
+          "pathName": "pages/goods-detail/index",
+          "query": "id=10002&spuImages=https://oss.guangmangapp.com/be8a9a95-6e76-4cb7-977f-487591eed3a1.jpg",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/errer-status/index",
+          "pathName": "pages/errer-status/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/shipping-address/index",
+          "pathName": "pages/shipping-address/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/login/index",
+          "pathName": "pages/login/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 9,
+          "name": "pages/mine/index",
+          "pathName": "pages/mine/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/shopping-bag/index",
+          "pathName": "pages/shopping-bag/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/index",
+          "pathName": "pages/mine/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/order-list/index",
+          "pathName": "pages/order-list/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/errer-status/index",
+          "pathName": "pages/errer-status/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/order-status/index",
+          "pathName": "pages/order-status/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/logistics/index",
+          "pathName": "pages/logistics/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/map/index",
+          "pathName": "pages/map/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/gather/index",
+          "pathName": "pages/gather/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/index",
+          "pathName": "pages/test/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sizes/index",
+          "pathName": "pages/sizes/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/measure/index",
+          "pathName": "pages/measure/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fabs/index",
+          "pathName": "pages/fabs/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/fabs/index",
+          "pathName": "pages/fabs/index",
+          "query": "index=1&spuId=1270184308090343424",
+          "scene": null
+        },
+        {
+          "name": "pages/start-page/index",
+          "pathName": "pages/start-page/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/sex-select/index",
+          "pathName": "pages/sex-select/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

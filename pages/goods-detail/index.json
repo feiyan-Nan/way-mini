@@ -1,0 +1,17 @@
+{
+  "usingComponents": {
+    "preview-media": "/components/preview-media/preview-media",
+    "m-swiper": "./components/m-swiper/index",
+    "custom-video": "/components/custom-video/index",
+    "custom-loading": "/components/custom-loading/custom-loading",
+    "m-bottom": "./components/m-bottom/index",
+    "m-fabs": "./components/m-fabs/index",
+    "shop-package": "/components/shop-package/index",
+    "mp-sticky": "/miniprogram_npm/@miniprogram-component-plus/sticky/index",
+    "custom-good-nav": "/components/custom-good-nav/index",
+    "m-mask": "./components/m-mask/index",
+    "m-nav": "./components/m-nav/index",
+    "center-image": "/components/center-image/index"
+  },
+  "navigationStyle": "custom"
+}

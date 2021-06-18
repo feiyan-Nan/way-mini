@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "CustomMask": "/components/custom-mask/index"
+  }
+}

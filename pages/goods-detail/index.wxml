@@ -1,0 +1,225 @@
+<mp-sticky
+  offset-top="{{statusBarHeight+titleBarHeight}}"
+  style="display: {{stickyOpacity && !hideSticky ? '' : 'none'}};background: rgba(0,0,0,0);height: 0;"
+  class="sticky"
+>
+  <view class="sticky-wrap" style="opacity:{{stickyOpacity}};height:{{stickyHeight}}px;">
+    <view
+      wx:for="{{tabList}}"
+      class="sticky-item {{activeTab == item.id ? 'active' : ''}}"
+      wx:key="id"
+      bindtap="changeScroll"
+      data-type="{{item.id}}"
+    >
+      {{item.label}}
+    </view>
+  </view>
+</mp-sticky>
+<navbar isImmersive="{{true}}" bind:back="back" background="rgba(255,255,255,{{stickyOpacity}})" showGoHome="{{true}}" bind:goTop="goTop" wx:if="{{!fullScreen}}"/>
+<preview-media wx:if="{{showPreview}}" bindback="handleHidePreview" swiper-item="{{previewItem}}" model:current="{{currentSwiper}}"></preview-media>
+<scroll-view
+  scroll-y="{{scrollY}}"
+  bindscroll="scroll"
+  scroll-with-animation="{{true}}"
+  scroll-into-view="{{scrollIntoView}}"
+  class="containers"
+  scroll-top="{{scrollTop}}"
+>
+  <view class="swiper-wrap">
+    <m-swiper id="swiper" swiper-item="{{swiperItem}}" model:current="{{currentSwiper}}" cover="{{spuVideoCover}}" bindtap="handleShowPreview" bind:full-screen="handleShowPreview"></m-swiper>
+  </view>
+  <view class="goods-info-wrap">
+    <view class="goods-info">
+      <view class="brand text-blod">{{info.brand}}</view>
+      <view class="designer text-blod">{{info.designer}}</view>
+      <view class="name text-normal">{{info.name}}</view>
+      <view class="money text-normal">{{info.money}}</view>
+    </view>
+    <button open-type="share" class="none-style-btn">
+      <image src="/assets/images/goods-detail/share_new.png" class="godds-share" />
+    </button>
+  </view>
+  <view class="choose-size text-normal" bindtap="handleShowSize">
+    <view class="size-picker">
+      请选择尺码
+    </view>
+    <image src="/assets/images/goods-detail/right_arrow.png" class="right-icon" />
+    <view class="bottom-line" />
+    <view class="tip">{{serviceDescription}}</view>
+  </view>
+
+
+
+  <view class="goods-detail" id="desginer"  style="padding-bottom: 0">
+    <view class="tip text-blod">设计师</view>
+
+    <view class="m-desginer-detail" bind:tap="showDialog">
+      <view class="m-desginer-person">
+        <view class="m-desginer-avator">
+          <center-image src="{{_designer.avatar}}" />
+          <view class='renzheng'>
+            <image src="/assets/images/renzheng.png" mode="widthFix" />
+          </view>
+        </view>
+        <view class="m-desginer-introduce">
+          <view class='m-desginer-name'>{{_designer.brandName}}</view>
+          <view class='m-desginer-tip'>{{_designer.labels}}</view>
+        </view>
+      </view>
+      <view class="m-desginer-product">
+        <view>{{_designer.spuCount}}款在售</view>
+        <view>1</view>
+      </view>
+    </view>
+
+
+
+    <view
+      class="detail-item {{item.type === 'image' ? 'detail-image' : 'detail-video'}}"
+      wx:for="{{_designer.spuDesc}}"
+      wx:key="id"
+      style="height:{{ item.type === 'image' ? item.targetHeight : item.videoHeight}};"
+    >
+      <image
+        src="{{item.src}}"
+        wx:if="{{item.type === 'image'}}"
+        style="background: #EDF0F0"
+        mode="widthFix"
+        data-index="{{index}}"
+        webp
+      />
+      <custom-video
+        id="designer{{index}}"
+        data-uuid="{{item.uuid}}"
+        class="detail-video custom_mask"
+        videoId="designer{{index}}"
+        src="{{item.src}}"
+        width="100%"
+        height="{{item.videoHeight}}"
+        coverImage="{{item.coverImage}}"
+        data-index="{{index}}"
+        showFullScreen="{{true}}"
+        showCenterPlayBtn="{{true}}"
+        showPlayBtn="{{true}}"
+        showMuteBtn="{{false}}"
+        showScreenLockButton="{{false}}"
+        controls="{{false}}"
+        controlsBottom="{{0}}"
+        objectFit="contain"
+        autoPlay="{{true}}"
+        duration="{{item.duration / 1000}}"
+
+
+        cover="{{detailCover}}"
+        showSystemControls="{{showSystemControls}}"
+        bind:clickOther="clickOther"
+        bind:full-screen="handleFullScreen"
+        data-type="designer"
+        bind:progress-change="handleProgressChange"
+        bind:trogglePlay="detailTrogglePlay"
+
+
+        customFullScreen="{{item.direction == 'ver'}}"
+        initialTime="{{item.initialTime}}"
+        model:is-play="{{item.isPlay}}"
+        wx:else
+      />
+    </view>
+
+    <view class='liaojie' bind:tap="showDialog">了解TA <image mode="widthFix" src="/assets/images/arrow_right.png" /></view>
+  </view>
+
+
+  <view class="goods-detail" id="detail_el" style="padding-bottom: 0;margin-top:60rpx;">
+    <view class="tip text-blod">详情</view>
+    <view
+      class="detail-item {{item.type === 'image' ? 'detail-image' : 'detail-video'}}"
+      id="detail-item{{index}}"
+      wx:for="{{list}}"
+      wx:key="id"
+      style="height:{{ item.type === 'image' ? item.targetHeight : item.height}};"
+    >
+      <image
+        src="{{item.src}}"
+        wx:if="{{item.type === 'image'}}"
+        style="background: #EDF0F0;"
+        mode="widthFix"
+        data-index="{{index}}"
+        webp
+      />
+      <custom-video
+        id="detail{{index}}"
+        data-uuid="{{item.uuid}}"
+        class="detail-video custom_mask"
+        videoId="detail{{index}}"
+        src="{{item.src}}"
+        width="100%"
+        height="{{item.height}}"
+        coverImage="{{item.coverImage}}"
+        data-index="{{index}}"
+        showFullScreen="{{true}}"
+        showCenterPlayBtn="{{true}}"
+        showPlayBtn="{{true}}"
+        showMuteBtn="{{false}}"
+        showScreenLockButton="{{false}}"
+        controls="{{false}}"
+        controlsBottom="{{0}}"
+        objectFit="contain"
+        autoPlay="{{true}}"
+        duration="{{item.duration / 1000}}"
+
+
+        cover="{{detailCover}}"
+        showSystemControls="{{showSystemControls}}"
+        bind:clickOther="clickOther"
+        bind:full-screen="handleFullScreen"
+        data-type="detail"
+        bind:progress-change="handleProgressChange"
+        bind:trogglePlay="detailTrogglePlay"
+
+
+        customFullScreen="{{item.direction == 'ver'}}"
+        initialTime="{{item.initialTime}}"
+        model:is-play="{{item.isPlay}}"
+        wx:else
+      />
+    </view>
+<!--    <view class="bottm-tip">- Style has no limit. -</view>-->
+  </view>
+<!--fabs-->
+  <view class='goods-detail' id="fabs" style="{{isX ? 'padding-bottom: 198rpx;' : ''}};margin-top: 0;">
+    <m-fabs _fabs="{{ _fabs }}" spuId="{{id}}"  />
+  </view>
+
+
+</scroll-view>
+<shop-package bottom="{{(isX ? 68: 0) + 210}}rpx" id="shopBag" bindtap="goToBag" />
+
+<dialog
+  title="{{dialog._title}}"
+  content="{{dialog._content}}"
+  actions="{{['取消','确定']}}"
+  wx:if="{{dialog._dialog}}"
+  bind:onTap="onTap"
+/>
+
+
+
+<m-nav
+    class="m-nav"
+    display="{{display}}"
+    sizeInfo="{{sizeInfo}}"
+    sizeChatUrl="{{sizeChatUrl}}"
+    sizeTips="{{ sizeTips }}"
+    id="m-bottom"
+    sizeArr="{{sizeArr}}"
+    model:size-index="{{sizeIndex}}"
+    bind:addCar="addCar"
+    bind:buy="buy"
+    showStat="{{showStat}}"
+    isLogged="{{isLogged}}"
+    catchtouchmove
+    type="{{_type}}"
+/>
+<custom-loading id="loading" />
+<view class='empty-view'></view>

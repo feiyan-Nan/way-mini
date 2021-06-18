@@ -1,0 +1,29 @@
+/* pages/login/index.wxss */
+.login {}
+
+.login .logo {
+  padding-top: 100rpx;
+  padding-left: 40rpx;
+}
+
+.login .logo image {
+  width: 400rpx;
+  height: 172rpx;
+}
+
+.login .login_btn {
+  margin: 0 auto;
+  width: 670rpx;
+  height: 88rpx;
+  margin-top: 320rpx;
+}
+
+.login .login_btn .btn button {
+  background-color: #031C24;
+  border-radius: 0;
+  color: #FFFFFF;
+  width: 670rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 28rpx;
+}

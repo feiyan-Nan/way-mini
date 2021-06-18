@@ -1,0 +1,14 @@
+<!--pages/start-page/index.wxml-->
+<view>
+  <view class="logo">
+    <image src="/assets/images/start-page/logo.png" />
+  </view>
+  <view class="features">
+    <image src="/assets/images/start-page/qidongye.png" />
+  </view>
+
+  <view class="login_btn">
+    <custom-button text="一键登录" bind:tapHandle="login" openType="getUserInfo" class="btn" />
+  </view>
+  <image class="bottom-train" src="/assets/images/start-page/bottom-train.png" />
+</view>
