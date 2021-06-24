@@ -1,6 +1,22 @@
 <!--pages/homepage/index.wxml-->
 <view class="homepage">
-  <tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+  <tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange">
+    <scroll-view
+      class="tab-content"
+      bindrefresherrefresh="onRefresh"
+      refresher-triggered="{{triggered}}"
+      refresher-enabled="{{isRefresh}}"
+      lower-threshold="{{400}}"
+      bindscrolltolower="scrollToLower"
+      scroll-y="{{true}}"
+      slot="tab-content-0"
+      scroll-top="{{scrollTop}}"
+      scroll-with-animation
+    >
 
+      <view class="no-order-content" wx:if="true">
+        <view class="no-order" wx:if="{{!isload}}">暂无订单</view>
+      </view>
+    </scroll-view>
   </tabs>
 </view>

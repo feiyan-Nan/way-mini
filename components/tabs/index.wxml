@@ -1,6 +1,6 @@
 <!-- components/tab/index.wxml -->
 <view class="weui-tabs">
-  <view class="weui-tabs-bar__wrp" style="top: {{ height }}px">
+  <view class="weui-tabs-bar__wrp" style="padding-top: {{ height }}px">
     <scroll-view scroll-x scroll-into-view="item_{{currentView}}" scroll-with-animation="{{animation}}">
       <view class="weui-tabs-bar__content">
         <block wx:for="{{tabs}}" wx:key="title">

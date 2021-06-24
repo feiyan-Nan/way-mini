@@ -1,4 +1,12 @@
 /* pages/homepage/index.wxss */
 .homepage {
-  background: #00C685;
+  /*background: #00C685;*/
+}
+.tab-content {
+  height: 100%;
+}
+.no-order-content {
+  border: 1px solid red;
+  width: 200rpx;
+  height: 9000rpx;
 }

@@ -1,5 +1,14 @@
 // pages/homepage/index.js
 const titles = ['乘坐线路', '喜欢我'];
+const {
+  orderStatusMapFun,
+  getGaoDeRoute,
+  debounce,
+  formatTime,
+  uid,
+  networkAct,
+  routingConfig: { orderStatus },
+} = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -26,7 +35,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+    getGaoDeRoute().then((res) => {
+      console.log('666', res);
+    });
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

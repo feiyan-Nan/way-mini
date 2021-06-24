@@ -3,14 +3,14 @@
     "list": [
       {
         "pagePath": "pages/homepage/index",
-        "iconPath": "assets/images/home/shop.png",
-        "selectedIconPath": "/assets/images/home/shop_active.png",
+        "iconPath": "assets/images/homepage/index.png",
+        "selectedIconPath": "/assets/images/homepage/index_active.png",
         "text": "首页"
       },
       {
-        "pagePath": "pages/mine/index",
-        "iconPath": "/assets/images/home/user.png",
-        "selectedIconPath": "/assets/images/home/user_active.png",
+        "pagePath": "pages/my/index",
+        "iconPath": "/assets/images/homepage/user.png",
+        "selectedIconPath": "/assets/images/homepage/user_active.png",
         "text": "我的"
       }
     ]
@@ -38,7 +38,8 @@
     "pages/myscore/index",
     "pages/rules/index",
     "pages/fill-birthday/index",
-    "pages/homepage/index"
+    "pages/homepage/index",
+    "pages/my/index"
   ],
   "usingComponents": {
     "navbar": "/components/navbar/navbar",
