@@ -112,8 +112,25 @@ const getGaoDeRoute = () => {
       querytypes: '150500|150700',
       offset: 10,
       success: function (data) {
+        const { poisData } = data;
+        const temp = poisData
+          .map(({ address }) => {
+            return address
+              .split(';')
+              .filter(
+                (item) => !item.includes('在建') && !item.includes('规划') && !item.includes('停运')
+              );
+          })
+          .flat(Infinity);
+        const [lon, lat] = wx.getStorageSync('userLocation').split(',');
+        const result = {
+          lineNo: Array.from(new Set(temp)),
+          cityName: poisData[0].cityname,
+          lon,
+          lat,
+        };
         //成功回调
-        resolve(data);
+        resolve(result);
       },
       fail: function (info) {
         reject(info);

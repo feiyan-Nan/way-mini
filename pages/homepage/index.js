@@ -1,4 +1,5 @@
 // pages/homepage/index.js
+import { homePageApi, bag } from '../../api/index';
 const titles = ['乘坐线路', '喜欢我'];
 const {
   orderStatusMapFun,
@@ -37,6 +38,9 @@ Page({
    */
   onShow: function () {
     getGaoDeRoute().then((res) => {
+      homePageApi.getNearList(res).then((result) => {
+        console.log(result);
+      });
       console.log('666', res);
     });
   },

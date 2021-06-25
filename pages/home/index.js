@@ -1,9 +1,17 @@
-import { homeApi, bag } from "../../api/index";
-const { getUserInfo, surface, formatThousands, checkConnected, showToast, routingConfig: {webview, goodsDetail} } = getApp()
+import { homeApi, bag } from '../../api/index';
+const {
+  getUserInfo,
+  surface,
+  formatThousands,
+  checkConnected,
+  showToast,
+  routingConfig: { webview, goodsDetail },
+  getGaoDeRoute,
+} = getApp();
 const defaultPageOptions = {
   current: 1,
   size: 20,
-  empty: false
+  empty: false,
 };
 let tmpScrollTop = 0;
 Page({
@@ -16,37 +24,37 @@ Page({
     scrollTop: 0,
     autoplay: false,
     noConnected: false,
-    tabBarHeight: 0
+    tabBarHeight: 0,
   },
   onLoad(e) {
-    let systemInfo = wx.getSystemInfoSync()
-	  // px转换到rpx的比例
+    let systemInfo = wx.getSystemInfoSync();
+    // px转换到rpx的比例
     let pxToRpxScale = 750 / systemInfo.windowWidth;
     // 状态栏的高度
-    let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale
+    let ktxStatusHeight = systemInfo.statusBarHeight * pxToRpxScale;
     // 导航栏的高度
-    let navigationHeight = 44 * pxToRpxScale
+    let navigationHeight = 44 * pxToRpxScale;
     // window的宽度
-    let ktxWindowWidth = systemInfo.windowWidth * pxToRpxScale
+    let ktxWindowWidth = systemInfo.windowWidth * pxToRpxScale;
     // window的高度
-    let ktxWindowHeight = systemInfo.windowHeight * pxToRpxScale
+    let ktxWindowHeight = systemInfo.windowHeight * pxToRpxScale;
     // 屏幕的高度
-    let ktxScreentHeight = systemInfo.screenHeight * pxToRpxScale
+    let ktxScreentHeight = systemInfo.screenHeight * pxToRpxScale;
     // 底部tabBar的高度
-    let tabBarHeight = ktxScreentHeight - ktxStatusHeight -ktxWindowHeight;
+    let tabBarHeight = ktxScreentHeight - ktxStatusHeight - ktxWindowHeight;
     this.setData({
-      tabBarHeight
-    })
+      tabBarHeight,
+    });
     this.init(true);
   },
   async onShow() {
     this.setData({
-      autoplay: true
-    })
+      autoplay: true,
+    });
   },
   onHide() {
     this.setData({
-      autoplay: false
+      autoplay: false,
     });
   },
   refresh() {
@@ -55,9 +63,9 @@ Page({
   async init(hideToast) {
     try {
       await checkConnected(hideToast);
-    } catch(err) {
+    } catch (err) {
       this.setData({
-        noConnected: true
+        noConnected: true,
       });
       return;
     }
@@ -67,7 +75,7 @@ Page({
     this.setData({
       statusBarHeight,
       titleBarHeight: menuRect.height + 2 * (menuRect.top - statusBarHeight),
-      pageOptions: JSON.parse(JSON.stringify(defaultPageOptions))
+      pageOptions: JSON.parse(JSON.stringify(defaultPageOptions)),
     });
     this.selectComponent('#loading').show();
     this.getSwiper();
@@ -91,7 +99,7 @@ Page({
     //   spuId: index //	string	 必须 spuId debugger
     // }));
     this.setData({
-      swiperItem: res.data
+      swiperItem: res.data,
     });
   },
   async getData() {
@@ -99,35 +107,35 @@ Page({
       this.selectComponent('#loading').show();
       return;
     }
-    await this.awaitSeconds(200)
+    await this.awaitSeconds(200);
     if (this.data.pageOptions.current > 1) {
       this.setData({
         goodsItems: this.data.goodsItems.concat(this.data.tmpGoodsItems),
-        tmpGoodsItems: []
+        tmpGoodsItems: [],
       });
     }
-    const res = await homeApi.getSpuList({pageNum: this.data.pageOptions.current});
+    const res = await homeApi.getSpuList({ pageNum: this.data.pageOptions.current });
     res.data = res.data.map((item) => {
       item.minSkuPriceStr = formatThousands(item.minSkuPriceStr);
       return item;
-    })
+    });
     this.selectComponent('#loading').hide();
     if (res.code !== 2000) {
-      wx.showToast({title: res.msg});
+      wx.showToast({ title: res.msg });
       return;
     }
     if (!res.data || !res.data.length) {
       this.setData({
-        ['pageOptions.empty']: true
+        ['pageOptions.empty']: true,
       });
     }
     const resData = res.data;
-    console.log('resData---------', resData)
+    console.log('resData---------', resData);
     // 首页第一页数据加载完后，立马加载第二页
     if (this.data.pageOptions.current === 1) {
       this.setData({
         ['pageOptions.current']: ++this.data.pageOptions.current,
-        goodsItems: this.data.goodsItems.concat(resData)
+        goodsItems: this.data.goodsItems.concat(resData),
       });
       this.getData();
       this.selectComponent('#loading').hide();
@@ -136,14 +144,18 @@ Page({
         // scrollTop: this.data.pageOptions.current === 2 ? tmpScrollTop : tmpScrollTop + 200, // 获取第二页不滚动
         ['pageOptions.current']: ++this.data.pageOptions.current, // 页码加一
         // goodsItems: this.data.goodsItems.concat(this.data.tmpGoodsItems),
-        tmpGoodsItems: resData
+        tmpGoodsItems: resData,
       });
     }
   },
-  async clickGoods({ currentTarget: { dataset: { item } } }) {
+  async clickGoods({
+    currentTarget: {
+      dataset: { item },
+    },
+  }) {
     await checkConnected();
     wx.navigateTo({
-      url: `/pages/goods-detail/index?id=${item.spuId}&spuImages=${item.spuImages}`
+      url: `/pages/goods-detail/index?id=${item.spuId}&spuImages=${item.spuImages}`,
     });
   },
 
@@ -153,7 +165,7 @@ Page({
   async lower(e) {
     // console.log('scrolltolower', e)
     await checkConnected();
-    if (!this.data.pageOptions.empty && e.type === "scrolltolower") {
+    if (!this.data.pageOptions.empty && e.type === 'scrolltolower') {
       this.getData();
     }
   },
@@ -162,73 +174,73 @@ Page({
     tmpScrollTop = scrollTop;
   },
   /** 点击顶部轮播图 */
-  async clickSwiperItem({detail: {index} }) {
+  async clickSwiperItem({ detail: { index } }) {
     await checkConnected();
     const item = this.data.swiperItem[index];
     if (item.type == '1' && item.spuId) {
       wx.navigateTo({
-        url: goodsDetail + '?id=' + item.spuId
+        url: goodsDetail + '?id=' + item.spuId,
       });
     } else if (item.type == '0' && item.url) {
       wx.navigateTo({
-        url: webview + '?src=' + item.url
+        url: webview + '?src=' + item.url,
       });
     }
   },
-  async goToBag () {
+  async goToBag() {
     await checkConnected();
-    const userInfo = getUserInfo()
+    const userInfo = getUserInfo();
     if (userInfo) {
-      surface(wx.navigateTo, {url: '/pages/shopping-bag/index'})
+      surface(wx.navigateTo, { url: '/pages/shopping-bag/index' });
     } else {
       surface(wx.navigateTo, {
         url: '/pages/login/index',
         events: {
           onLoginSucc() {
-            surface(wx.redirectTo, {url: '/pages/shopping-bag/index'})
-          }
-        }
-      })
+            surface(wx.redirectTo, { url: '/pages/shopping-bag/index' });
+          },
+        },
+      });
     }
   },
 
-  async goToMap () {
+  async goToMap() {
     await checkConnected();
-    surface(wx.navigateTo, {url: '/pages/map/index'})
+    surface(wx.navigateTo, { url: '/pages/map/index' });
   },
 
   async awaitSeconds(seconds) {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve();
-      }, seconds)
-    })
+      }, seconds);
+    });
   },
   async test() {
     if (this.data.pageOptions.current > 2 && !this.data.tmpGoodsItems.length) {
       this.selectComponent('#loading').show();
       return;
     }
-    await this.awaitSeconds(1000)
+    await this.awaitSeconds(1000);
     if (this.data.pageOptions.current > 1) {
       this.setData({
         goodsItems: this.data.goodsItems.concat(this.data.tmpGoodsItems),
-        tmpGoodsItems: []
+        tmpGoodsItems: [],
       });
     }
-    const res = await homeApi.getSpuList({pageNum: this.data.pageOptions.current});
+    const res = await homeApi.getSpuList({ pageNum: this.data.pageOptions.current });
     res.data = res.data.map((item) => {
       item.minSkuPriceStr = formatThousands(item.minSkuPriceStr);
       return item;
-    })
+    });
     this.selectComponent('#loading').hide();
     if (res.code !== 2000) {
-      wx.showToast({title: res.msg});
+      wx.showToast({ title: res.msg });
       return;
     }
     if (!res.data || !res.data.length) {
       this.setData({
-        ['pageOptions.empty']: true
+        ['pageOptions.empty']: true,
       });
     }
     // 模拟接口数据
@@ -244,7 +256,7 @@ Page({
     if (this.data.pageOptions.current === 1) {
       this.setData({
         ['pageOptions.current']: ++this.data.pageOptions.current,
-        goodsItems: this.data.goodsItems.concat(resData)
+        goodsItems: this.data.goodsItems.concat(resData),
       });
       this.getData();
       this.selectComponent('#loading').hide();
@@ -253,22 +265,22 @@ Page({
         scrollTop: this.data.pageOptions.current === 2 ? tmpScrollTop : tmpScrollTop + 200, // 获取第二页不滚动
         ['pageOptions.current']: ++this.data.pageOptions.current, // 页码加一
         // goodsItems: this.data.goodsItems.concat(this.data.tmpGoodsItems),
-        tmpGoodsItems: resData
+        tmpGoodsItems: resData,
       });
     }
   },
-  goTop () {
+  goTop() {
     this.setData({
-      scrollTop: 0
-    })
+      scrollTop: 0,
+    });
   },
-  onShareAppMessage () {
-    const [ first ] = this.data.goodsItems
-    const { spuBrand, brandSuffix, spuName } = first
-    const title = `${spuBrand} ${brandSuffix} ${spuName}`
+  onShareAppMessage() {
+    const [first] = this.data.goodsItems;
+    const { spuBrand, brandSuffix, spuName } = first;
+    const title = `${spuBrand} ${brandSuffix} ${spuName}`;
     return {
       title,
-      path: '/pages/home/index'
-    }
-  }
-})
+      path: '/pages/home/index',
+    };
+  },
+});
