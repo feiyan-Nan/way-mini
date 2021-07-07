@@ -45,7 +45,9 @@
     "navbar": "/components/navbar/navbar",
     "bottom-button": "/components/bottom-button/index",
     "header-title": "/components/header-title/index",
-    "dialog": "/components/dialog/dialog"
+    "dialog": "/components/dialog/dialog",
+    "VanImage": "@vant/weapp/image/index",
+    "VanIcon": "@vant/weapp/icon/index"
   },
   "window": {
     "backgroundTextStyle": "light",

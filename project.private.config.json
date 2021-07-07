@@ -184,6 +184,18 @@
           "pathName": "pages/homepage/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "开始",
+          "pathName": "pages/start-page/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/homepage/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
