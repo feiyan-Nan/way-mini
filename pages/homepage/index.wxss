@@ -2,6 +2,7 @@
   height: 100%;
   background-color: aquamarine;
 }
+
 .homepage .tab-content .sameway {
   margin: 35rpx 25rpx 0;
   padding: 38rpx 30rpx;
@@ -9,12 +10,14 @@
   border-radius: 40rpx;
   box-shadow: 0px 0px 50rpx 0px rgba(0, 161, 91, 0.2);
 }
+
 .homepage .tab-content .sameway .header {
   box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .homepage .tab-content .sameway .header .left {
   display: flex;
   font-size: 30rpx;
@@ -22,42 +25,87 @@
   color: #241f26;
   align-items: center;
 }
+
 .homepage .tab-content .sameway .header .left > view {
   margin-left: 15rpx;
 }
+
 .homepage .tab-content .sameway .header .left > view text {
   color: #00C584;
 }
+
 .homepage .tab-content .sameway .header .right {
   font-size: 26rpx;
   font-weight: 700;
   color: #9ca6af;
 }
+
 .homepage .tab-content .sameway .header .right > text {
   font-size: 26rpx;
   margin-left: 13rpx;
 }
+
 .homepage .tab-content .sameway .box {
   box-sizing: border-box;
   margin-top: 56rpx;
   display: flex;
   justify-content: space-between;
 }
+
 .homepage .tab-content .sameway .box .avatar {
   width: 139rpx;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
 }
+
 .homepage .tab-content .sameway .box .avatar .name {
   color: #666B71;
   font-size: 22rpx;
   margin-top: 27rpx;
 }
+
 .homepage .tab-content .sameway .box .avatar .gender {
   margin-top: 11rpx;
 }
+
 .test {
   height: 100vh;
-  background-color: red;
+  /*background-color: red;*/
+}
+
+.no-login {
+  display: flex;
+  height: 80%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-login-desc1 {
+  color: #151515;
+  margin: 43rpx 0 29rpx;
+  font-size: 36rpx;
+  line-height: 36rpx;
+  font-weight: bold;
+}
+
+.no-login-desc2 {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #a7a7a7;
+  font-weight: bold;
+}
+
+.login {
+  width: 235rpx;
+  height: 64rpx;
+  background: linear-gradient(to right, #00C184, #00E871);
+  border-radius: 32rpx;
+  font-size: 30rpx;
+  font-weight: bolder;
+  line-height: 64rpx;
+  text-align: center;
+  color: #ffffff;
+  margin: 80rpx auto 0;
 }

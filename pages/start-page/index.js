@@ -5,9 +5,31 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
-
+  data: {
+    showProtocol: false,
+    /**
+     * 是否阅读协议
+     */
+    haveYouReadTheAgreement: false,
+  },
+  disagree() {
+    this.setData({
+      showProtocol: false,
+    });
+  },
+  agree() {
+    this.setData({
+      showProtocol: false,
+      haveYouReadTheAgreement: true,
+    });
+  },
   async login(e) {
+    if (!this.data.haveYouReadTheAgreement) {
+      this.setData({
+        showProtocol: true,
+      });
+      return false;
+    }
     const { type, detail, code } = e.detail;
     console.log('detail', e.detail);
     showToast('还没对接');
