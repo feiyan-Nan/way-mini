@@ -1,6 +1,6 @@
 .homepage .tab-content {
   height: 100%;
-  background-color: aquamarine;
+  background-color: #34C685;
 }
 
 .homepage .tab-content .sameway {

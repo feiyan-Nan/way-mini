@@ -22,6 +22,9 @@ Page({
       showProtocol: false,
       haveYouReadTheAgreement: true,
     });
+    wx.navigateTo({
+      url: '/pages/sex-select/index',
+    });
   },
   async login(e) {
     if (!this.data.haveYouReadTheAgreement) {
@@ -30,6 +33,10 @@ Page({
       });
       return false;
     }
+    wx.navigateTo({
+      url: '/pages/sex-select/index',
+    });
+    return false;
     const { type, detail, code } = e.detail;
     console.log('detail', e.detail);
     showToast('还没对接');
