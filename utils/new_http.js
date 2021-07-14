@@ -65,7 +65,8 @@ class HTTP {
         method,
         header: {
           'content-type': 'application/json',
-          Authorization: userInfo ? userInfo.accessToken : '',
+          token: userInfo ? userInfo.accessToken : '',
+          deviceId: '18d6cce10f64daac',
           ft: userInfo ? userInfo.ft : '',
           uid: userInfo ? userInfo.uid : '',
         },

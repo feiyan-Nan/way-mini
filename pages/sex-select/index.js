@@ -40,7 +40,7 @@ Page({
         res.eventChannel.emit('acceptSexSelectPage', {
           avatar: data.avatarUrl,
           nickname: data.nickName,
-          gender: this.data.sex,
+          gender: this.data.sex ? 1 : 0,
         });
       },
     });
