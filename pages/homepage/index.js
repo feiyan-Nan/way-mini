@@ -4,6 +4,7 @@ const titles = ['乘坐线路', '喜欢我'];
 const {
   orderStatusMapFun,
   getGaoDeRoute,
+  getLocationRight,
   debounce,
   formatTime,
   uid,
@@ -32,6 +33,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // getLocationRight();
     getGaoDeRoute().then((res) => {
       homePageApi.getNearList(res).then((result) => {
         console.log(result);
@@ -40,7 +42,7 @@ Page({
     });
   },
 
-  onChange ({ detail }) {
-    console.log('9999999999999', detail)
-  }
+  onChange({ detail }) {
+    console.log('9999999999999', detail);
+  },
 });

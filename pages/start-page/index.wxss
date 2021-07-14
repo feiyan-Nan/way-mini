@@ -1,5 +1,7 @@
 /* pages/start-page/index.wxss */
-
+.logo {
+  margin-top: 5vh;
+}
 .logo, .features {
   display: flex;
   justify-content: center;

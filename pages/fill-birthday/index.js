@@ -35,11 +35,11 @@ Page({
     //     confirmText: '我知道了',
     //   });
     // }
-    getLocationRight().then((res) => {
-      wx.switchTab({
-        url: '/pages/homepage/index',
-      });
-    });
+    // getLocationRight().then((res) => {
+    //   wx.switchTab({
+    //     url: '/pages/homepage/index',
+    //   });
+    // });
   },
   /**
    * 生命周期函数--监听页面加载

@@ -18,10 +18,28 @@ Page({
       sex: false,
     });
   },
-  next() {
-    wx.navigateTo({
-      url: '/pages/fill-birthday/index?sex=' + Number(this.data.sex),
+  next(e) {
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log(res);
+        this.setData({
+          userInfo: res.userInfo,
+        });
+      },
     });
+    // wx.getUserInfo({
+    //   success(res) {
+    //     console.log(res);
+    //   },
+    // });
+    console.log(e);
+    // wx.navigateTo({
+    //   url: '/pages/fill-birthday/index?sex=' + Number(this.data.sex),
+    // });
+  },
+  bindGetUserInfo(e) {
+    console.log(e);
   },
   /**
    * 生命周期函数--监听页面加载
