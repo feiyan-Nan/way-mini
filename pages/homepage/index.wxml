@@ -31,12 +31,12 @@
               31
             </view>
           </view>
-
         </view>
       </view>
     </scroll-view>
     <view class="test" slot="tab-content-1">
       <view class="no-login">
+        <image src="../../assets/images/homepage/shunlu-heart.png" class="logo"/>
         <view class="no-login-desc1">您还未登录</view>
         <view class="no-login-desc2">请先登录再进行操作</view>
         <view class="login" bind:tap="login">现在登录</view>

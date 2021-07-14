@@ -2,9 +2,9 @@ import { HTTP } from '../utils/new_http.js';
 
 class Login extends HTTP {
   // 获取商品列表
-  wechat_login(data) {
+  update_user_info(data) {
     return this.request({
-      url: '/mini/user/login/wechat_login',
+      url: '/user/updateAvatar',
       data,
     });
   }

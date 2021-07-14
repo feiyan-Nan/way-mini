@@ -36,27 +36,27 @@ App({
      * 可根据业务需求进行调整
      */
     // wx.onNetworkStatusChange((res) => (that.globalData.isConnected = Boolean(res.isConnected)));
-    wx.onNetworkStatusChange(res => {
-      console.log('onNetworkStatusChange', res)
-      that.globalData.isConnected = Boolean(res.isConnected)
-    })
+    wx.onNetworkStatusChange((res) => {
+      console.log('onNetworkStatusChange', res);
+      that.globalData.isConnected = Boolean(res.isConnected);
+    });
 
     // 判断是否是刘海机
-    const isX = utils.checkIsX()
-    that.globalData.isX = isX
+    const isX = utils.checkIsX();
+    that.globalData.isX = isX;
   },
   // 页面找不到的时候
   onPageNotFound(res) {
     wx.redirectTo({
-      url: 'pages/index/index',
+      url: '/pages/homepage/index',
     }); // 如果是 tabbar 页面，请使用 wx.redirectTo
   },
 
   globalData: {
     isConnected: true, //网络状态,
     isX: false,
-    birthPlace: null
+    birthPlace: null,
   },
   ...utils,
-  ...lodash
+  ...lodash,
 });

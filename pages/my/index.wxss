@@ -9,6 +9,13 @@
   border: 4rpx solid #ffffff;
   border-radius: 20rpx;
   margin-right: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avator image {
+  width: 70rpx;
+  height: 89rpx;
 }
 .username-edit {
   display: flex;

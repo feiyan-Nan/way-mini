@@ -1,5 +1,6 @@
 // pages/homepage/index.js
-import { homePageApi, bag } from '../../api/index';
+import { homePageApi } from '../../api/index';
+
 const titles = ['乘坐线路', '喜欢我'];
 const {
   orderStatusMapFun,
@@ -8,6 +9,8 @@ const {
   debounce,
   formatTime,
   uid,
+  surface,
+  isLogin,
   networkAct,
   routingConfig: { orderStatus },
 } = getApp();
@@ -19,6 +22,7 @@ Page({
     tabs: [],
     orderNums: ['', 9],
     activeTab: 0,
+    isLogged: false,
   },
 
   /**
@@ -34,6 +38,8 @@ Page({
    */
   onShow: function () {
     // getLocationRight();
+    const isLogged = isLogin();
+    this.setData({ isLogged });
     getGaoDeRoute().then((res) => {
       homePageApi.getNearList(res).then((result) => {
         console.log(result);
@@ -44,5 +50,12 @@ Page({
 
   onChange({ detail }) {
     console.log('9999999999999', detail);
+  },
+  login() {
+    networkAct(async () => {
+      surface(wx.reLaunch, {
+        url: '/pages/start-page/index',
+      });
+    });
   },
 });

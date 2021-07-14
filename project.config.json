@@ -39,7 +39,7 @@
     "showES6CompileOption": false
   },
   "compileType": "miniprogram",
-  "libVersion": "2.14.1",
+  "libVersion": "2.18.0",
   "appid": "wx4a0461ab229a1ebc",
   "projectname": "way_mini",
   "debugOptions": {

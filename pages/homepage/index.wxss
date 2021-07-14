@@ -81,10 +81,14 @@
   justify-content: center;
   align-items: center;
 }
-
+.no-login .logo {
+  padding-left: 150rpx;
+  width: 355rpx;
+  height: 92rpx;
+}
 .no-login-desc1 {
   color: #151515;
-  margin: 43rpx 0 29rpx;
+  margin: 40rpx 0 29rpx;
   font-size: 36rpx;
   line-height: 36rpx;
   font-weight: bold;

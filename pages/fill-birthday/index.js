@@ -1,5 +1,6 @@
 // pages/sex-select/index.js
-var amapFile = require('../../sdk/amap-wx.js');
+import { login } from '../../api/index';
+
 const {
   showModal,
   getGaoDeRoute,
@@ -20,6 +21,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userInfo: null,
     date: '出生日期',
   },
   bindDateChange(e) {
@@ -28,27 +30,34 @@ Page({
     });
   },
   foundSomeoneWhoWasInTheWay() {
-    // if (this.data.date === '出生日期') {
-    //   wx.showModal({
-    //     content: '您的出生日期还未填写哦！',
-    //     showCancel: false,
-    //     confirmText: '我知道了',
-    //   });
-    // }
-    // getLocationRight().then((res) => {
-    //   wx.switchTab({
-    //     url: '/pages/homepage/index',
-    //   });
-    // });
+    if (this.data.date === '出生日期') {
+      wx.showModal({
+        content: '您的出生日期还未填写哦！',
+        showCancel: false,
+        confirmText: '我知道了',
+      });
+    }
+    // TODO 生日的数据类型没有确定
+    login.update_user_info({ ...this.data.userInfo, birthday: this.data.date }).then((res) => {
+      getLocationRight().then((res) => {
+        wx.switchTab({
+          url: '/pages/homepage/index',
+        });
+      });
+    });
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    // getGaoDeRoute().then((res) => {
-    //   console.log(res);
-    // });
+    const eventChannel = this.getOpenerEventChannel();
+    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
+    eventChannel.on('acceptSexSelectPage', (data) => {
+      console.log(data);
+      this.setData({
+        userInfo: data,
+      });
+    });
   },
 
   /**

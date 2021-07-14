@@ -1,6 +1,8 @@
 <view>
   <view class="avator-username">
-    <view class="avator"></view>
+    <view class="avator">
+      <image src="../../assets/images/my/profile.png"/>
+    </view>
     <view class="username-edit">
       <view class="nickname">昵称</view>
       <view class="edit">查看/编辑资料</view>
@@ -21,7 +23,7 @@
     </view>
   </view>
   <view class="cellbox">
-    <view class="cell" bind:tap="goToAddressManage">
+    <view class="cell">
       <button open-type="share"/>
       <view class="cell-left"><image src="/assets/images/my/zhuan-fa.png" class="demonstrate" mode="widthFix"/>推荐给好友
       </view>
