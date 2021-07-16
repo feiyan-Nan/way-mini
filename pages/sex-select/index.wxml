@@ -12,5 +12,8 @@
       <image src="/assets/images/sex-select/female-noselect.png" hidden="{{!sex}}" />
     </view>
   </view>
-  <view class="next-step" bind:tap="next">下一步</view>
+  <view wx:if="{{canIUseGetUserProfile}}" class="next-step" bind:tap="getUserProfile">下一步</view>
+  <view wx:else class="next-step">
+    <custom-button text="下一步" bind:tapHandle="getUserInfo" openType="getUserInfo" class="btn" />
+  </view>
 </view>

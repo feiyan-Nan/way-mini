@@ -1,68 +1,49 @@
-<view class="mine">
-  <view class="header" style="background-image: url({{ backSrc || '' }});">
-    <view class="userInfo" wx:if="{{ isLogged }}">
-      <view class="avator" style="opacity: {{ opacity }}" bind:tap="preview">
-        <center-image src="{{ avatar }}" bind:load="load" id="center-image" />
-      </view>
-      <text wx:if="{{name}}">{{ name }}</text>
-      <view class="userId" bind:tap="tapToCopy" data-id="{{ userInfo.uid }}">ID:{{ userInfo.uid }}</view>
+<view>
+  <view class="avator-username">
+    <view class="avator">
+      <image src="../../assets/images/my/profile.png"/>
     </view>
-
-    <view class="login" wx:else>
-      <text>登录Fabrique享受Styilst贴心服务</text>
-      <custom-button text="登录账户" bind:tap="goToLogin" class="btn" openType="null" />
+    <view class="username-edit">
+      <view class="nickname">昵称</view>
+      <view class="edit">查看/编辑资料</view>
     </view>
   </view>
-
+  <view class="digital">
+    <view class="item">
+      <view class="number">0</view>
+      <view class="item-name">路友</view>
+    </view>
+    <view class="item">
+      <view class="number">34</view>
+      <view class="item-name">我想顺路</view>
+    </view>
+    <view class="item">
+      <view class="number">454</view>
+      <view class="item-name">想和我顺路</view>
+    </view>
+  </view>
   <view class="cellbox">
-
-<!--    <view class="cell" bind:tap="goToOrder">-->
-<!--      <view class="cell-left">我的订单</view>-->
-<!--      <view class="cell-right">-->
-<!--        <block wx:if="{{ isLogged }}">-->
-<!--          <text wx:if="{{ waitPayOrderNum }}">有{{ waitPayOrderNum }}单待支付</text>-->
-<!--          <text wx:elif="{{ waitReceivingGoodsNum }}">有{{ waitReceivingGoodsNum }}单待收货</text>-->
-<!--        </block>-->
-<!--        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix" />-->
-<!--      </view>-->
-<!--    </view>-->
-
-<!--    <view class="cell" bind:tap="goToMeasure">-->
-<!--      <view class="cell-left">我的尺码</view>-->
-<!--      <view class="cell-right">-->
-<!--        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix" />-->
-<!--      </view>-->
-<!--    </view>-->
-
-<!--    <view class="cell" bind:tap="goToScore">-->
-<!--      <view class="cell-left">我的积分</view>-->
-<!--      <view class="cell-right">-->
-<!--        <view class="section">-->
-<!--          <image src="/assets/images/score.png" mode="widthFix" />-->
-<!--        </view>-->
-<!--        <text>88</text>-->
-<!--        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix" />-->
-<!--      </view>-->
-<!--    </view>-->
-
-    <view class="cell" bind:tap="goToAddressManage">
-      <view class="cell-left">将她推荐给好友</view>
+    <view class="cell">
+      <button open-type="share"/>
+      <view class="cell-left"><image src="/assets/images/my/zhuan-fa.png" class="demonstrate" mode="widthFix"/>推荐给好友
+      </view>
       <view class="cell-right">
-        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix" />
+        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix"/>
       </view>
     </view>
 
     <view class="cell">
       <button
-        wx:if="{{ isLogged }}"
+        wx:if="{{ true }}"
         session-from="{{sessionFrom}}"
         open-type="contact"
         bind:contact="handleContact"
       />
-<!--      <button wx:else bind:tap="goToChart" />-->
-      <view class="cell-left">举报或反馈</view>
+      <!--      <button wx:else bind:tap="goToChart" />-->
+      <view class="cell-left"><image src="/assets/images/my/ju-bao.png" class="ju-bao" mode="widthFix"/>举报或反馈
+      </view>
       <view class="cell-right">
-        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix" />
+        <image src="/assets/images/shipping-address/right-arrow.png" mode="widthFix"/>
       </view>
     </view>
   </view>

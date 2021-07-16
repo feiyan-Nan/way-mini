@@ -1,7 +1,7 @@
 <!--pages/sex-select/index.wxml-->
 <view>
   <view class="avatar">
-    <image src="/assets/images/start-page/qidongye.png" />
+    <image src="{{userInfo.avatar}}" />
   </view>
   <view class="name">Dali</view>
   <picker mode="date" value="{{date}}" start="1900-01-01" end="2100-01-01" bindchange="bindDateChange">

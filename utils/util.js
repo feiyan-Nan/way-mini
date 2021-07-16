@@ -112,6 +112,7 @@ const getGaoDeRoute = () => {
       querytypes: '150500|150700',
       offset: 10,
       success: function (data) {
+        console.log(data);
         const { poisData } = data;
         const temp = poisData
           .map(({ address }) => {

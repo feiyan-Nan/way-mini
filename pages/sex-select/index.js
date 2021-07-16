@@ -6,6 +6,7 @@ Page({
   data: {
     // true表示男,
     sex: true,
+    canIUseGetUserProfile: false,
   },
 
   selectMale() {
@@ -18,15 +19,42 @@ Page({
       sex: false,
     });
   },
-  next() {
+  getUserProfile(e) {
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        this.navigateToTheNextPage(res.userInfo);
+      },
+    });
+  },
+  getUserInfo(e) {
+    this.navigateToTheNextPage(e.detail.userInfo);
+    // wx.setStorageSync('wx-userInfo', e.detail.userInfo);
+  },
+  navigateToTheNextPage(data) {
+    console.log(data);
     wx.navigateTo({
-      url: '/pages/fill-birthday/index?sex=' + Number(this.data.sex),
+      url: '/pages/fill-birthday/index',
+      success: (res) => {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('acceptSexSelectPage', {
+          avatar: data.avatarUrl,
+          nickname: data.nickName,
+          gender: this.data.sex ? 1 : 0,
+        });
+      },
     });
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    if (wx.getUserProfile) {
+      this.setData({
+        canIUseGetUserProfile: true,
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

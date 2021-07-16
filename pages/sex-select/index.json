@@ -1,5 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "custom-button": "/components/custom-button/custom-button"
+  },
   "navigationStyle": "default",
   "navigationBarTitleText": "快速设置"
 }
