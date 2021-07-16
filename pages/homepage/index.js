@@ -1,12 +1,16 @@
 // pages/homepage/index.js
-import { homePageApi, bag } from '../../api/index';
+import { homePageApi } from '../../api/index';
+
 const titles = ['乘坐线路', '喜欢我'];
 const {
   orderStatusMapFun,
   getGaoDeRoute,
+  getLocationRight,
   debounce,
   formatTime,
   uid,
+  surface,
+  isLogin,
   networkAct,
   routingConfig: { orderStatus },
 } = getApp();
@@ -18,7 +22,8 @@ Page({
     tabs: [],
     orderNums: ['', 9],
     activeTab: 0,
-    babyHeaderOpacity: 0
+    babyHeaderOpacity: 0,
+    isLogged: false,
   },
 
   /**
@@ -33,6 +38,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // getLocationRight();
+    const isLogged = isLogin();
+    this.setData({ isLogged });
     getGaoDeRoute().then((res) => {
       homePageApi.getNearList(res).then((result) => {
         console.log(result);
@@ -41,14 +49,14 @@ Page({
     });
   },
 
-  onChange ({ detail }) {
-    console.log('9999999999999', detail)
+  onChange({ detail }) {
+    console.log('9999999999999', detail);
   },
-
-  loadHandle() {
-    console.log('loadHandle')
-    this.setData({
-      babyHeaderOpacity: 1
-    })
-  }
+  login() {
+    networkAct(async () => {
+      surface(wx.reLaunch, {
+        url: '/pages/start-page/index',
+      });
+    });
+  },
 });
