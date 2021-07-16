@@ -52,7 +52,7 @@ const _refreshToken = () => {
 };
 
 class HTTP {
-  request({ url, data = {}, method = 'POST' } = {}) {
+  request({ url, data = {}, method = 'POST', header = {} } = {}) {
     const connect = () => {
       const { globalData, getUserInfo } = getApp();
       const userInfo = getUserInfo();
@@ -69,6 +69,7 @@ class HTTP {
           deviceId: '18d6cce10f64daac',
           ft: userInfo ? userInfo.ft : '',
           uid: userInfo ? userInfo.uid : '',
+          ...header,
         },
       };
       return surface(wx.request, options)

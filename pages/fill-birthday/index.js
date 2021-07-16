@@ -38,13 +38,18 @@ Page({
       });
     }
     // TODO 生日的数据类型没有确定
-    login.update_user_info({ ...this.data.userInfo, birthday: this.data.date }).then((res) => {
-      getLocationRight().then((res) => {
-        wx.switchTab({
-          url: '/pages/homepage/index',
+    login
+      .update_user_info(
+        { ...this.data.userInfo, birthday: this.data.date },
+        { 'content-type': 'application/x-www-form-urlencoded' }
+      )
+      .then((res) => {
+        getLocationRight().then((res) => {
+          wx.switchTab({
+            url: '/pages/homepage/index',
+          });
         });
       });
-    });
   },
   /**
    * 生命周期函数--监听页面加载
