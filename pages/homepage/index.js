@@ -18,6 +18,7 @@ Page({
     tabs: [],
     orderNums: ['', 9],
     activeTab: 0,
+    babyHeaderOpacity: 0
   },
 
   /**
@@ -42,5 +43,12 @@ Page({
 
   onChange ({ detail }) {
     console.log('9999999999999', detail)
+  },
+
+  loadHandle() {
+    console.log('loadHandle')
+    this.setData({
+      babyHeaderOpacity: 1
+    })
   }
 });

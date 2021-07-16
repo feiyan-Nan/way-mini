@@ -37,27 +37,57 @@
   font-size: 26rpx;
   margin-left: 13rpx;
 }
-.homepage .tab-content .sameway .box {
-  box-sizing: border-box;
+.homepage .tab-content .sameway .box .scrollbox {
   margin-top: 56rpx;
-  display: flex;
-  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  white-space: nowrap;
 }
-.homepage .tab-content .sameway .box .avatar {
+.homepage .tab-content .sameway .box .scrollbox .avatar {
   width: 139rpx;
   display: inline-flex;
+  display: inline-block;
   flex-direction: column;
   align-items: center;
+  margin-right: 30rpx;
 }
-.homepage .tab-content .sameway .box .avatar .name {
+.homepage .tab-content .sameway .box .scrollbox .avatar:last-child {
+  margin-right: 0;
+}
+.homepage .tab-content .sameway .box .scrollbox .avatar .name {
   color: #666B71;
   font-size: 22rpx;
   margin-top: 27rpx;
 }
-.homepage .tab-content .sameway .box .avatar .gender {
+.homepage .tab-content .sameway .box .scrollbox .avatar .gender {
   margin-top: 11rpx;
 }
-.test {
+.loveme {
   height: 100vh;
+  padding-top: 60rpx;
+}
+.loveme .baby {
+  width: 700rpx;
+  margin: 0 auto;
+  height: 1000rpx;
+  background-color: blue;
+}
+.loveme .baby .header {
+  width: 700rpx;
+  height: 690rpx;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  overflow: hidden;
+}
+.loveme .baby .header .header_swiper {
+  width: 700rpx;
+  height: 690rpx;
   background-color: red;
+}
+.loveme .baby .header .header_swiper .header_swiper_item > image {
+  width: 700rpx;
+  height: 690rpx;
+}
+.fadeIn {
+  transition: all 0.3s linear;
 }

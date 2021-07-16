@@ -1,34 +1,58 @@
 <!-- pages/homepage/index.wxml -->
 <view class="homepage">
   <Tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange">
-    <scroll-view class="tab-content" bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="{{isRefresh}}" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" slot="tab-content-0" scroll-top="{{scrollTop}}" scroll-with-animation>
-      <!-- <view class="no-order-content" wx:if="true">
-        <view class="no-order" wx:if="{{!isload}}">暂无订单</view>
-      </view> -->
-      <view class="sameway" wx:for="{{2}}"  wx:for-index="idx" wx:key="idx">
+    <!-- 乘坐路线模块 -->
+    <scroll-view class="tab-content" bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="{{isRefresh}}" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" slot="tab-content-1" scroll-top="{{scrollTop}}" scroll-with-animation>
+      <view class="sameway" wx:for="{{6}}"  wx:for-index="idx" wx:key="idx">
         <view class="header">
             <view class="left">
                 <VanIcon name="http://10.5.4.75:9999/subway.png" size="32rpx" />
                 <view>地铁 <text>10</text> 号线</view>
             </view>
-
             <view class="right">
-              <!-- 20人顺路<text>></text> -->
               20人顺路 <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
             </view>
         </view>
         <view class="box">
-          <view class="avatar" wx:for="{{4}}" wx:key="index">
-              <VanImage round width="139rpx" height="139rpx" lazy-load src="https://img.yzcdn.cn/vant/cat.jpeg" />
-              <view class="name">刘若英</view>
-              <view class="gender">
-                <VanIcon name="user-o" size="15px" /> 31
-              </view>
-          </view>
+          <scroll-view scroll-x class="scrollbox">
+            <view class="avatar" wx:for="{{8}}" wx:key="index">
+                <VanImage round width="139rpx" height="139rpx" lazy-load src="https://img.yzcdn.cn/vant/cat.jpeg" />
+                <view class="name">刘若英</view>
+                <view class="gender">
+                  <VanIcon name="user-o" size="15px" /> 31
+                </view>
+            </view>
+          </scroll-view>
 
         </view>
       </view>
     </scroll-view>
-    <view class="test" slot="tab-content-1">啛啛喳喳是</view>
+
+    <!-- 喜欢我模块 -->
+    <view class="loveme" slot="tab-content-0">
+        <view class="baby">
+          <view class="header">
+              <swiper class="header_swiper">
+                  <swiper-item class="header_swiper_item">
+                    <image
+                      class="fadeIn"
+                      src="https://img.yzcdn.cn/vant/cat.jpeg"
+                      mode="aspectFill"
+                      style="opacity: {{  babyHeaderOpacity }}"
+                      bind:load="loadHandle"
+                    />
+                  </swiper-item>
+
+                  <swiper-item class="header_swiper_item">
+                    <image class="fadeIn" src="https://img.yzcdn.cn/vant/cat.jpeg" mode="aspectFill" style="opacity: {{  babyHeaderOpacity }}" bind:load="loadHandle" />
+                  </swiper-item>
+              </swiper>
+          </view>
+
+          <view class="footer">
+          
+          </view>
+        </view>
+    </view>
   </Tabs>
 </view>

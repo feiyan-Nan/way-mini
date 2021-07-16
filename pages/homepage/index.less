@@ -43,24 +43,31 @@
       }
 
       .box{
-          box-sizing: border-box;
-          margin-top: 56rpx;
-          display: flex;
-          justify-content: space-between;
-          .avatar{
-            width: 139rpx;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-
-            .name {
-                color: #666B71;
-                font-size: 22rpx;
-                margin-top: 27rpx;
-            }
-
-            .gender{
-                margin-top: 11rpx;
+          .scrollbox{
+            margin-top: 56rpx;
+            box-sizing: border-box;
+            width: 100%;
+            white-space: nowrap;
+            .avatar{
+              width: 139rpx;
+              display: inline-flex;
+              display: inline-block;
+              flex-direction: column;
+              align-items: center;
+              margin-right: 30rpx;
+              &:last-child {
+                margin-right: 0;
+              }
+  
+              .name {
+                  color: #666B71;
+                  font-size: 22rpx;
+                  margin-top: 27rpx;
+              }
+  
+              .gender{
+                  margin-top: 11rpx;
+              }
             }
           }
       }
@@ -69,7 +76,36 @@
 }
 
 
-.test {
+.loveme {
   height: 100vh;
-  background-color: red;
+  padding-top: 60rpx;
+
+  .baby{
+    width: 700rpx;
+    margin: 0 auto;
+    height: 1000rpx;
+    background-color: blue;
+    .header {
+      width: 700rpx;
+      height: 690rpx;
+      border-top-left-radius: 40rpx;
+      border-top-right-radius: 40rpx;
+      overflow: hidden;
+      .header_swiper{
+        width: 700rpx;
+        height: 690rpx;
+        background-color: red;
+        .header_swiper_item {
+          >image {
+            width: 700rpx;
+            height: 690rpx;
+          }
+        }
+      }
+    }
+  }
+}
+
+.fadeIn{
+  transition: all .3s linear;
 }
