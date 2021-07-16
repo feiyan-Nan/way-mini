@@ -1,7 +1,8 @@
 .homepage {
   .tab-content {
     height: 100%;
-    background-color: aquamarine;
+    // background-color: aquamarine;
+    background-color: #00C685;
   
     .sameway {
       margin: 35rpx 25rpx 0;
@@ -81,27 +82,93 @@
 
 .loveme {
   height: 100vh;
-  padding-top: 60rpx;
-
-  .baby{
-    width: 700rpx;
-    margin: 0 auto;
-    height: 1000rpx;
-    background-color: blue;
-    .header {
+  .baby_box {
+    padding-top: 60rpx;
+    padding-bottom: 120rpx;
+    .baby{
       width: 700rpx;
-      height: 690rpx;
-      border-top-left-radius: 40rpx;
-      border-top-right-radius: 40rpx;
+      margin: 0 auto;
+      margin-bottom: 36rpx;
+      border-radius: 40px;
+      box-shadow: 0px 0px 30px 0px rgba(0,118,67,0.20);
       overflow: hidden;
-      .header_swiper{
+      padding-bottom: 48rpx;
+      .header {
         width: 700rpx;
         height: 690rpx;
-        background-color: red;
-        .header_swiper_item {
-          >image {
-            width: 700rpx;
-            height: 690rpx;
+        overflow: hidden;
+      }
+
+      .footer {
+        padding-left: 25rpx;
+        padding-top: 27rpx;
+        color: #00C584;
+        font-size: 28rpx;
+
+        .tip {
+          display: flex;
+          align-items: center;
+
+          >text {
+            margin-left: 14rpx;
+          }
+        }
+
+
+        .info {
+          display: flex;
+          font-size: 28rpx;
+          font-weight: 700;
+          color: #666b71;
+          margin-top: 43rpx;
+
+          >text {
+            // padding-right: 29rpx;
+            padding: 0 30rpx;
+            position: relative;
+            &::after {
+              content: '';
+              position: absolute;
+              right: 0;
+              top: 0;
+              bottom: 0;
+              width: 2rpx;
+              background-color: #a7a7a7;
+            }
+            &:first-child {
+              padding-left: 0;
+            }
+
+            &:last-child {
+              padding-right: 0;
+              &::after {
+                display: none;
+              }
+            }
+          }
+
+        }
+
+        .lines {
+          margin: 40rpx 60rpx 0;
+          display: flex;
+          flex-wrap: wrap;
+          .egg {
+            height: 40rpx;
+            padding: 0 23rpx;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #eee;
+            border-radius: 20rpx;
+            font-size: 24rpx;
+            font-weight: 700;
+            color: #9ca6af;
+            margin-right: 18rpx;
+            margin-top: 25rpx;
+            &:last-child {
+              margin-right: 0;
+            }
           }
         }
       }

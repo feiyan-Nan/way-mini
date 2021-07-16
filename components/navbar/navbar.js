@@ -62,7 +62,7 @@ Component({
       const statusBarHeight = wx.getSystemInfoSync().statusBarHeight;
       const pages = getCurrentPages()
       const [currPage] = pages.slice(-1)
-      const isHome = currPage.is.includes('home/index')
+      const isHome = currPage.is.includes('homepage/index')
       const showGoHome = ( pages.length == 1 ) && !isHome
       this.setData({
         isHome,
@@ -83,12 +83,11 @@ Component({
     },
     handleGoHome () {
       wx.switchTab({
-        url: '/pages/home/index'
+        url: '/pages/homepage/index'
       })
     },
     goTop () {
       const { showToast } = getApp()
-      console.log('pageScrollTo')
       wx.pageScrollTo({
         scrollTop: 0,
         duration: 400

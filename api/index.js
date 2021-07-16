@@ -10,6 +10,7 @@ import map from './map';
 import size from './size';
 import fabs from './fabs';
 import homePageApi from './homepage';
+import baby from './baby';
 module.exports = {
   login,
   mine,
@@ -23,4 +24,5 @@ module.exports = {
   size,
   fabs,
   homePageApi,
+  baby
 };

@@ -1,0 +1,236 @@
+.baby{
+    padding-bottom: 150rpx;
+    .header {
+        height: 692rpx;
+    }
+
+    .baby_detail {
+        background-color: #fff;
+        height: 100vh;
+        padding: 50rpx 45rpx 0;
+        transform: translateY(-10rpx);
+        border-top-left-radius: 20rpx;
+        border-top-right-radius: 20rpx;
+        .name_and_age {
+
+        }
+
+        .name {
+            font-size: 48rpx;
+            font-weight: 700;
+            color: #151515;
+        }
+
+        .desc {
+            font-size: 25rpx;
+            font-weight: 400;
+            color: #808080;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            >text {
+                padding-right: 10rpx;
+                position: relative;
+                margin-left: 10rpx;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    padding-right: 0;
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    width: 1rpx;
+                    background-color: #808080;
+                    height: 25rpx;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+        
+        .nav{
+            margin-top: 40rpx;
+            display: flex;
+            align-items: center;
+            font-size: 32rpx;
+            font-weight: 500;
+            color: #a7a7a7;
+
+            .nav_item{
+                &:nth-child(even) {
+                    margin-left: 64rpx;
+                }
+                &.active {
+                    font-size: 44rpx;
+                    font-weight: 500;
+                    color: #151515;
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 50%;
+                        bottom: -16rpx;
+                        width: 20rpx;
+                        height: 8rpx;
+                        background: #151515;
+                        border-radius: 6rpx;
+                        transform: translateX(-50%);
+                    }
+                }
+            }
+        }
+
+        .detail_box {
+            margin-top: 70rpx;
+
+            .li {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                font-weight: 500;
+                color: #151515;
+                font-size: 28rpx;
+                margin-top: 34rpx;
+                color: #808080;
+                &:first-of-type {
+                    margin-top: 0;
+                }
+                >view {
+                    line-height: 1;
+                }
+
+                .item {
+                    margin-left: 25rpx;
+                    line-height: 40rpx;
+                    font-weight: normal;
+                    >text {
+                        padding-right: 15rpx;
+                        position: relative;
+                        line-height: 1;
+                        &:nth-child(even) {
+                            margin-left: 25rpx;
+                        }
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            top: 50%;
+                            height: 28rpx;
+                            transform: translateY(-50%);
+                            width: 2rpx;
+                            background-color: #808080;
+                        }
+                        &:last-child {
+                            &::after {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    .capsule {
+                        // display: inline-block;
+                        height: 42rpx;
+                        font-size: 24rpx;
+                        font-weight: 400;
+                        color: #fff;
+                        display: inline-flex;
+                        align-items: center;
+                        padding: 0 22rpx;
+                        background: #ff4545;
+                        border-radius: 22rpx;
+                        margin-left: 32rpx;
+                        &:first-child {
+                            margin-left: 0 !important;
+                        }
+
+                    }
+                    .blue {
+                        background: #30AEFF !important;
+                        color: #fff;
+                    }
+                }
+
+                .title {
+                    color: #151515 !important;
+                    font-size: 32rpx !important;
+                    font-weight: 500 !important;
+                }
+            }
+        }
+    }
+
+    .fix_btns {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 72rpx;
+        height: 156rpx;
+        // background-color: aquamarine;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+
+.tip_box {
+    width: 540rpx;
+    height: 620rpx;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10rpx;
+    padding-top: 93rpx;
+    text-align: center;
+
+    .header{
+        height: 100rpx;
+        >image {
+            height: 100rpx;
+        }
+    }
+
+    .title {
+        font-size: 36rpx;
+        font-weight: 700;
+        color: #151515;
+        margin-top: 30rpx;
+    }
+
+    .tip {
+        font-size: 30rpx;
+        font-weight: 700;
+        color: #a7a7a7;
+        margin-top: 25rpx;
+    }
+
+    .btn {
+        width: 235rpx;
+        height: 64rpx;
+        background: linear-gradient(0deg,#00c184 0%, #00e871 100%);
+        border-radius: 32rpx;
+        font-size: 30rpx;
+        font-weight: 700;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 80rpx;
+    }
+
+    .cancel {
+        font-size: 28rpx;
+        font-weight: 700;
+        color: #00c584;
+        margin-top: 74rpx;
+    }
+}

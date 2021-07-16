@@ -1,0 +1,3 @@
+<view class="pub_mask"  hidden="{{  hidden }}">
+    <slot></slot>
+</view>

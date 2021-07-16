@@ -71,5 +71,13 @@ Page({
         nearList: res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length }))
       })
     }
+  },
+
+  toBabyPage ({ mark }) {
+    networkAct(async () => {
+      surface(wx.navigateTo, {
+        url: '/pages/baby/index?id=' + mark.id,
+      });
+    });
   }
 });

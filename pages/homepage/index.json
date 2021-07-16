@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "Tabs": "/components/tabs/index",
-    "NoLogin": "./components/NoLogin/index"
+    "NoLogin": "./components/NoLogin/index",
+    "CustomHeader": "/components/custom_header/index"
   }
 }

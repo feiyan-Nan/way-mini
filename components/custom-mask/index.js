@@ -5,7 +5,7 @@ Component({
     animationData: {},
     style: '',
     shows: {
-      all: false,
+      all: true,
     },
     isshow: ''
   },

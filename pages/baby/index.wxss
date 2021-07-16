@@ -1,0 +1,208 @@
+.baby {
+  padding-bottom: 150rpx;
+}
+.baby .header {
+  height: 692rpx;
+}
+.baby .baby_detail {
+  background-color: #fff;
+  height: 100vh;
+  padding: 50rpx 45rpx 0;
+  transform: translateY(-10rpx);
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.baby .baby_detail .name {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #151515;
+}
+.baby .baby_detail .desc {
+  font-size: 25rpx;
+  font-weight: 400;
+  color: #808080;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.baby .baby_detail .desc > text {
+  padding-right: 10rpx;
+  position: relative;
+  margin-left: 10rpx;
+}
+.baby .baby_detail .desc > text:first-child {
+  margin-left: 0;
+}
+.baby .baby_detail .desc > text:last-child {
+  padding-right: 0;
+}
+.baby .baby_detail .desc > text:last-child::after {
+  display: none;
+}
+.baby .baby_detail .desc > text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 1rpx;
+  background-color: #808080;
+  height: 25rpx;
+  transform: translateY(-50%);
+}
+.baby .baby_detail .nav {
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #a7a7a7;
+}
+.baby .baby_detail .nav .nav_item:nth-child(even) {
+  margin-left: 64rpx;
+}
+.baby .baby_detail .nav .nav_item.active {
+  font-size: 44rpx;
+  font-weight: 500;
+  color: #151515;
+  position: relative;
+}
+.baby .baby_detail .nav .nav_item.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -16rpx;
+  width: 20rpx;
+  height: 8rpx;
+  background: #151515;
+  border-radius: 6rpx;
+  transform: translateX(-50%);
+}
+.baby .baby_detail .detail_box {
+  margin-top: 70rpx;
+}
+.baby .baby_detail .detail_box .li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-weight: 500;
+  color: #151515;
+  font-size: 28rpx;
+  margin-top: 34rpx;
+  color: #808080;
+}
+.baby .baby_detail .detail_box .li:first-of-type {
+  margin-top: 0;
+}
+.baby .baby_detail .detail_box .li > view {
+  line-height: 1;
+}
+.baby .baby_detail .detail_box .li .item {
+  margin-left: 25rpx;
+  line-height: 40rpx;
+  font-weight: normal;
+}
+.baby .baby_detail .detail_box .li .item > text {
+  padding-right: 15rpx;
+  position: relative;
+  line-height: 1;
+}
+.baby .baby_detail .detail_box .li .item > text:nth-child(even) {
+  margin-left: 25rpx;
+}
+.baby .baby_detail .detail_box .li .item > text::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  height: 28rpx;
+  transform: translateY(-50%);
+  width: 2rpx;
+  background-color: #808080;
+}
+.baby .baby_detail .detail_box .li .item > text:last-child::after {
+  display: none;
+}
+.baby .baby_detail .detail_box .li .item .capsule {
+  height: 42rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 22rpx;
+  background: #ff4545;
+  border-radius: 22rpx;
+  margin-left: 32rpx;
+}
+.baby .baby_detail .detail_box .li .item .capsule:first-child {
+  margin-left: 0 !important;
+}
+.baby .baby_detail .detail_box .li .item .blue {
+  background: #30AEFF !important;
+  color: #fff;
+}
+.baby .baby_detail .detail_box .li .title {
+  color: #151515 !important;
+  font-size: 32rpx !important;
+  font-weight: 500 !important;
+}
+.baby .fix_btns {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 72rpx;
+  height: 156rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.tip_box {
+  width: 540rpx;
+  height: 620rpx;
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10rpx;
+  padding-top: 93rpx;
+  text-align: center;
+}
+.tip_box .header {
+  height: 100rpx;
+}
+.tip_box .header > image {
+  height: 100rpx;
+}
+.tip_box .title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #151515;
+  margin-top: 30rpx;
+}
+.tip_box .tip {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #a7a7a7;
+  margin-top: 25rpx;
+}
+.tip_box .btn {
+  width: 235rpx;
+  height: 64rpx;
+  background: linear-gradient(0deg, #00c184 0%, #00e871 100%);
+  border-radius: 32rpx;
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 80rpx;
+}
+.tip_box .cancel {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #00c584;
+  margin-top: 74rpx;
+}

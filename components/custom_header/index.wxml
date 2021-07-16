@@ -1,0 +1,55 @@
+<view class="custom_header">
+    <view class="bg_img">
+        <image src="{{ bigImg }}" mode="widthFix" />
+    </view>
+
+    <block wx:if="{{ pure }}">
+        <view class="baby_info">
+            <view class="avatar">
+                <VanImage src="{{  tmpImg }}" round width="80rpx" height="80rpx" />
+            </view>
+    
+            <view class="info">
+                <view class="name">Anna</view>
+                <view class="gender">
+                    <text>女</text>
+                    <text>31岁</text>
+                </view>
+            </view>
+        </view>
+    
+        <view class="warning">擦肩1次</view>
+    </block>
+
+
+    <view class="nav">
+        <!-- <view class="scroll_bar_l"></view> -->
+
+        <scroll-view class="scroll_view"  scroll-x scroll-with-animation>
+            <view id="{{ item.id }}" class="scroll_item {{  _activeNum == index ? 'active' : '' }}" wx:for="{{  _images }}" wx:key="index">
+                <image src="{{  item.src }}" mode="heightFix" bind:tap="changeNum" mark:num="{{ index }}" />
+            </view>
+
+            <!-- <view class="scroll_item  active">
+                <image src="{{  tmpImg }}" mode="widthFix" />
+            </view>
+
+            <view class="scroll_item">
+                <image src="{{  tmpImg }}" mode="widthFix" />
+            </view>
+
+            <view class="scroll_item">
+                <image src="{{  tmpImg }}" mode="widthFix" />
+            </view>
+
+             <view class="scroll_item">
+                <image src="{{  tmpImg }}" mode="widthFix" />
+            </view> -->
+        </scroll-view>
+    </view>
+
+    <view class="btns" wx:if="{{ pure }}">
+        <view class="sofa">l</view>
+        <view class="sofa">r</view>
+    </view>
+</view>

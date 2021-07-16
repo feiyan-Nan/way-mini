@@ -1,0 +1,2 @@
+
+<VanIcon size="{{  _size }}" name="{{ _name }}" />

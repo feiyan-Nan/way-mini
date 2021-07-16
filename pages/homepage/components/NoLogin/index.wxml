@@ -1,0 +1,6 @@
+<view class="no_login">
+        <image src="../../../../assets/images/homepage/shunlu-heart.png" class="logo" mode="widthFix" />
+        <view class="tip">您还未登录</view>
+        <view class="sub_tip">请先登录再进行操作</view>
+        <view class="login" bind:tap="login">现在登录</view>
+</view>

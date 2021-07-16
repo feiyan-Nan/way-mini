@@ -39,7 +39,8 @@
     "pages/rules/index",
     "pages/fill-birthday/index",
     "pages/homepage/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/baby/index"
   ],
   "usingComponents": {
     "navbar": "/components/navbar/navbar",
