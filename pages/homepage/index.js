@@ -24,6 +24,7 @@ Page({
     activeTab: 0,
     babyHeaderOpacity: 0,
     isLogged: false,
+    nearList: []
   },
 
   /**
@@ -37,16 +38,11 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    // getLocationRight();
+  onShow() {
     const isLogged = isLogin();
     this.setData({ isLogged });
-    getGaoDeRoute().then((res) => {
-      homePageApi.getNearList(res).then((result) => {
-        console.log(result);
-      });
-      console.log('666', res);
-    });
+
+    this.getNearList()
   },
 
   onChange({ detail }) {
@@ -59,4 +55,21 @@ Page({
       });
     });
   },
+
+
+  /*
+    获取附近的路线信息
+  */
+  async getNearList () {
+    wx.showLoading()
+    const route = await getGaoDeRoute()
+    const res = await homePageApi.getNearList(route)
+    wx.hideLoading()
+    console.log('res---------', res)
+    if (res.c == 0) {
+      this.setData({
+        nearList: res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length }))
+      })
+    }
+  }
 });

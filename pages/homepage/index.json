@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "Tabs": "/components/tabs/index"
+    "Tabs": "/components/tabs/index",
+    "NoLogin": "./components/NoLogin/index"
   }
 }
