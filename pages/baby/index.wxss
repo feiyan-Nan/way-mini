@@ -132,10 +132,11 @@
   padding: 0 22rpx;
   background: #ff4545;
   border-radius: 22rpx;
-  margin-left: 32rpx;
+  margin-bottom: 20rpx;
+  margin-right: 32rpx;
 }
-.baby .baby_detail .detail_box .li .item .capsule:first-child {
-  margin-left: 0 !important;
+.baby .baby_detail .detail_box .li .item .capsule:last-child {
+  margin-right: 0 !important;
 }
 .baby .baby_detail .detail_box .li .item .blue {
   background: #30AEFF !important;

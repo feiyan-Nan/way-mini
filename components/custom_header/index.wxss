@@ -68,6 +68,7 @@
   width: 296rpx;
   height: 109rpx;
   white-space: nowrap;
+  display: block;
 }
 .custom_header .nav .scroll_view .scroll_item {
   width: 90rpx;

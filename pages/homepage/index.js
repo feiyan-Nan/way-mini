@@ -33,6 +33,7 @@ Page({
   onLoad: function (options) {
     const tabs = titles.map((item) => ({ title: item }));
     this.setData({ tabs });
+    this.getNearList()
   },
 
   /**
@@ -41,8 +42,6 @@ Page({
   onShow() {
     const isLogged = isLogin();
     this.setData({ isLogged });
-
-    this.getNearList()
   },
 
   onChange({ detail }) {

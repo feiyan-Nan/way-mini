@@ -2,6 +2,8 @@ const computedBehavior = require('miniprogram-computed')
 
 import { baby } from '../../api/index';
 
+const { showToast } = getApp()
+
 
 Page({
 
@@ -43,6 +45,9 @@ Page({
 
   closeMask () {
     this.selectComponent('.pubmask').toggle()
+  },
+  goDown () {
+    showToast('下载逻辑')
   },
 
   changeNav(e) {

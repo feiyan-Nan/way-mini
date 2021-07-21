@@ -25,26 +25,10 @@
     <view class="nav">
         <!-- <view class="scroll_bar_l"></view> -->
 
-        <scroll-view class="scroll_view"  scroll-x scroll-with-animation>
+        <scroll-view id="scroll_view" class="scroll_view"  scroll-left="{{  _scrollLeft }}"  scroll-x scroll-with-animation>
             <view id="{{ item.id }}" class="scroll_item {{  _activeNum == index ? 'active' : '' }}" wx:for="{{  _images }}" wx:key="index">
                 <image src="{{  item.src }}" mode="heightFix" bind:tap="changeNum" mark:num="{{ index }}" />
             </view>
-
-            <!-- <view class="scroll_item  active">
-                <image src="{{  tmpImg }}" mode="widthFix" />
-            </view>
-
-            <view class="scroll_item">
-                <image src="{{  tmpImg }}" mode="widthFix" />
-            </view>
-
-            <view class="scroll_item">
-                <image src="{{  tmpImg }}" mode="widthFix" />
-            </view>
-
-             <view class="scroll_item">
-                <image src="{{  tmpImg }}" mode="widthFix" />
-            </view> -->
         </scroll-view>
     </view>
 

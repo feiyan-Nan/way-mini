@@ -27,14 +27,13 @@ Component({
    * 组件的初始数据
    */
   data: {
-    // tmpImg: 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
     _activeNum: 0,
-    _images: []
+    _images: [],
+    _scrollLeft: 0
   },
   computed: {
     bigImg(data) {
       const { _activeNum, _images } = data
-      console.log('_images[_activeNum]', _images[_activeNum])
       return _images[_activeNum] ? _images[_activeNum].src : ''
     }
   },
@@ -45,18 +44,33 @@ Component({
       this.setData({
         _activeNum,
         _images: _images.map(src => Object.assign({ id: 'id' + Math.random().toString(36).substr(-10), src }))
-      }, () => {
-        console.log('_images', this.data._images)
       })
-    }
+    },
   },
 
   methods: {
     changeNum ({ mark }) {
-      console.log('mark', mark)
-      this.setData({
-        _activeNum: mark.num
-      })
+      this.moveAndActive(mark.num)
+    },
+
+    moveAndActive (index) {
+      const { _images } = this.data
+      this.createSelectorQuery()
+        .select('.scroll_view')
+        .boundingClientRect()
+        .select('.scroll_view')
+        .scrollOffset()
+        .select(`#${_images[index].id}`)
+        .boundingClientRect()
+        .exec(res => {
+          const [ { width: boxWidth }, { scrollLeft }, { width: itemWidth, left: itemLeft } ] = res
+          const half = ( boxWidth - itemWidth ) * 0.5
+          const target = scrollLeft + itemLeft - half
+          this.setData({
+            _scrollLeft: target,
+            _activeNum: index
+          })
+        })
     }
   }
 })

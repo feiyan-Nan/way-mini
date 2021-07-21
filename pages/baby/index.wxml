@@ -6,19 +6,7 @@
     <view class="baby_detail">
         <view class="name">{{  userInfoDTO.name }}</view>
         <view class="desc">
-
             <text wx:for="{{    userInfoDTO.userJobTagDTO.jobList }}" wx:key="index">{{ item }}</text>
-
-
-
-
-            <!-- <text>媒体广告</text>
-            <text>编导</text>
-            <text>编导</text>
-            <text>编导</text>
-            <text>编导</text>
-            <text>编导</text>
-            <text>编导</text> -->
         </view>
         <view class="nav">
             <view class="nav_item  active" bind:tap="changeNav">资料</view>
@@ -42,33 +30,33 @@
                     <CustomIcon name='rule' size='34' />
                 </view>
                 <view class="item">
-                    <text>175cm</text>
-                    <text>48kg</text>
+                    <text>{{ userInfoDTO.height }}</text>
+                    <text>{{ userInfoDTO.weight }}</text>
                 </view>
             </view>
             <view class="li">
                 <view>
                     <CustomIcon name='edit' size='34' />
                 </view>
-                <view class="item">我没有个性何来的签名，在人生的道路上有你有 我也有爱</view>
+                <view class="item">{{ userInfoDTO.signature }}</view>
             </view>
             <view class="li">
                 <view>
                     <CustomIcon name='home' size='34' />
                 </view>
-                <view class="item">北京市  海淀区   西二旗</view>
+                <view class="item">{{ userInfoDTO.home }}</view>
             </view>
             <view class="li">
                 <view>
                     <CustomIcon name='house' size='34' />
                 </view>
-                <view class="item">南开大学</view>
+                <view class="item">{{ userInfoDTO.school }}</view>
             </view>
             <view class="li">
                 <view>
                     <CustomIcon name='school' size='34' />
                 </view>
-                <view class="item">本科</view>
+                <view class="item">{{ userInfoDTO.education }}</view>
             </view>
             <view class="li">
                 <view>
@@ -81,9 +69,9 @@
             </view>
             <view class="li">
                 <view class="item" style="margin-left: 0;">
-                    <view class="capsule">吃货</view>
-                    <view class="capsule">暖数码控</view>
-                    <view class="capsule">吃货</view>
+                    <view class="capsule" wx:for="{{userInfoDTO.myTagsList}}" wx:key="index">{{ item }}</view>
+                    <!-- <view class="capsule">暖数码控</view>
+                    <view class="capsule">吃货</view> -->
                 </view>
             </view>
             <view class="li">
@@ -91,14 +79,14 @@
             </view>
             <view class="li">
                 <view class="item" style="margin-left: 0;">
-                    <view class="capsule blue">吃货</view>
-                    <view class="capsule blue">暖数码控</view>
-                    <view class="capsule blue">吃货</view>
+                    <view class="capsule blue" wx:for="{{ userInfoDTO.hobbyTagsList }}" wx:key="index">{{ item }}</view>
+                    <!-- <view class="capsule blue">暖数码控</view>
+                    <view class="capsule blue">吃货</view> -->
                 </view>
             </view>
         </view>
     </view>
-    <view class="fix_btns">
+    <view class="fix_btns" bind:tap="openMask">
         <view class="btn">
             <CustomIcon name='hi' size='156' />
         </view>
@@ -117,7 +105,7 @@
         </view>
         <view class="title">现在下载我顺路app</view>
         <view class="tip">开启你们的聊天之旅</view>
-        <view class="btn">下载我顺路</view>
+        <view class="btn" bind:tap="goDown">下载我顺路</view>
         <view class="cancel" bind:tap="closeMask">好的，我知道了</view>
     </view>
 </PubMask>
