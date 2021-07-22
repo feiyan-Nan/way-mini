@@ -11,4 +11,5 @@ export default new Map([
     ['hi', '../../../../assets/images/icons/icon_hi.png'],
     ['chart', '../../../../assets/images/icons/icon_chart.png'],
     ['ido', '../../../../assets/images/icons/icon_ido.png'],
+    ['subway', '../../../../assets/images/icons/icon_subway.png'],
 ])

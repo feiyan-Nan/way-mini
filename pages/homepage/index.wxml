@@ -3,10 +3,10 @@
   <Tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange">
     <!-- 乘坐路线模块 -->
     <scroll-view slot="tab-content-0" class="tab-content" bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="{{isRefresh}}" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation>
-      <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx">
+      <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx" mark:info="{{item}}" bind:tap="showDetail">
           <view class="header">
             <view class="left">
-              <VanIcon name="http://10.5.4.75:9999/subway.png" size="32rpx"/>
+              <CustomIcon name="subway" size="32" />
               <!-- <view>地铁 <text>10</text> 号线 </view> -->
               <view> {{ item.lineNo }} </view>
               <view class="right">
@@ -20,7 +20,7 @@
                   wx:for="{{ item.userEachNearLineRespVos }}"
                   wx:for-item="i" wx:key="index"
                   mark:id="{{ i.id }}"
-                  bind:tap="toBabyPage">
+                >
                   <VanImage round width="139rpx" height="139rpx" lazy-load src="{{ i.avatar }}" />
                   <view class="name">{{ i.name }}</view>
                   <view class="gender">
@@ -98,4 +98,39 @@
     </scroll-view>
 
   </Tabs>
+
+  <PubMask class="pubmask">
+    <view class="pub_mask_box">
+
+        <view class="section">
+          <view class="chart">
+            <view class="chart_title">586线路</view>
+            <view class="charts">
+              <view>
+                <CanvasRing class="canvasRing1" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+              </view>
+
+              <view>
+                <CanvasRing class="canvasRing2" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+              </view>
+
+              <view>
+                <CanvasRing class="canvasRing3" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+              </view>
+
+              <view>
+                <CanvasRing class="canvasRing4" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+              </view>
+
+            </view>
+          </view>
+          <scroll-view class="scroll_view">
+            
+            <!-- <view>
+                <CanvasRing  id="canvasRing" value="{{30}}" />
+            </view> -->
+          </scroll-view>
+        </view>
+    </view>
+  </PubMask>
 </view>

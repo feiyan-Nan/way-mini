@@ -24,7 +24,8 @@ Page({
     activeTab: 0,
     babyHeaderOpacity: 0,
     isLogged: false,
-    nearList: []
+    nearList: [],
+    _rate: 60
   },
 
   /**
@@ -34,6 +35,8 @@ Page({
     const tabs = titles.map((item) => ({ title: item }));
     this.setData({ tabs });
     this.getNearList()
+    this.selectComponent('.pubmask').show()
+    this.showCanvasRing()
   },
 
   /**
@@ -53,6 +56,15 @@ Page({
         url: '/pages/start-page/index',
       });
     });
+  },
+
+  showDetail ({ mark }) {
+    console.log('mark', mark)
+    this.selectComponent('.pubmask').show()
+  },
+
+  openMask () {
+    this.selectComponent('.pubmask').show()
   },
 
 
@@ -78,5 +90,12 @@ Page({
         url: '/pages/baby/index?id=' + mark.id,
       });
     });
+  },
+
+  showCanvasRing () {
+    this.selectComponent(".canvasRing1").showCanvasRing()
+    this.selectComponent(".canvasRing2").showCanvasRing()
+    this.selectComponent(".canvasRing3").showCanvasRing()
+    this.selectComponent(".canvasRing4").showCanvasRing()
   }
 });

@@ -1,7 +1,6 @@
 {
   "usingComponents": {
     "CustomHeader": "/components/custom_header/index",
-    "PubMask": "/components/pub_mask/index",
-    "CustomIcon": "/components/custom-icon/index"
+    "PubMask": "/components/pub_mask/index"
   }
 }
