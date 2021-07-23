@@ -1,17 +1,20 @@
-import { HTTP } from "../utils/new_http.js"
+import { HTTP } from '../utils/new_http.js';
 
 class Mine extends HTTP {
   // 获取商品列表
   get_user_info(data) {
     return this.request({
-      url: "/mini/user/get_user_info",
+      url: '/user/basicInfo',
       data,
-    })
+      method: 'GET',
+    });
   }
-  get_user_back () {
+
+  get_user_back() {
     return this.request({
-      url:'/mini/user/get_user_back'
-    })
+      url: '/mini/user/get_user_back',
+    });
   }
 }
-export default new Mine()
+
+export default new Mine();

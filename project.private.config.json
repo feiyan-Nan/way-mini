@@ -220,6 +220,12 @@
           "pathName": "pages/baby/index",
           "query": "id=7052",
           "scene": null
+        },
+        {
+          "name": "pages/register-select-route/index",
+          "pathName": "pages/register-select-route/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

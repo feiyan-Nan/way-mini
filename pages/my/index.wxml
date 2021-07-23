@@ -1,24 +1,25 @@
 <view>
   <view class="avator-username">
     <view class="avator">
-      <image src="../../assets/images/my/profile.png"/>
+      <image class="has-avatar" wx:if="{{avatar}}" src="{{avatar}}"/>
+      <image wx:else src="../../assets/images/my/profile.png"/>
     </view>
     <view class="username-edit">
-      <view class="nickname">昵称</view>
+      <view class="nickname">{{name ? name: '昵称'}}</view>
       <view class="edit">查看/编辑资料</view>
     </view>
   </view>
   <view class="digital">
     <view class="item">
-      <view class="number">0</view>
+      <view class="number">{{friendNum}}</view>
       <view class="item-name">路友</view>
     </view>
     <view class="item">
-      <view class="number">34</view>
+      <view class="number">{{callNum}}</view>
       <view class="item-name">我想顺路</view>
     </view>
     <view class="item">
-      <view class="number">454</view>
+      <view class="number">{{calledNum}}</view>
       <view class="item-name">想和我顺路</view>
     </view>
   </view>

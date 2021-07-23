@@ -6,32 +6,44 @@ Page({
   data: {
     userInfo: null,
     backSrc: null,
-    waitPayOrderNum: 0,
-    waitReceivingGoodsNum: 0,
+    friendNum: 0,
+    callNum: 0,
+    calledNum: 0,
     isLogged: false,
     avatar: null,
     name: null,
     isShow: false,
-    opacity: 0,
   },
   onLoad(options) {
-    this.init();
+    // const isLogged = isLogin();
+    // if()
+    // this.init();
   },
   async onShow() {
     console.log('this.data', this.data);
     const userInfo = getUserInfo();
     const isLogged = isLogin();
-    this.setData({ userInfo, isLogged });
-    this.getOrderNum();
+    // this.setData({ userInfo, isLogged });
+    // this.getOrderNum();
     if (isLogged) {
-      const { uid } = userInfo;
-      this.setData({ isShow: false });
-      const info = await mine.get_user_info({ uid });
-      if (info.code == 2000) {
-        const { avatar, name } = info.data;
-        this.setData({ avatar, name });
-      }
+      // const { uid } = userInfo;
+      // this.setData({ isShow: false });
+      const {
+        d: { userInfoDTO },
+      } = await mine.get_user_info();
+      console.log(userInfoDTO);
+      const { avatar, name, friendNum, callNum, calledNum } = userInfoDTO;
+      this.setData({ avatar, name, friendNum, callNum, calledNum });
+      // console.log(info);
+      // if (info.code == 2000) {
+      //   const { avatar, name } = info.data;
+      //   this.setData({ avatar, name });
+      // }
       this.setData({ isShow: true });
+    } else {
+      wx.navigateTo({
+        url: '/pages/start-page/index',
+      });
     }
   },
   init() {
@@ -163,8 +175,9 @@ Page({
   },
   onShareAppMessage() {
     return {
-      title: '邀好友顺路',
+      title: '想不想知道今天谁和你顺路？',
       path: '/pages/homepage/index',
+      imageUrl: 'https://oss.guangmangapp.com/101a33e3-bb58-490d-b949-eac28ce32a2e.png',
     };
   },
 });

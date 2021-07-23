@@ -40,7 +40,8 @@
     "pages/fill-birthday/index",
     "pages/homepage/index",
     "pages/my/index",
-    "pages/baby/index"
+    "pages/baby/index",
+    "pages/register-select-route/index"
   ],
   "usingComponents": {
     "navbar": "/components/navbar/navbar",
