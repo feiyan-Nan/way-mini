@@ -1,3 +1,4 @@
 <view class="pub_mask"  hidden="{{  hidden }}">
+    <view class="bg" bind:tap="tapBg"></view>
     <slot></slot>
 </view>

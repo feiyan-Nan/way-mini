@@ -25,7 +25,9 @@ Page({
     babyHeaderOpacity: 0,
     isLogged: false,
     nearList: [],
-    _rate: 60
+    _rate: 60,
+    _currInfo: null,
+    _isShowBtn: false
   },
 
   /**
@@ -35,8 +37,14 @@ Page({
     const tabs = titles.map((item) => ({ title: item }));
     this.setData({ tabs });
     this.getNearList()
-    this.selectComponent('.pubmask').show()
+    // this.selectComponent('.pubmask').show()
     this.showCanvasRing()
+
+    this.watchSite()
+    /*
+      获取喜欢我的详情
+    */
+    this.getLoveMeDetail()
   },
 
   /**
@@ -45,6 +53,11 @@ Page({
   onShow() {
     const isLogged = isLogin();
     this.setData({ isLogged });
+  },
+
+  async getLoveMeDetail () {
+    const res = homePageApi.getLoveMe({ type: 0, currentPage: 1 })
+    console.log('res---------', res)
   },
 
   onChange({ detail }) {
@@ -60,6 +73,11 @@ Page({
 
   showDetail ({ mark }) {
     console.log('mark', mark)
+    const { info: _currInfo } = mark
+    this._currInfo = mark.info
+    this.setData({
+      _currInfo
+    })
     this.selectComponent('.pubmask').show()
   },
 
@@ -85,6 +103,7 @@ Page({
   },
 
   toBabyPage ({ mark }) {
+    console.log(',ark', mark)
     networkAct(async () => {
       surface(wx.navigateTo, {
         url: '/pages/baby/index?id=' + mark.id,
@@ -97,5 +116,14 @@ Page({
     this.selectComponent(".canvasRing2").showCanvasRing()
     this.selectComponent(".canvasRing3").showCanvasRing()
     this.selectComponent(".canvasRing4").showCanvasRing()
+  },
+
+  watchSite () {
+    wx.createIntersectionObserver().relativeToViewport().observe('.site', res => {
+      console.log('res', res)
+      this.setData({
+        _isShowBtn: res.intersectionRatio
+      })
+    })
   }
 });

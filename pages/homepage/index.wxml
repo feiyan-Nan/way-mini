@@ -104,31 +104,45 @@
 
         <view class="section">
           <view class="chart">
-            <view class="chart_title">586线路</view>
+            <view class="chart_title">{{ _currInfo.lineNo }}</view>
             <view class="charts">
               <view>
                 <CanvasRing class="canvasRing1" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+                本科以上
               </view>
 
               <view>
                 <CanvasRing class="canvasRing2" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+                小哥哥
               </view>
 
               <view>
                 <CanvasRing class="canvasRing3" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+                90后
               </view>
 
               <view>
                 <CanvasRing class="canvasRing4" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
+                色狼
               </view>
 
             </view>
           </view>
-          <scroll-view class="scroll_view">
+          <scroll-view class="scroll_view" scroll-y>
             
-            <!-- <view>
-                <CanvasRing  id="canvasRing" value="{{30}}" />
-            </view> -->
+            <view class="scroll_item" wx:for="{{ _currInfo.userEachNearLineRespVos }}" wx:key="index">
+              <view class="bg" bind:tap="toBabyPage"  mark:id="{{item.id}}">
+                <image src="{{item.avatar}}" mode="heightFix" />
+              </view>
+              <view class="icon">
+                <CustomIcon class="icon_left" name="close" size="68" />
+                <CustomIcon class="icon_right" name="red_hart" size="68" />
+              </view>
+            </view>
+            <view class="site"></view>
+
+            <view class="btn" wx:if="{{ _isShowBtn }}">发现更多顺路的人</view>
+
           </scroll-view>
         </view>
     </view>

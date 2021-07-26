@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    closable: {
+      type: Boolean,
+      value: true
+    }
   },
 
   /**
@@ -28,6 +31,11 @@ Component({
       this.setData({
         hidden: true
       })
+    },
+
+    tapBg() {
+      this.triggerEvent('tapBg')
+      this.properties.closable && this.hide()
     },
 
     toggle () {

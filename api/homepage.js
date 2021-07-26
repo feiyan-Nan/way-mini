@@ -14,6 +14,15 @@ class HomePage extends HTTP {
       data,
     });
   }
+
+  getLoveMe (data) {
+    return this.request({
+      // url: '/concernPeople/list?type=0&currentPage=1',
+      url: '/concernPeople/list',
+      data,
+      method: 'GET'
+    })
+  }
 }
 
 const homePage = new HomePage();

@@ -76,16 +76,20 @@
   border-top-left-radius: 25rpx;
   border-top-right-radius: 25rpx;
   overflow: hidden;
+  background-color: #fff;
 }
 .homepage .pubmask .pub_mask_box .section {
   height: 100%;
   color: #FFF;
+  background-color: #00C584;
 }
 .homepage .pubmask .pub_mask_box .section .chart {
-  height: 280rpx;
+  text-align: center;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
+  font-size: 24rpx;
+  font-weight: 500;
 }
 .homepage .pubmask .pub_mask_box .section .chart::after {
   content: '';
@@ -110,11 +114,74 @@
   align-items: center;
 }
 .homepage .pubmask .pub_mask_box .section .scroll_view {
-  height: calc(100% - 280rpx);
-  color: #ffffff;
-  background-color: #00C685;
-  background-color: pink;
-  padding-top: 56rpx;
+  height: calc(80vh - 400rpx);
+  color: #fff;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  background-color: #fff;
+  padding: 56rpx 30rpx 0rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .btn {
+  position: fixed;
+  width: 624rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  left: 50%;
+  bottom: 14rpx;
+  background: #151515;
+  font-size: 36rpx;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+  border-radius: 50rpx;
+  transform: translateX(-50%);
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .scroll_item {
+  width: 330rpx;
+  height: 330rpx;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-bottom: 30rpx;
+  background-color: aqua;
+  position: relative;
+  border-radius: 25rpx;
+  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 85%);
+  overflow: hidden;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .scroll_item:nth-child(even) {
+  margin-left: 30rpx;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .scroll_item .bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .scroll_item .bg > image {
+  height: 100%;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .scroll_item .icon {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40rpx;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .scroll_item .icon > view {
+  width: 68rpx;
+  height: 68rpx;
+}
+.homepage .pubmask .pub_mask_box .section .scroll_view .site {
+  height: 100rpx;
 }
 .loveme {
   height: 100vh;
