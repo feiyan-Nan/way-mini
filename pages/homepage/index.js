@@ -20,14 +20,16 @@ Page({
    */
   data: {
     tabs: [],
-    orderNums: ['', 9],
+    orderNums: ['', ''],
     activeTab: 0,
     babyHeaderOpacity: 0,
     isLogged: false,
     nearList: [],
     _rate: 60,
     _currInfo: null,
-    _isShowBtn: false
+    _isShowBtn: false,
+    _route: null,
+    _isShowMask: false
   },
 
   /**
@@ -37,14 +39,6 @@ Page({
     const tabs = titles.map((item) => ({ title: item }));
     this.setData({ tabs });
     this.getNearList()
-    // this.selectComponent('.pubmask').show()
-    this.showCanvasRing()
-
-    this.watchSite()
-    /*
-      获取喜欢我的详情
-    */
-    this.getLoveMeDetail()
   },
 
   /**
@@ -55,14 +49,24 @@ Page({
     this.setData({ isLogged });
   },
 
+  /*
+    获取喜欢我的详情
+  */
   async getLoveMeDetail () {
-    const res = homePageApi.getLoveMe({ type: 0, currentPage: 1 })
-    console.log('res---------', res)
+    const res = await homePageApi.getLoveMe({ type: 0, currentPage: 1 })
+    // console.log('res---------', res)
+    const { c, d } = res
+    if (c == 0) {
+      this.setData({
+        orderNums: ['', d.concernPeopleList.length]
+      })
+    }
   },
 
   onChange({ detail }) {
-    console.log('9999999999999', detail);
+    this.getLoveMeDetail()
   },
+
   login() {
     networkAct(async () => {
       surface(wx.reLaunch, {
@@ -71,18 +75,50 @@ Page({
     });
   },
 
-  showDetail ({ mark }) {
-    console.log('mark', mark)
-    const { info: _currInfo } = mark
-    this._currInfo = mark.info
-    this.setData({
-      _currInfo
+  async showDetail ({ mark }) {
+    const _currInfo = mark.info
+    const { lineNo: path } = _currInfo
+    const { cityName: location } = this.data._route
+    wx.showLoading()
+    const { c, d } = await homePageApi.getLineDetail({ location, path })
+    console.log('dd----------', d)
+    if (c == 0) {
+      _currInfo.ring = d
+    }
+    this.setData({ _currInfo }, wx.hideLoading)
+
+    wx.nextTick(() => {
+      this.openMask()
     })
-    this.selectComponent('.pubmask').show()
+
+    wx.nextTick(() => {
+      this.showCanvasRing()
+    })
+
+  },
+
+  async handleTap ({ mark }) {
+    console.log('mark', mark)
+    const { cityName: city } = this.data._route
+    const res = await homePageApi.slip({ ...mark.info, city })
+    console.log('res', res)
+
+  },
+
+  handleHide() {
+    this.setData({
+      _isShowMask: false
+    })
+    this.observe.disconnect()
   },
 
   openMask () {
-    this.selectComponent('.pubmask').show()
+    this.setData({
+      _isShowMask: true
+    }, () => {
+      this.selectComponent('.pubmask').show()
+      this.watchSite()
+    })
   },
 
 
@@ -94,10 +130,10 @@ Page({
     const route = await getGaoDeRoute()
     const res = await homePageApi.getNearList(route)
     wx.hideLoading()
-    console.log('res---------', res)
     if (res.c == 0) {
       this.setData({
-        nearList: res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length }))
+        nearList: res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length })),
+        _route: route
       })
     }
   },
@@ -119,11 +155,11 @@ Page({
   },
 
   watchSite () {
-    wx.createIntersectionObserver().relativeToViewport().observe('.site', res => {
-      console.log('res', res)
+    this.observe = wx.createIntersectionObserver()
+    this.observe.relativeToViewport().observe('.site', res => {
       this.setData({
         _isShowBtn: res.intersectionRatio
       })
     })
-  }
+  },
 });

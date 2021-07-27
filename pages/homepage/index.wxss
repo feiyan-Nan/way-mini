@@ -182,6 +182,7 @@
 }
 .homepage .pubmask .pub_mask_box .section .scroll_view .site {
   height: 100rpx;
+  height: 30rpx;
 }
 .loveme {
   height: 100vh;

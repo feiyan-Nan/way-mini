@@ -17,12 +17,30 @@ class HomePage extends HTTP {
 
   getLoveMe (data) {
     return this.request({
-      // url: '/concernPeople/list?type=0&currentPage=1',
       url: '/concernPeople/list',
       data,
       method: 'GET'
     })
   }
+
+  getLineDetail (data) {
+    return this.request({
+      url: '/way/aroundInfo/profile',
+      data,
+      method: 'GET'
+    })
+  }
+
+  /*
+    左划右划 线路上的人不喜欢打招呼接口
+  */
+ slip(data) {
+   return this.request({
+     url: '/way/slipUsers',
+     method: 'GET',
+     data
+   })
+ }
 }
 
 const homePage = new HomePage();

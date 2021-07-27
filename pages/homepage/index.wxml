@@ -99,31 +99,17 @@
 
   </Tabs>
 
-  <PubMask class="pubmask">
+  <PubMask class="pubmask" bind:onhide="handleHide" wx:if="{{_isShowMask}}">
     <view class="pub_mask_box">
 
         <view class="section">
           <view class="chart">
             <view class="chart_title">{{ _currInfo.lineNo }}</view>
             <view class="charts">
-              <view>
-                <CanvasRing class="canvasRing1" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
-                本科以上
-              </view>
 
-              <view>
-                <CanvasRing class="canvasRing2" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
-                小哥哥
-              </view>
-
-              <view>
-                <CanvasRing class="canvasRing3" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
-                90后
-              </view>
-
-              <view>
-                <CanvasRing class="canvasRing4" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{_rate}}" lineWidth="{{1}}" />
-                色狼
+              <view wx:for="{{ _currInfo.ring }}" wx:key="index">
+                <CanvasRing class="canvasRing{{ index + 1 }}" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{ item.value }}" lineWidth="{{1}}" />
+                {{ item.name }}
               </view>
 
             </view>
@@ -132,16 +118,16 @@
             
             <view class="scroll_item" wx:for="{{ _currInfo.userEachNearLineRespVos }}" wx:key="index">
               <view class="bg" bind:tap="toBabyPage"  mark:id="{{item.id}}">
-                <image src="{{item.avatar}}" mode="heightFix" />
+                <image src="{{item.avatar}}" mode="aspectFill" />
               </view>
-              <view class="icon">
-                <CustomIcon class="icon_left" name="close" size="68" />
-                <CustomIcon class="icon_right" name="red_hart" size="68" />
-              </view>
+              <!-- <view class="icon">
+                <CustomIcon class="icon_left" name="close" size="68" bind:tap="handleTap"  mark:info="{{  {userId:item.id, lineNo: _currInfo.lineNo, status: 1, type: 2} }}" />
+                <CustomIcon class="icon_right" name="red_hart" size="68" bind:tap="handleTap" mark:info="{{ {userId:item.id, lineNo: _currInfo.lineNo, status: 2, type: 2} }}" />
+              </view> -->
             </view>
             <view class="site"></view>
 
-            <view class="btn" wx:if="{{ _isShowBtn }}">发现更多顺路的人</view>
+            <!-- <view class="btn" wx:if="{{ _isShowBtn }}">发现更多顺路的人</view> -->
 
           </scroll-view>
         </view>

@@ -14,4 +14,5 @@ export default new Map([
     ['subway', '../../../../assets/images/icons/icon_subway.png'],
     ['close', '../../../../assets/images/icons/icon_close.png'],
     ['red_hart', '../../../../assets/images/icons/icon_love_red.png'],
+    ['back', '../../../../assets/images/icons/icon_back.png'],
 ])

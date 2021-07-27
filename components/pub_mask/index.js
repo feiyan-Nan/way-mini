@@ -31,6 +31,7 @@ Component({
       this.setData({
         hidden: true
       })
+      this.triggerEvent('onhide')
     },
 
     tapBg() {
