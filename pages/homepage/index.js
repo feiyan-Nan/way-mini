@@ -29,7 +29,8 @@ Page({
     _currInfo: null,
     _isShowBtn: false,
     _route: null,
-    _isShowMask: false
+    _isShowMask: false,
+    _lovemeBabys: []
   },
 
   /**
@@ -54,11 +55,12 @@ Page({
   */
   async getLoveMeDetail () {
     const res = await homePageApi.getLoveMe({ type: 0, currentPage: 1 })
-    // console.log('res---------', res)
+    console.log('res---------', res)
     const { c, d } = res
     if (c == 0) {
       this.setData({
-        orderNums: ['', d.concernPeopleList.length]
+        orderNums: ['', d.concernPeopleList.length],
+        _lovemeBabys: d.concernPeopleList
       })
     }
   },

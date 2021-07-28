@@ -36,24 +36,53 @@
     <!-- 喜欢我模块 -->
     <scroll-view class="loveme" slot="tab-content-1" scroll-y>
         <NoLogin bind:login="login" wx:if="{{ !isLogged }}" />
-        <view wx:else class="baby_box">
-          <view class="baby">
-            <view class="header">
-              <CustomHeader />
+        <block wx:else>
+          <view class="baby_box">
+            <view class="baby"  wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}">
+              <view class="header">
+                <CustomHeader  images="{{[item.avatar]}}" pure  userInfo="{{item}}" />
+              </view>
+  
+              <view class="footer">
+                  <view class="tip">
+                      <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" /> <text>关于她：</text>
+                  </view>
+  
+                  <view class="info">
+                    <text>{{ item.userJobTagDTO.professionTags }}</text>
+                    <text wx:for="{{ item.userJobTagDTO.jobList }}" wx:for-item="it" wx:for-index="idx" wx:key="idx">{{ it }}</text>
+                    <!-- <text>房地产</text>
+                    <text>天蝎座</text> -->
+                  </view>
+  
+                  <!-- <view class="lines">
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                  </view> -->
+              </view>
             </view>
-
-            <view class="footer">
+  
+             <!-- <view class="baby">
+              <view class="header">
+                <CustomHeader />
+              </view>
+              <view class="footer">
                 <view class="tip">
-                    <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" /> <text>关于她：</text>
+                  <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" />
+                  <text>关于她：</text>
                 </view>
-
                 <view class="info">
                   <text>本科</text>
                   <text>165cm</text>
                   <text>房地产</text>
                   <text>天蝎座</text>
                 </view>
-
                 <view class="lines">
                   <view class="egg">10号线</view>
                   <view class="egg">10号线</view>
@@ -64,37 +93,10 @@
                   <view class="egg">10号线</view>
                   <view class="egg">10号线</view>
                 </view>
-            </view>
+              </view>
+            </view> -->
           </view>
-
-           <view class="baby">
-            <view class="header">
-              <CustomHeader />
-            </view>
-            <view class="footer">
-              <view class="tip">
-                <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" />
-                <text>关于她：</text>
-              </view>
-              <view class="info">
-                <text>本科</text>
-                <text>165cm</text>
-                <text>房地产</text>
-                <text>天蝎座</text>
-              </view>
-              <view class="lines">
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-              </view>
-            </view>
-          </view>
-        </view>
+        </block>
     </scroll-view>
 
   </Tabs>
