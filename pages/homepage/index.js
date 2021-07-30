@@ -141,7 +141,6 @@ Page({
   },
 
   toBabyPage ({ mark }) {
-    console.log(',ark', mark)
     networkAct(async () => {
       surface(wx.navigateTo, {
         url: '/pages/baby/index?id=' + mark.id,

@@ -20,6 +20,10 @@ Component({
     activeNum: {
       type: Number,
       value: 0
+    },
+    userInfo: {
+      type: Object,
+      value: null
     }
   },
 
