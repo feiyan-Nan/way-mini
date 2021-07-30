@@ -5,7 +5,7 @@ const baseUrls = {
   yufa: 'https://www.fabrique.cn/api/fbapp',
 };
 const config = {
-  baseUrl: 'http://api-test.woshunlu.com',
+  baseUrl: 'https://api-test.woshunlu.com',
   CODE: [2000, 2004, 3502, 3503, 3504, 3505, 2110, 3517, 2129, 3516, 3506],
   // 正式版小程序appkey
   // appkey: 'wxf4db2c0665756ee4',
