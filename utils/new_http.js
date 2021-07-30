@@ -67,6 +67,7 @@ class HTTP {
           'content-type': 'application/json',
           token: userInfo ? userInfo.accessToken : '',
           deviceId: '18d6cce10f64daac',
+          appid: '10003',
           ft: userInfo ? userInfo.ft : '',
           uid: userInfo ? userInfo.uid : '',
           ...header,
