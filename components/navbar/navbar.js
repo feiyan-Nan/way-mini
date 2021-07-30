@@ -35,7 +35,7 @@ Component({
     },
     backIconName: {
       type: String,
-      value: 'back_arrow'
+      value: 'icon_back'
     },
     titleBarWidth: {
       type: String,

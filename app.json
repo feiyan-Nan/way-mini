@@ -49,7 +49,8 @@
     "header-title": "/components/header-title/index",
     "dialog": "/components/dialog/dialog",
     "VanImage": "@vant/weapp/image/index",
-    "VanIcon": "@vant/weapp/icon/index"
+    "VanIcon": "@vant/weapp/icon/index",
+    "CustomIcon": "/components/custom-icon/index"
   },
   "window": {
     "backgroundTextStyle": "light",

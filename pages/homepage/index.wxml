@@ -3,10 +3,10 @@
   <Tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange">
     <!-- 乘坐路线模块 -->
     <scroll-view slot="tab-content-0" class="tab-content" bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="{{isRefresh}}" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation>
-      <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx">
+      <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx" mark:info="{{item}}" bind:tap="showDetail">
           <view class="header">
             <view class="left">
-              <VanIcon name="http://10.5.4.75:9999/subway.png" size="32rpx"/>
+              <CustomIcon name="subway" size="32" />
               <!-- <view>地铁 <text>10</text> 号线 </view> -->
               <view> {{ item.lineNo }} </view>
               <view class="right">
@@ -20,7 +20,7 @@
                   wx:for="{{ item.userEachNearLineRespVos }}"
                   wx:for-item="i" wx:key="index"
                   mark:id="{{ i.id }}"
-                  bind:tap="toBabyPage">
+                >
                   <VanImage round width="139rpx" height="139rpx" lazy-load src="{{ i.avatar }}" />
                   <view class="name">{{ i.name }}</view>
                   <view class="gender">
@@ -36,24 +36,53 @@
     <!-- 喜欢我模块 -->
     <scroll-view class="loveme" slot="tab-content-1" scroll-y>
         <NoLogin bind:login="login" wx:if="{{ !isLogged }}" />
-        <view wx:else class="baby_box">
-          <view class="baby">
-            <view class="header">
-              <CustomHeader />
+        <block wx:else>
+          <view class="baby_box">
+            <view class="baby"  wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}">
+              <view class="header">
+                <CustomHeader  images="{{[item.avatar]}}" pure  userInfo="{{item}}" />
+              </view>
+  
+              <view class="footer">
+                  <view class="tip">
+                      <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" /> <text>关于她：</text>
+                  </view>
+  
+                  <view class="info">
+                    <text>{{ item.userJobTagDTO.professionTags }}</text>
+                    <text wx:for="{{ item.userJobTagDTO.jobList }}" wx:for-item="it" wx:for-index="idx" wx:key="idx">{{ it }}</text>
+                    <!-- <text>房地产</text>
+                    <text>天蝎座</text> -->
+                  </view>
+  
+                  <!-- <view class="lines">
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                    <view class="egg">10号线</view>
+                  </view> -->
+              </view>
             </view>
-
-            <view class="footer">
+  
+             <!-- <view class="baby">
+              <view class="header">
+                <CustomHeader />
+              </view>
+              <view class="footer">
                 <view class="tip">
-                    <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" /> <text>关于她：</text>
+                  <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" />
+                  <text>关于她：</text>
                 </view>
-
                 <view class="info">
                   <text>本科</text>
                   <text>165cm</text>
                   <text>房地产</text>
                   <text>天蝎座</text>
                 </view>
-
                 <view class="lines">
                   <view class="egg">10号线</view>
                   <view class="egg">10号线</view>
@@ -64,38 +93,46 @@
                   <view class="egg">10号线</view>
                   <view class="egg">10号线</view>
                 </view>
-            </view>
+              </view>
+            </view> -->
           </view>
-
-           <view class="baby">
-            <view class="header">
-              <CustomHeader />
-            </view>
-            <view class="footer">
-              <view class="tip">
-                <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" />
-                <text>关于她：</text>
-              </view>
-              <view class="info">
-                <text>本科</text>
-                <text>165cm</text>
-                <text>房地产</text>
-                <text>天蝎座</text>
-              </view>
-              <view class="lines">
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-              </view>
-            </view>
-          </view>
-        </view>
+        </block>
     </scroll-view>
 
   </Tabs>
+
+  <PubMask class="pubmask" bind:onhide="handleHide" wx:if="{{_isShowMask}}">
+    <view class="pub_mask_box">
+
+        <view class="section">
+          <view class="chart">
+            <view class="chart_title">{{ _currInfo.lineNo }}</view>
+            <view class="charts">
+
+              <view wx:for="{{ _currInfo.ring }}" wx:key="index">
+                <CanvasRing class="canvasRing{{ index + 1 }}" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{ item.value }}" lineWidth="{{1}}" />
+                {{ item.name }}
+              </view>
+
+            </view>
+          </view>
+          <scroll-view class="scroll_view" scroll-y>
+            
+            <view class="scroll_item" wx:for="{{ _currInfo.userEachNearLineRespVos }}" wx:key="index">
+              <view class="bg" bind:tap="toBabyPage"  mark:id="{{item.id}}">
+                <image src="{{item.avatar}}" mode="aspectFill" />
+              </view>
+              <!-- <view class="icon">
+                <CustomIcon class="icon_left" name="close" size="68" bind:tap="handleTap"  mark:info="{{  {userId:item.id, lineNo: _currInfo.lineNo, status: 1, type: 2} }}" />
+                <CustomIcon class="icon_right" name="red_hart" size="68" bind:tap="handleTap" mark:info="{{ {userId:item.id, lineNo: _currInfo.lineNo, status: 2, type: 2} }}" />
+              </view> -->
+            </view>
+            <view class="site"></view>
+
+            <!-- <view class="btn" wx:if="{{ _isShowBtn }}">发现更多顺路的人</view> -->
+
+          </scroll-view>
+        </view>
+    </view>
+  </PubMask>
 </view>
