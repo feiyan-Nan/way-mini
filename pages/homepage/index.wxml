@@ -6,7 +6,7 @@
       <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx">
           <view class="header">
             <view class="left">
-              <VanIcon name="http://10.5.4.75:9999/subway.png" size="32rpx"/>
+              <VanIcon name="subway" size="32rpx"/>
               <!-- <view>地铁 <text>10</text> 号线 </view> -->
               <view> {{ item.lineNo }} </view>
               <view class="right">
@@ -44,7 +44,7 @@
 
             <view class="footer">
                 <view class="tip">
-                    <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" /> <text>关于她：</text>
+                    <VanIcon name="subway" size="28rpx" /> <text>关于她：</text>
                 </view>
 
                 <view class="info">
@@ -73,7 +73,7 @@
             </view>
             <view class="footer">
               <view class="tip">
-                <VanIcon name="http://10.5.4.75:9999/subway.png" size="28rpx" />
+                <VanIcon name="subway" size="28rpx" />
                 <text>关于她：</text>
               </view>
               <view class="info">
