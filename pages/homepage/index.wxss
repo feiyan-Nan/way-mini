@@ -56,6 +56,10 @@
   align-items: center;
   margin-right: 30rpx;
 }
+.homepage .tab-content .sameway .box .scrollbox .avatar .avatar_img {
+  border: 1rpx solid #EEE;
+  border-radius: 50%;
+}
 .homepage .tab-content .sameway .box .scrollbox .avatar:last-child {
   margin-right: 0;
 }
