@@ -12,7 +12,6 @@ export default new Map([
     ['chart', '../../../../assets/images/icons/icon_chart.png'],
     ['ido', '../../../../assets/images/icons/icon_ido.png'],
     ['subway', '../../../../assets/images/icons/icon_subway.png'],
-    ['close', '../../../../assets/images/icons/icon_close.png'],
-    ['red_hart', '../../../../assets/images/icons/icon_love_red.png'],
-    ['back', '../../../../assets/images/icons/icon_back.png'],
+    ['girl', '../../../../assets/images/icons/icon_girl.png'],
+    ['boy', '../../../../assets/images/icons/icon_boy.png'],
 ])

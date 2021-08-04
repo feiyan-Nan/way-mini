@@ -140,6 +140,11 @@ Page({
     }
   },
 
+  chunkArr (arr, num) {
+    const length = Math.ceil(arr.length / num)
+    return [ ...new Array(length).keys() ].map(i => arr.splice(0, num))
+  },
+
   toBabyPage ({ mark }) {
     networkAct(async () => {
       surface(wx.navigateTo, {
