@@ -63,9 +63,25 @@
   color: #666B71;
   font-size: 22rpx;
   margin-top: 27rpx;
+  text-align: center;
+  width: 140rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .homepage .tab-content .sameway .box .scrollbox .avatar .gender {
+  background-color: red;
+  width: 62rpx;
+  height: 28rpx;
+  border-radius: 28rpx;
+  font-size: 16rpx;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 auto;
   margin-top: 11rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .homepage .pubmask .pub_mask_box {
   height: 80vh;
