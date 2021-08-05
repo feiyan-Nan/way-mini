@@ -1,0 +1,52 @@
+<navbar title="编辑" background="#00C685" color="#FFF" bind:back="handleBack" />
+
+<view class="edituser">
+
+    <view class="progress">
+        <view class="box">
+            <view class="left">
+                完成度
+            </view>
+            <view class="center">
+                <VanProgress stroke-width="8" color="#00C283" track-color="#EEEEEE"  percentage="30" />
+            </view>
+            <view class="right">100%</view>
+        </view>
+        <view class="tip">
+            资料完成 <text>60%</text> 就会被优先推荐哦
+        </view>
+    </view>
+
+    <view class="photo">
+        <view class="title">我的照片 <text class="tip">（长按可调换图片，单击可删除）</text></view>
+
+        <view class="container">
+            <view class="box">
+                <view class="item" wx:for="{{6}}" wx:key="index">
+                    <!-- <view class="site">+</view> -->
+                    <block>
+                        <CustomIcon class="close" name="close" size="40" />
+                        <image class="image" src="{{ tmp }}" mode="widthFix" />
+                    </block>
+                </view>
+            </view>
+            <view class="tip">上传多张真实照片，可提高匹配率哦！</view>
+        </view>
+
+    </view>
+
+    <view class="baseinfo">
+        <view class="title">基本信息</view>
+        <view class="box">
+            <view class="item">
+                <view class="left">昵称</view>
+                <view class="right">
+                    找不到键盘
+                    <CustomIcon name="right_arrow" size="54" />
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+</view>
