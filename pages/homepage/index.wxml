@@ -41,7 +41,7 @@
         <NoLogin bind:login="login" wx:if="{{ !isLogged }}" />
         <block wx:else>
           <view class="baby_box">
-            <view class="baby"  wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}">
+            <view class="baby"  wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}" wx:if="{{  _lovemeBabys.length }}">
               <view class="header">
                 <CustomHeader  images="{{[item.avatar]}}" pure  userInfo="{{item}}" />
               </view>
@@ -57,6 +57,10 @@
                   </view>
   
               </view>
+            </view>
+
+            <view class="empty">
+              <image src="../../../../../assets/images/homepage/love_me_empty.png" />
             </view>
   
           </view>
