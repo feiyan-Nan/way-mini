@@ -1,10 +1,10 @@
 const { networkAct, throttle, globalData, isLogin } = getApp();
-const qiyu_botton = require('../../behaviors/qiyu_botton')
+// const qiyu_botton = require('../../behaviors/qiyu_botton')
 Component({
   options: {
     multipleSlots: true, // 在组件定义时的选项中启用多slot支持
   },
-  behaviors: ['wx://form-field-button', qiyu_botton],
+  // behaviors: ['wx://form-field-button', qiyu_botton],
   properties: {
     // 右侧按钮
     buttonText: {

@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "Heart": "../heart/index",
-    "center-image": "/components/center-image/index",
-    "suit-image": "../suit-image/index",
-    "single-image": "../single-image/index"
-  }
-}

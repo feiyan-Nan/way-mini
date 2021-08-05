@@ -1,5 +1,4 @@
 {
-  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -162,68 +161,20 @@
           "scene": null
         },
         {
-          "name": "pages/fabs/index",
-          "pathName": "pages/fabs/index",
-          "query": "index=1&spuId=1270184308090343424",
-          "scene": null
-        },
-        {
-          "name": "pages/start-page/index",
-          "pathName": "pages/start-page/index",
+          "name": "pages/myscore/index",
+          "pathName": "pages/myscore/index",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/sex-select/index",
-          "pathName": "pages/sex-select/index",
+          "name": "pages/rules/index",
+          "pathName": "pages/rules/index",
           "query": "",
           "scene": null
         },
         {
           "name": "pages/homepage/index",
           "pathName": "pages/homepage/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "开始",
-          "pathName": "pages/start-page/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "首页",
-          "pathName": "pages/homepage/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/my/index",
-          "pathName": "pages/my/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/baby/index",
-          "pathName": "pages/baby/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/homepage/index",
-          "pathName": "pages/homepage/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/baby/index",
-          "pathName": "pages/baby/index",
-          "query": "id=7052",
-          "scene": null
-        },
-        {
-          "name": "pages/register-select-route/index",
-          "pathName": "pages/register-select-route/index",
           "query": "",
           "scene": null
         }

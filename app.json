@@ -18,30 +18,14 @@
   "pages": [
     "pages/sex-select/index",
     "pages/start-page/index",
-    "pages/home/index",
     "pages/login/index",
-    "pages/shipping-address/index",
-    "pages/add-shipping-address/index",
-    "pages/confirm-order/index",
-    "pages/order-list/index",
-    "pages/order-status/index",
-    "pages/shopping-bag/index",
-    "pages/goods-detail/index",
-    "pages/errer-status/index",
-    "pages/mine/index",
     "pages/webview/index",
-    "pages/logistics/index",
-    "pages/sizes/index",
-    "pages/measure/index",
-    "pages/test/index",
-    "pages/fabs/index",
-    "pages/myscore/index",
-    "pages/rules/index",
     "pages/fill-birthday/index",
     "pages/homepage/index",
     "pages/my/index",
     "pages/baby/index",
-    "pages/register-select-route/index"
+    "pages/register-select-route/index",
+    "pages/edituser/index"
   ],
   "usingComponents": {
     "navbar": "/components/navbar/navbar",
@@ -50,7 +34,10 @@
     "dialog": "/components/dialog/dialog",
     "VanImage": "@vant/weapp/image/index",
     "VanIcon": "@vant/weapp/icon/index",
-    "CustomIcon": "/components/custom-icon/index"
+    "CustomIcon": "/components/custom-icon/index",
+    "VanProgress": "@vant/weapp/progress/index",
+    "VanGrid": "@vant/weapp/grid/index",
+    "VanGridItem": "@vant/weapp/grid-item/index"
   },
   "window": {
     "backgroundTextStyle": "light",

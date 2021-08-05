@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "UserSize" : "/components/userSize/index",
-    "CustomMask": "/components/custom-mask/index"
-  }
-}

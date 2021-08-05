@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "m-picker": "/components/single-column-picker/index"
-  }
-}

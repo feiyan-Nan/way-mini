@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "mp-slideview": "/miniprogram_npm/weui-miniprogram/slideview/slideview",
-    "custom_radio": "../custom_radio/custom_radio"
-  }
-}

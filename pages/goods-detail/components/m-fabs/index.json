@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "center-image": "/components/center-image/index",
-    "suit-image": "../../../fabs/components/suit-image/index"
-  }
-}

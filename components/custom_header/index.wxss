@@ -7,8 +7,8 @@
   position: absolute;
   top: 20rpx;
   left: 20rpx;
-  width: 303rpx;
   height: 100rpx;
+  padding-right: 14rpx;
   border-radius: 50rpx;
   display: flex;
   align-items: center;
@@ -33,6 +33,10 @@
   text-shadow: 0 2rpx 2rpx 0 rgba(0, 0, 0, 0.84);
 }
 .custom_header .baby_info .info > view.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250rpx;
   font-size: 42rpx;
 }
 .custom_header .baby_info .info > view.gender {
@@ -87,7 +91,7 @@
   height: 100%;
 }
 .custom_header .nav .scroll_view .scroll_item.active {
-  border-color: blue;
+  border-color: #00C584;
 }
 .custom_header .btns {
   position: absolute;

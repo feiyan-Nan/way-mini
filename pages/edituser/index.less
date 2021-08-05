@@ -1,0 +1,161 @@
+page {
+    background-color: #F7F7F7;
+}
+.edituser {
+
+    .progress{
+        margin: 36rpx 60rpx 0;
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+
+            font-size: 24rpx;
+            font-weight: 400;
+            .left {
+                color: #00c283;
+            }
+
+            .center {
+                flex: 1;
+                margin: 0 24rpx;
+            }
+
+            .right {
+                color: #a7a7a7;
+            }
+        }
+
+        .tip {
+            margin: 0 auto;
+            margin-top: 34rpx;
+            font-size: 24rpx;
+            font-weight: 500;
+            color: #151515;
+            width: 414rpx;
+            height: 70rpx;
+            opacity: 1;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 70rpx;
+            box-sizing: border-box;
+            >text {
+                color: #F7B500;
+                font-weight: bolder;
+                // font-size: 30rpx;
+            }
+        }
+    }
+
+    .photo{
+        margin-top: 40rpx;
+        .title {
+            padding: 0 32rpx;
+            font-size: 30rpx;
+            font-weight: 400;
+            color: #808080;
+            display: flex;
+            align-items: flex-end;
+
+            .tip {
+                font-size: 24rpx;
+            }
+        }
+
+        .container {
+            padding: 32rpx 32rpx;
+            margin-top: 16rpx;
+            background-color: #fff;
+            .box {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .item {
+                    width: 206rpx;
+                    height: 206rpx;
+                    background-color: rgba(238,238,238, .5);
+                    border-radius: 30rpx;
+                    margin-bottom: 32rpx;
+                    overflow: hidden;
+                    position: relative;
+                    .site {
+                        width: 206rpx;
+                        height: 206rpx;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 54px;
+                        font-weight: bolder;
+                        color: rgba(167, 167, 167, .3);
+                        line-height: 206rpx;
+                        text-align: center;
+                    }
+
+                    .close {
+                        position: absolute;
+                        right: 10rpx;
+                        top: 10rpx;
+                    }
+
+                    .image  {
+                        width: 206rpx;
+                    }
+
+                    &:nth-child(n + 4) {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            .tip {
+                font-size: 28rpx;
+                font-weight: 400;
+                color: #00c283;
+                text-align: center;
+                margin-top: 32rpx;
+            }
+
+        }
+    }
+
+    .baseinfo {
+        margin-top: 40rpx;
+        .title {
+            font-size: 30rpx;
+            font-weight: 400;
+            color: #808080;
+            padding-left: 32rpx;
+            padding-bottom: 16rpx;
+        }
+
+        .box{
+            background-color: #fff;
+            // padding:0 32rpx;
+            .item {
+                padding: 30rpx 62rpx 30rpx 32rpx;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                box-sizing: border-box;
+                color: #151515;
+                
+                .left {
+                    font-size: 32rpx;
+                    font-weight: 500;
+                }
+
+                .right {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    line-height: 1;
+                    font-size: 30rpx;
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+}

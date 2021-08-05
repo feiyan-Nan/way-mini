@@ -1,8 +1,0 @@
-<view class="empty">
-    <view class="empty_title">还没添加单品？</view>
-    <view class="empty_desc">
-      <view>去发现更多心仪设计师单品，</view>
-      <view>碰到喜欢的别忘了添加至购物袋！</view>
-    </view>
-    <view class="empty_btn" bind:tap="goToIndex">去逛逛</view>
-  </view>

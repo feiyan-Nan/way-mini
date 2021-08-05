@@ -7,10 +7,10 @@
         position: absolute;
         top: 20rpx;
         left: 20rpx;
-        width: 303rpx;
+        // width: 303rpx;
+        // min-width: 303rpx;
         height: 100rpx;
-        // opacity: 0.3;
-        // background: #ffffff;
+        padding-right: 14rpx;
         border-radius: 50rpx;
         display: flex;
         align-items: center;
@@ -36,6 +36,10 @@
                 line-height: 42rpx;
                 text-shadow: 0 2rpx 2rpx 0 rgba(0,0,0,0.84);
                 &.name {
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    max-width: 250rpx;
                     font-size: 42rpx;
                 }
                 &.gender {
@@ -103,7 +107,7 @@
                 }
 
                 &.active {
-                    border-color: blue;
+                    border-color: #00C584;
                 }
             }
         }

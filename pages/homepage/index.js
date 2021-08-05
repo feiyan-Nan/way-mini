@@ -129,15 +129,38 @@ Page({
   */
   async getNearList () {
     wx.showLoading()
-    const route = await getGaoDeRoute()
+    const route = this.memory_route || await getGaoDeRoute()
+    this.memory_route = route
+    this.lineNo = this.lineNo || this.chunkArr(route.lineNo, 5)
+    
+    const firstLineNo = this.lineNo.splice(0, 1).flat()
+
+    if (!firstLineNo.length) {
+      wx.hideLoading()
+      return
+    }
+
+    route.lineNo = firstLineNo
     const res = await homePageApi.getNearList(route)
     wx.hideLoading()
     if (res.c == 0) {
+      const list = res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length }))
+      const nearList = this.data.nearList.concat(list)
       this.setData({
-        nearList: res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length })),
+        nearList,
         _route: route
       })
     }
+  },
+
+  scrollToLower() {
+    this.getNearList()
+    console.log('scrollToLower')
+  },
+
+  chunkArr (arr, num) {
+    const length = Math.ceil(arr.length / num)
+    return [ ...new Array(length).keys() ].map(i => arr.splice(0, num))
   },
 
   toBabyPage ({ mark }) {

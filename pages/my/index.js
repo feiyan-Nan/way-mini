@@ -1,8 +1,6 @@
 const { surface, getUserInfo, networkAct, isLogin } = getApp();
 import { mine, orderApi } from '../../api/index';
-const qiyu_botton = require('../../behaviors/qiyu_botton');
 Page({
-  behaviors: [qiyu_botton],
   data: {
     userInfo: null,
     backSrc: null,
@@ -13,11 +11,6 @@ Page({
     avatar: null,
     name: null,
     isShow: false,
-  },
-  onLoad(options) {
-    // const isLogged = isLogin();
-    // if()
-    // this.init();
   },
   async onShow() {
     console.log('this.data', this.data);
