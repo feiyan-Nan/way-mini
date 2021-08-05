@@ -11,6 +11,13 @@
 8. 用户长坐路线更新接口：http://39.105.90.25:4999/web/#/1?page_id=29 ，
    查询：http://39.105.90.25:4999/web/#/1?page_id=269
 
+## 清除用户信息
+GET http://api-test.woshunlu.com/user/delete?uid=98394
+token: AmEAqlADAZPDa5Kjpibp5ebE
+deviceId: 18d6cce10f64daac
+Content-Type: text/htm
+
+@南飞雁 你用这个token，不会过期
 
 ### TODO 可以在接口请求的全局配置中添加网络的判断
 ## 测试uid
