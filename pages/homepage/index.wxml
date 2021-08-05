@@ -58,11 +58,9 @@
   
               </view>
             </view>
-
-            <view class="empty">
-              <image src="../../../../../assets/images/homepage/love_me_empty.png" />
-            </view>
-  
+          </view>
+          <view class="empty">
+            <image src="../../../../../assets/images/homepage/love_me_empty.png" />
           </view>
         </block>
     </scroll-view>
