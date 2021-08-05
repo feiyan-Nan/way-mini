@@ -12,10 +12,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
-.avator image {
+.avator .icon {
+  /* width: 100%; */
   width: 70rpx;
   height: 89rpx;
+}
+
+.avator .touxiang {
+  width: 100%;
 }
 .username-edit {
   display: flex;

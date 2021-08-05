@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "tabs": "/components/tabs/index",
-    "purchase-product-details": "/businessComponents/purchase-product-details/index"
-  }
-}

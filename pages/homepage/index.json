@@ -2,6 +2,8 @@
   "usingComponents": {
     "Tabs": "/components/tabs/index",
     "NoLogin": "./components/NoLogin/index",
-    "CustomHeader": "/components/custom_header/index"
+    "CustomHeader": "/components/custom_header/index",
+    "PubMask": "/components/pub_mask/index",
+    "CanvasRing": "/components/canvas-ring/canvas-ring"
   }
 }

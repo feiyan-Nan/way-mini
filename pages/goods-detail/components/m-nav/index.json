@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "m-mask": "../m-mask/index"
-  }
-}

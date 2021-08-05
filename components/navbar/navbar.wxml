@@ -10,7 +10,7 @@
     </view>
 
     <view class='nav-back' wx:else="{{back}}" catch:tap='handleBack'>
-      <image src='../../assets/images/{{backIconName}}.png' mode='aspectFit' class='back-pre'></image>
+      <image src='../../assets/images/icons/{{backIconName}}.png' mode='aspectFit' class='back-pre'></image>
     </view>
   </block>
   <view class="nav-logo" wx:if="{{logo}}">

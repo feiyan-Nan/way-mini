@@ -220,6 +220,18 @@
           "pathName": "pages/baby/index",
           "query": "id=7052",
           "scene": null
+        },
+        {
+          "name": "pages/my/index",
+          "pathName": "pages/my/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/edituser/index",
+          "pathName": "pages/edituser/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -20,11 +20,17 @@ Page({
    */
   data: {
     tabs: [],
-    orderNums: ['', 9],
+    orderNums: ['', ''],
     activeTab: 0,
     babyHeaderOpacity: 0,
     isLogged: false,
-    nearList: []
+    nearList: [],
+    _rate: 60,
+    _currInfo: null,
+    _isShowBtn: false,
+    _route: null,
+    _isShowMask: false,
+    _lovemeBabys: []
   },
 
   /**
@@ -44,9 +50,25 @@ Page({
     this.setData({ isLogged });
   },
 
-  onChange({ detail }) {
-    console.log('9999999999999', detail);
+  /*
+    获取喜欢我的详情
+  */
+  async getLoveMeDetail () {
+    const res = await homePageApi.getLoveMe({ type: 0, currentPage: 1 })
+    console.log('res---------', res)
+    const { c, d } = res
+    if (c == 0) {
+      this.setData({
+        orderNums: ['', d.concernPeopleList.length],
+        _lovemeBabys: d.concernPeopleList
+      })
+    }
   },
+
+  onChange({ detail }) {
+    this.getLoveMeDetail()
+  },
+
   login() {
     networkAct(async () => {
       surface(wx.reLaunch, {
@@ -55,21 +77,90 @@ Page({
     });
   },
 
+  async showDetail ({ mark }) {
+    const _currInfo = mark.info
+    const { lineNo: path } = _currInfo
+    const { cityName: location } = this.data._route
+    wx.showLoading()
+    const { c, d } = await homePageApi.getLineDetail({ location, path })
+    console.log('dd----------', d)
+    if (c == 0) {
+      _currInfo.ring = d
+    }
+    this.setData({ _currInfo }, wx.hideLoading)
+
+    wx.nextTick(() => {
+      this.openMask()
+    })
+
+    wx.nextTick(() => {
+      this.showCanvasRing()
+    })
+
+  },
+
+  async handleTap ({ mark }) {
+    console.log('mark', mark)
+    const { cityName: city } = this.data._route
+    const res = await homePageApi.slip({ ...mark.info, city })
+    console.log('res', res)
+
+  },
+
+  handleHide() {
+    this.setData({
+      _isShowMask: false
+    })
+    this.observe.disconnect()
+  },
+
+  openMask () {
+    this.setData({
+      _isShowMask: true
+    }, () => {
+      this.selectComponent('.pubmask').show()
+      this.watchSite()
+    })
+  },
+
 
   /*
     获取附近的路线信息
   */
   async getNearList () {
     wx.showLoading()
-    const route = await getGaoDeRoute()
+    const route = this.memory_route || await getGaoDeRoute()
+    this.memory_route = route
+    this.lineNo = this.lineNo || this.chunkArr(route.lineNo, 5)
+    
+    const firstLineNo = this.lineNo.splice(0, 1).flat()
+
+    if (!firstLineNo.length) {
+      wx.hideLoading()
+      return
+    }
+
+    route.lineNo = firstLineNo
     const res = await homePageApi.getNearList(route)
     wx.hideLoading()
-    console.log('res---------', res)
     if (res.c == 0) {
+      const list = res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length }))
+      const nearList = this.data.nearList.concat(list)
       this.setData({
-        nearList: res.d.list.map(i => Object.assign(i, { presonNo: i.userEachNearLineRespVos.length }))
+        nearList,
+        _route: route
       })
     }
+  },
+
+  scrollToLower() {
+    this.getNearList()
+    console.log('scrollToLower')
+  },
+
+  chunkArr (arr, num) {
+    const length = Math.ceil(arr.length / num)
+    return [ ...new Array(length).keys() ].map(i => arr.splice(0, num))
   },
 
   toBabyPage ({ mark }) {
@@ -78,5 +169,21 @@ Page({
         url: '/pages/baby/index?id=' + mark.id,
       });
     });
-  }
+  },
+
+  showCanvasRing () {
+    this.selectComponent(".canvasRing1").showCanvasRing()
+    this.selectComponent(".canvasRing2").showCanvasRing()
+    this.selectComponent(".canvasRing3").showCanvasRing()
+    this.selectComponent(".canvasRing4").showCanvasRing()
+  },
+
+  watchSite () {
+    this.observe = wx.createIntersectionObserver()
+    this.observe.relativeToViewport().observe('.site', res => {
+      this.setData({
+        _isShowBtn: res.intersectionRatio
+      })
+    })
+  },
 });

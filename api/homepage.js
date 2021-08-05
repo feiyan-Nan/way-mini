@@ -14,6 +14,33 @@ class HomePage extends HTTP {
       data,
     });
   }
+
+  getLoveMe (data) {
+    return this.request({
+      url: '/concernPeople/list',
+      data,
+      method: 'GET'
+    })
+  }
+
+  getLineDetail (data) {
+    return this.request({
+      url: '/way/aroundInfo/profile',
+      data,
+      method: 'GET'
+    })
+  }
+
+  /*
+    左划右划 线路上的人不喜欢打招呼接口
+  */
+ slip(data) {
+   return this.request({
+     url: '/way/slipUsers',
+     method: 'GET',
+     data
+   })
+ }
 }
 
 const homePage = new HomePage();

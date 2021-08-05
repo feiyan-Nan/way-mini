@@ -1,3 +1,0 @@
-<view class="custom_radio" bind:tap="change">
-  <image src="{{url}}" class="btnimg" />
-</view>

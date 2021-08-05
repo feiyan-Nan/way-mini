@@ -1,24 +1,36 @@
 <view>
-  <view class="avator-username">
+  <view class="avator-username" wx:if="{{userInfo}}"  bind:tap="handleEdit">
     <view class="avator">
-      <image src="../../assets/images/my/profile.png"/>
+      <image src="{{ userInfo.userInfoDTO.avatar }}" mode="widthFix" class="touxiang" />
+    </view>
+    <view class="username-edit">
+      <view class="nickname">{{ userInfo.userInfoDTO.name }}</view>
+      <view class="edit">查看/编辑资料</view>
+    </view>
+  </view>
+
+  <view class="avator-username" wx:else bind:tap="handleEdit">
+    <view class="avator">
+      <image src="../../assets/images/my/profile.png" class="icon" />
     </view>
     <view class="username-edit">
       <view class="nickname">昵称</view>
       <view class="edit">查看/编辑资料</view>
     </view>
   </view>
+
+
   <view class="digital">
     <view class="item">
-      <view class="number">0</view>
+      <view class="number">{{ userInfo.userInfoDTO.friendNum }}</view>
       <view class="item-name">路友</view>
     </view>
     <view class="item">
-      <view class="number">34</view>
+      <view class="number">{{ userInfo.userInfoDTO.callNum }}</view>
       <view class="item-name">我想顺路</view>
     </view>
     <view class="item">
-      <view class="number">454</view>
+      <view class="number">{{ userInfo.userInfoDTO.calledNum }}</view>
       <view class="item-name">想和我顺路</view>
     </view>
   </view>

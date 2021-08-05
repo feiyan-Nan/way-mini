@@ -2,11 +2,11 @@
 <view class="homepage">
   <Tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange">
     <!-- 乘坐路线模块 -->
-    <scroll-view slot="tab-content-0" class="tab-content" bindrefresherrefresh="onRefresh" refresher-triggered="{{triggered}}" refresher-enabled="{{isRefresh}}" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation>
+    <scroll-view slot="tab-content-0" class="tab-content" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation>
       <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx">
-          <view class="header">
+          <view class="header" mark:info="{{item}}" bind:tap="showDetail">
             <view class="left">
-              <VanIcon name="subway" size="32rpx"/>
+              <CustomIcon name="subway" size="32" />
               <!-- <view>地铁 <text>10</text> 号线 </view> -->
               <view> {{ item.lineNo }} </view>
               <view class="right">
@@ -20,11 +20,14 @@
                   wx:for="{{ item.userEachNearLineRespVos }}"
                   wx:for-item="i" wx:key="index"
                   mark:id="{{ i.id }}"
-                  bind:tap="toBabyPage">
-                  <VanImage round width="139rpx" height="139rpx" lazy-load src="{{ i.avatar }}" />
+                  bind:tap="toBabyPage"
+                >
+                  <view class="avatar_img">
+                    <VanImage round width="139rpx" height="139rpx" lazy-load src="{{ i.avatar }}" />
+                  </view>
                   <view class="name">{{ i.name }}</view>
-                  <view class="gender">
-                    <VanIcon name="user-o" size="15px" /> 31
+                  <view class="gender" style="background: {{ i.gender == 0 ? '#FF7BD1' : '#7A9CF3' }}">
+                    <CustomIcon name="girl" size="15px" /> {{ i.age }}
                   </view>
               </view>
             </scroll-view>
@@ -36,66 +39,59 @@
     <!-- 喜欢我模块 -->
     <scroll-view class="loveme" slot="tab-content-1" scroll-y>
         <NoLogin bind:login="login" wx:if="{{ !isLogged }}" />
-        <view wx:else class="baby_box">
-          <view class="baby">
-            <view class="header">
-              <CustomHeader />
+        <block wx:else>
+          <view class="baby_box">
+            <view class="baby"  wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}">
+              <view class="header">
+                <CustomHeader  images="{{[item.avatar]}}" pure  userInfo="{{item}}" />
+              </view>
+  
+              <view class="footer">
+                  <view class="tip">
+                      <CustomIcon name="subway" size="28px" /> <text>关于{{ item.gender == 0 ? '她': '他' }}：</text>
+                  </view>
+  
+                  <view class="info">
+                    <text>{{ item.userJobTagDTO.professionTags }}</text>
+                    <text wx:for="{{ item.userJobTagDTO.jobList }}" wx:for-item="it" wx:for-index="idx" wx:key="idx">{{ it }}</text>
+                  </view>
+  
+              </view>
             </view>
-
-            <view class="footer">
-                <view class="tip">
-                    <VanIcon name="subway" size="28rpx" /> <text>关于她：</text>
-                </view>
-
-                <view class="info">
-                  <text>本科</text>
-                  <text>165cm</text>
-                  <text>房地产</text>
-                  <text>天蝎座</text>
-                </view>
-
-                <view class="lines">
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                  <view class="egg">10号线</view>
-                </view>
-            </view>
+  
           </view>
-
-           <view class="baby">
-            <view class="header">
-              <CustomHeader />
-            </view>
-            <view class="footer">
-              <view class="tip">
-                <VanIcon name="subway" size="28rpx" />
-                <text>关于她：</text>
-              </view>
-              <view class="info">
-                <text>本科</text>
-                <text>165cm</text>
-                <text>房地产</text>
-                <text>天蝎座</text>
-              </view>
-              <view class="lines">
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-                <view class="egg">10号线</view>
-              </view>
-            </view>
-          </view>
-        </view>
+        </block>
     </scroll-view>
 
   </Tabs>
+
+  <PubMask class="pubmask" bind:onhide="handleHide" wx:if="{{_isShowMask}}">
+    <view class="pub_mask_box">
+
+        <view class="section">
+          <view class="chart">
+            <view class="chart_title">{{ _currInfo.lineNo }}</view>
+            <view class="charts">
+
+              <view wx:for="{{ _currInfo.ring }}" wx:key="index">
+                <CanvasRing class="canvasRing{{ index + 1 }}" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{ item.value }}" lineWidth="{{1}}" />
+                {{ item.name }}
+              </view>
+
+            </view>
+          </view>
+          <scroll-view class="scroll_view" scroll-y>
+            
+            <view class="scroll_item" wx:for="{{ _currInfo.userEachNearLineRespVos }}" wx:key="index">
+              <view class="bg" bind:tap="toBabyPage"  mark:id="{{item.id}}">
+                <image src="{{item.avatar}}" mode="aspectFill" />
+              </view>
+              
+            </view>
+            <view class="site"></view>
+
+          </scroll-view>
+        </view>
+    </view>
+  </PubMask>
 </view>

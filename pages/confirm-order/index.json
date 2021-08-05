@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "address-item": "/businessComponents/address-item/index",
-    "purchase-product-details": "/businessComponents/purchase-product-details/index",
-    "custom-loading": "/components/custom-loading/custom-loading"
-  }
-}
