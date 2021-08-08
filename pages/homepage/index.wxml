@@ -9,9 +9,9 @@
               <CustomIcon name="subway" size="32" />
               <!-- <view>地铁 <text>10</text> 号线 </view> -->
               <view> {{ item.lineNo }} </view>
-              <view class="right">
-                {{ item.presonNo }}人顺路 <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
-              </view>
+            </view>
+            <view class="right">
+              <text>{{ item.presonNo }}</text>人顺路 <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
             </view>
           </view>
           <view class="box">
@@ -27,7 +27,7 @@
                   </view>
                   <view class="name">{{ i.name }}</view>
                   <view class="gender" style="background: {{ i.gender == 0 ? '#FF7BD1' : '#7A9CF3' }}">
-                    <CustomIcon name="girl" size="15px" /> {{ i.age }}
+                    <CustomIcon name="{{ i.gender == 0 ? 'girl' : 'boy' }}" size="15" /> <text>{{ i.age }}</text>
                   </view>
               </view>
             </scroll-view>
