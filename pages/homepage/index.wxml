@@ -23,7 +23,7 @@
                   bind:tap="toBabyPage"
                 >
                   <view class="avatar_img">
-                    <VanImage round width="139rpx" height="139rpx" lazy-load src="{{ i.avatar }}" />
+                    <VanImage round width="139rpx" height="139rpx"  fit="aspectFill" lazy-load src="{{ i.avatar }}" />
                   </view>
                   <view class="name">{{ i.name }}</view>
                   <view class="gender" style="background: {{ i.gender == 0 ? '#FF7BD1' : '#7A9CF3' }}">

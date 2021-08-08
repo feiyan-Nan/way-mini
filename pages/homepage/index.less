@@ -56,13 +56,16 @@
             white-space: nowrap;
             .avatar{
               width: 139rpx;
-              display: inline-flex;
+              box-sizing: border-box;
               display: inline-block;
               flex-direction: column;
               align-items: center;
               margin-right: 30rpx;
 
               .avatar_img{
+                width: 139rpx;
+                height: 139rpx;
+                overflow: hidden;
                 border: 1rpx solid #EEE;
                 border-radius: 50%;
               }

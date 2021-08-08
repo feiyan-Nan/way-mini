@@ -81,21 +81,26 @@ Page({
     const _currInfo = mark.info
     const { lineNo: path } = _currInfo
     const { cityName: location } = this.data._route
-    wx.showLoading()
-    const { c, d } = await homePageApi.getLineDetail({ location, path })
-    console.log('dd----------', d)
-    if (c == 0) {
-      _currInfo.ring = d
+    try {
+      wx.showLoading()
+      const { c, d } = await homePageApi.getLineDetail({ location, path })
+      if (c == 0) {
+        _currInfo.ring = d
+      }
+      this.setData({ _currInfo } )
+  
+      wx.nextTick(() => {
+        this.openMask()
+      })
+  
+      wx.nextTick(() => {
+        this.showCanvasRing()
+      })
+    } catch(err) {
+      console.log('err', err)
+    } finally {
+      wx.hideLoading()
     }
-    this.setData({ _currInfo }, wx.hideLoading)
-
-    wx.nextTick(() => {
-      this.openMask()
-    })
-
-    wx.nextTick(() => {
-      this.showCanvasRing()
-    })
 
   },
 
