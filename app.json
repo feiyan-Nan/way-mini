@@ -16,12 +16,12 @@
     ]
   },
   "pages": [
+    "pages/homepage/index",
     "pages/sex-select/index",
     "pages/start-page/index",
     "pages/login/index",
     "pages/webview/index",
     "pages/fill-birthday/index",
-    "pages/homepage/index",
     "pages/my/index",
     "pages/baby/index",
     "pages/register-select-route/index",
