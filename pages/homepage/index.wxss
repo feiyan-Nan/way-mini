@@ -291,6 +291,9 @@
 .loveme .baby_box .baby .footer .lines .egg:last-child {
   margin-right: 0;
 }
+.loveme .empty {
+  text-align: center;
+}
 .fadeIn {
   transition: all 0.3s linear;
 }

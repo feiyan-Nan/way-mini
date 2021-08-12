@@ -190,6 +190,12 @@
           "pathName": "pages/baby/index",
           "query": "id=97646",
           "scene": null
+        },
+        {
+          "name": "pages/homepage/index",
+          "pathName": "pages/homepage/index",
+          "query": "",
+          "scene": null
         }
       ]
     }
