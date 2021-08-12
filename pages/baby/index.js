@@ -62,13 +62,31 @@ Page({
   },
 
   saveFile () {
-    wx.saveFileToDisk({
-      filePath: `/assets/images/baby/down.png`,
+    wx.downloadFile({
+      url: `https://oss.guangmangapp.com/101a33e3-bb58-490d-b949-eac28ce32a2e.png`,
       success(res) {
-        console.log('success', res)
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function (data) {
+            wx.showToast({
+              title: '保存成功!',
+            })
+          },
+          fail: function (err) {
+            if (err.errMsg === "saveImageToPhotosAlbum:fail cancel") {
+              wx.showToast({
+                title: '保存失败!',
+                icon: 'none'
+              })
+            }
+          },
+        })
       },
       fail(err) {
-        console.error('err', err)
+        wx.showModal({
+          title: '文件下载错误',
+          content: err.errMsg,
+        })
       }
     })
   },
