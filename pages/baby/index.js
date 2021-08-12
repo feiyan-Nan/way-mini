@@ -61,6 +61,18 @@ Page({
     })
   },
 
+  saveFile () {
+    wx.saveFileToDisk({
+      filePath: `/assets/images/baby/down.png`,
+      success(res) {
+        console.log('success', res)
+      },
+      fail(err) {
+        console.error('err', err)
+      }
+    })
+  },
+
   changeNav(e) {
     console.log(e)
   },

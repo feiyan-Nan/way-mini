@@ -207,3 +207,47 @@
   color: #00c584;
   margin-top: 74rpx;
 }
+.m_box {
+  width: 661rpx;
+  height: 926rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.m_box > image {
+  width: 661rpx;
+  height: 926rpx;
+}
+.m_box .btn {
+  width: 335rpx;
+  height: 64rpx;
+  position: absolute;
+  left: 50%;
+  top: 534rpx;
+  transform: translateX(-50%);
+}
+.m_box .btn > image {
+  width: 100%;
+}
+.m_box .btn > text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+.m_box .close {
+  position: absolute;
+  left: 50%;
+  bottom: -100rpx;
+  transform: translateX(-50%);
+  width: 78rpx;
+  height: 78rpx;
+}
+.m_box .close > image {
+  width: 100%;
+}

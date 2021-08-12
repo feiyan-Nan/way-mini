@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -176,6 +177,18 @@
           "name": "pages/homepage/index",
           "pathName": "pages/homepage/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/homepage/index",
+          "pathName": "pages/homepage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/baby/index",
+          "pathName": "pages/baby/index",
+          "query": "id=97646",
           "scene": null
         }
       ]

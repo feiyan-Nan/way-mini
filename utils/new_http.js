@@ -17,7 +17,7 @@ const _refreshToken = () => {
   };
   const connect = () =>
     surface(wx.request, options).then((res) => {
-      // console.log('++++++++++++++++++++', res.data)
+      console.log('++++++++++++++++++++', res)
       const { code } = res.data;
 
       if (code == 2000) {
@@ -31,7 +31,7 @@ const _refreshToken = () => {
       if (code == 2018) {
         wx.clearStorageSync();
         surface(wx.navigateTo, {
-          url: '/pages/login/index',
+          url: '/pages/start-page/index',
           events: {
             onLoginSucc(data) {
               surface(wx.navigateBack);
@@ -42,7 +42,7 @@ const _refreshToken = () => {
       }
       if (code == 2125) {
         wx.clearStorageSync();
-        wx.switchTab({ url: '/pages/hone/index' });
+        wx.switchTab({ url: '/pages/homepage/index' });
         return Promise.reject();
       }
       return Promise.resolve();
