@@ -9,9 +9,9 @@
               <CustomIcon name="subway" size="32" />
               <!-- <view>地铁 <text>10</text> 号线 </view> -->
               <view> {{ item.lineNo }} </view>
-              <view class="right">
-                {{ item.presonNo }}人顺路 <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
-              </view>
+            </view>
+            <view class="right">
+              <text>{{ item.presonNo }}</text>人顺路 <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
             </view>
           </view>
           <view class="box">
@@ -23,11 +23,11 @@
                   bind:tap="toBabyPage"
                 >
                   <view class="avatar_img">
-                    <VanImage round width="139rpx" height="139rpx" lazy-load src="{{ i.avatar }}" />
+                    <VanImage round width="139rpx" height="139rpx"  fit="aspectFill" lazy-load src="{{ i.avatar }}" />
                   </view>
                   <view class="name">{{ i.name }}</view>
                   <view class="gender" style="background: {{ i.gender == 0 ? '#FF7BD1' : '#7A9CF3' }}">
-                    <CustomIcon name="girl" size="15px" /> {{ i.age }}
+                    <CustomIcon name="{{ i.gender == 0 ? 'girl' : 'boy' }}" size="15" /> <text>{{ i.age }}</text>
                   </view>
               </view>
             </scroll-view>

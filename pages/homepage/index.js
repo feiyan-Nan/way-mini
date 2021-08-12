@@ -1,7 +1,7 @@
 // pages/homepage/index.js
 import { homePageApi } from '../../api/index';
 
-const titles = ['乘坐线路', '喜欢我'];
+const titles = ['乘坐线路', '想顺路'];
 const {
   orderStatusMapFun,
   getGaoDeRoute,
@@ -81,21 +81,26 @@ Page({
     const _currInfo = mark.info
     const { lineNo: path } = _currInfo
     const { cityName: location } = this.data._route
-    wx.showLoading()
-    const { c, d } = await homePageApi.getLineDetail({ location, path })
-    console.log('dd----------', d)
-    if (c == 0) {
-      _currInfo.ring = d
+    try {
+      wx.showLoading()
+      const { c, d } = await homePageApi.getLineDetail({ location, path })
+      if (c == 0) {
+        _currInfo.ring = d
+      }
+      this.setData({ _currInfo } )
+
+      wx.nextTick(() => {
+        this.openMask()
+      })
+
+      wx.nextTick(() => {
+        this.showCanvasRing()
+      })
+    } catch(err) {
+      console.log('err', err)
+    } finally {
+      wx.hideLoading()
     }
-    this.setData({ _currInfo }, wx.hideLoading)
-
-    wx.nextTick(() => {
-      this.openMask()
-    })
-
-    wx.nextTick(() => {
-      this.showCanvasRing()
-    })
 
   },
 
@@ -132,7 +137,7 @@ Page({
     const route = this.memory_route || await getGaoDeRoute()
     this.memory_route = route
     this.lineNo = this.lineNo || this.chunkArr(route.lineNo, 5)
-    
+
     const firstLineNo = this.lineNo.splice(0, 1).flat()
 
     if (!firstLineNo.length) {
