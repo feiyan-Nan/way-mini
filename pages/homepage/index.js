@@ -1,7 +1,7 @@
 // pages/homepage/index.js
 import { homePageApi } from '../../api/index';
 
-const titles = ['乘坐线路', '喜欢我'];
+const titles = ['乘坐线路', '想顺路'];
 const {
   orderStatusMapFun,
   getGaoDeRoute,
@@ -88,11 +88,11 @@ Page({
         _currInfo.ring = d
       }
       this.setData({ _currInfo } )
-  
+
       wx.nextTick(() => {
         this.openMask()
       })
-  
+
       wx.nextTick(() => {
         this.showCanvasRing()
       })
@@ -137,7 +137,7 @@ Page({
     const route = this.memory_route || await getGaoDeRoute()
     this.memory_route = route
     this.lineNo = this.lineNo || this.chunkArr(route.lineNo, 5)
-    
+
     const firstLineNo = this.lineNo.splice(0, 1).flat()
 
     if (!firstLineNo.length) {
