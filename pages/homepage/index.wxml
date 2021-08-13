@@ -46,7 +46,7 @@
                 <CustomHeader  images="{{[item.avatar]}}" pure  userInfo="{{item}}" />
               </view>
   
-              <view class="footer">
+              <view class="footer" wx:if="{{item.userJobTagDTO.professionTags}}">
                   <view class="tip">
                       <CustomIcon name="subway" size="28px" /> <text>关于{{ item.gender == 0 ? '她': '他' }}：</text>
                   </view>
