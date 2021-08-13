@@ -23,6 +23,7 @@
 .avator image.has-avatar {
   width: 100%;
   height: 100%;
+  border-radius: 20rpx;
 }
 
 .username-edit {
@@ -103,8 +104,13 @@
   bottom: 0;
   width: 100%;
   height: 2rpx;
-  background: url("http://oss.cogo.club/3e05e393-2c58-4e83-a225-beed24e03a7b.png") repeat-x center;
+  background: url('http://oss.cogo.club/3e05e393-2c58-4e83-a225-beed24e03a7b.png') repeat-x center;
   background-size: auto 2rpx;
+}
+
+.cellbox .cell .cell-left {
+  /* background-color: red; */
+  width: 100%;
 }
 
 .cellbox .cell .demonstrate {
@@ -154,7 +160,7 @@
 }
 
 .cellbox .cell .cell-right text {
-  color: #E88C73;
+  color: #e88c73;
   font-size: 24rpx;
   line-height: 1;
 }

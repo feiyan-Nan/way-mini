@@ -63,7 +63,7 @@ Page({
 
   saveFile () {
     wx.downloadFile({
-      url: `https://oss.guangmangapp.com/101a33e3-bb58-490d-b949-eac28ce32a2e.png`,
+      url: `https://shunlu-feed.oss-cn-beijing.aliyuncs.com/smallRoutine/qrcode.png`,
       success(res) {
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
