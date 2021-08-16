@@ -11,7 +11,7 @@
             <view>{{ item.lineNo }}</view>
           </view>
           <view class="right">
-            <text>{{ item.presonNo }}</text>
+            <text>{{ item.num }}</text>
             人顺路
             <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
           </view>
