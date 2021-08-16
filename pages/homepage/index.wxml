@@ -3,97 +3,85 @@
   <Tabs tabs="{{tabs}}" orderNums="{{orderNums}}" activeTab="{{activeTab}}" bindtabclick="onTabCLick" bindchange="onChange">
     <!-- 乘坐路线模块 -->
     <scroll-view slot="tab-content-0" class="tab-content" lower-threshold="{{400}}" bindscrolltolower="scrollToLower" scroll-y="{{true}}" scroll-top="{{scrollTop}}" scroll-with-animation>
-      <view class="sameway" wx:for="{{nearList}}"  wx:for-index="idx" wx:key="idx">
-          <view class="header" mark:info="{{item}}" bind:tap="showDetail">
-            <view class="left">
-              <CustomIcon name="subway" size="32" />
-              <!-- <view>地铁 <text>10</text> 号线 </view> -->
-              <view> {{ item.lineNo }} </view>
-            </view>
-            <view class="right">
-              <text>{{ item.presonNo }}</text>人顺路 <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
-            </view>
+      <view class="sameway" wx:for="{{nearList}}" wx:for-index="idx" wx:key="idx">
+        <view class="header" mark:info="{{item}}" bind:tap="showDetail">
+          <view class="left">
+            <CustomIcon name="subway" size="32" />
+            <!-- <view>地铁 <text>10</text> 号线 </view> -->
+            <view>{{ item.lineNo }}</view>
           </view>
-          <view class="box">
-            <scroll-view scroll-x class="scrollbox">
-              <view class="avatar"
-                  wx:for="{{ item.userEachNearLineRespVos }}"
-                  wx:for-item="i" wx:key="index"
-                  mark:id="{{ i.id }}"
-                  bind:tap="toBabyPage"
-                >
-                  <view class="avatar_img">
-                    <VanImage round width="139rpx" height="139rpx"  fit="aspectFill" lazy-load src="{{ i.avatar }}" />
-                  </view>
-                  <view class="name">{{ i.name }}</view>
-                  <view class="gender" style="background: {{ i.gender == 0 ? '#FF7BD1' : '#7A9CF3' }}">
-                    <CustomIcon name="{{ i.gender == 0 ? 'girl' : 'boy' }}" size="15" /> <text>{{ i.age }}</text>
-                  </view>
-              </view>
-            </scroll-view>
-
+          <view class="right">
+            <text>{{ item.presonNo }}</text>
+            人顺路
+            <VanIcon name="arrow" color="#9CA6AF" size="26rpx" />
           </view>
-      </view>
-    </scroll-view>
-
-    <!-- 喜欢我模块 -->
-    <scroll-view class="loveme" slot="tab-content-1" scroll-y>
-        <NoLogin bind:login="login" wx:if="{{ !isLogged }}" />
-        <block wx:else>
-          <view class="baby_box">
-            <view class="baby"  wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}" wx:if="{{  _lovemeBabys.length }}">
-              <view class="header">
-                <CustomHeader  images="{{[item.avatar]}}" pure  userInfo="{{item}}" />
+        </view>
+        <view class="box">
+          <scroll-view scroll-x class="scrollbox">
+            <view class="avatar" wx:for="{{ item.userEachNearLineRespVos }}" wx:for-item="i" wx:key="index" mark:id="{{ i.id }}" bind:tap="toBabyPage">
+              <view class="avatar_img">
+                <VanImage round width="139rpx" height="139rpx" fit="aspectFill" lazy-load src="{{ i.avatar }}" />
               </view>
-  
-              <view class="footer" wx:if="{{item.userJobTagDTO.professionTags}}">
-                  <view class="tip">
-                      <CustomIcon name="subway" size="28px" /> <text>关于{{ item.gender == 0 ? '她': '他' }}：</text>
-                  </view>
-  
-                  <view class="info">
-                    <text>{{ item.userJobTagDTO.professionTags }}</text>
-                    <text wx:for="{{ item.userJobTagDTO.jobList }}" wx:for-item="it" wx:for-index="idx" wx:key="idx">{{ it }}</text>
-                  </view>
-  
+              <view class="name">{{ i.name }}</view>
+              <view class="gender" style="background: {{ i.gender == 0 ? '#FF7BD1' : '#7A9CF3' }}">
+                <CustomIcon name="{{ i.gender == 0 ? 'girl' : 'boy' }}" size="15" />
+                <text>{{ i.age }}</text>
               </view>
             </view>
-          </view>
-          <view class="empty">
-            <image src="../../../../../assets/images/homepage/love_me_empty.png" />
-          </view>
-        </block>
-    </scroll-view>
-
-  </Tabs>
-
-  <PubMask class="pubmask" bind:onhide="handleHide" wx:if="{{_isShowMask}}">
-    <view class="pub_mask_box">
-
-        <view class="section">
-          <view class="chart">
-            <view class="chart_title">{{ _currInfo.lineNo }}</view>
-            <view class="charts">
-
-              <view wx:for="{{ _currInfo.ring }}" wx:key="index">
-                <CanvasRing class="canvasRing{{ index + 1 }}" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{ item.value }}" lineWidth="{{1}}" />
-                {{ item.name }}
-              </view>
-
-            </view>
-          </view>
-          <scroll-view class="scroll_view" scroll-y>
-            
-            <view class="scroll_item" wx:for="{{ _currInfo.userEachNearLineRespVos }}" wx:key="index">
-              <view class="bg" bind:tap="toBabyPage"  mark:id="{{item.id}}">
-                <image src="{{item.avatar}}" mode="aspectFill" />
-              </view>
-              
-            </view>
-            <view class="site"></view>
-
           </scroll-view>
         </view>
+      </view>
+    </scroll-view>
+    <!-- 喜欢我模块 -->
+    <scroll-view class="loveme" slot="tab-content-1" scroll-y>
+      <NoLogin bind:login="login" wx:if="{{ !isLogged }}" />
+      <block wx:else>
+        <view class="baby_box">
+          <view class="baby" wx:for="{{_lovemeBabys}}" wx:key="index" bind:tap="toBabyPage" mark:id="{{ item.uid }}" wx:if="{{  _lovemeBabys.length }}">
+            <view class="header">
+              <CustomHeader images="{{[item.avatar]}}" pure userInfo="{{item}}" />
+            </view>
+            <view class="footer" wx:if="{{item.userJobTagDTO.professionTags}}">
+              <view class="tip">
+                <CustomIcon name="subway" size="28px" />
+                <text>关于{{ item.gender == 0 ? '她': '他' }}：</text>
+              </view>
+              <view class="info" wx:if="{{item.userJobTagDTO.professionTags}}">
+                <text>{{ item.userJobTagDTO.professionTags }}</text>
+                <text wx:for="{{ item.userJobTagDTO.jobList }}" wx:for-item="it" wx:for-index="idx" wx:key="idx">
+                  {{ it }}
+                </text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="empty" wx:if="{{  !_lovemeBabys.length }}">
+          <image src="../../../../../assets/images/homepage/love_me_empty.png" />
+        </view>
+      </block>
+    </scroll-view>
+  </Tabs>
+  <PubMask class="pubmask" bind:onhide="handleHide" wx:if="{{_isShowMask}}">
+    <view class="pub_mask_box">
+      <view class="section">
+        <view class="chart">
+          <view class="chart_title">{{ _currInfo.lineNo }}</view>
+          <view class="charts">
+            <view wx:for="{{ _currInfo.ring }}" wx:key="index">
+              <CanvasRing class="canvasRing{{ index + 1 }}" title="" canvasWidth="76" arcColor="rgba(255,255,255, .5)" valueColor="#fff" lineColor="#fff" value="{{ item.value }}" lineWidth="{{1}}" />
+              {{ item.name }}
+            </view>
+          </view>
+        </view>
+        <scroll-view class="scroll_view" scroll-y>
+          <view class="scroll_item" wx:for="{{ _currInfo.userEachNearLineRespVos }}" wx:key="index">
+            <view class="bg" bind:tap="toBabyPage" mark:id="{{item.id}}">
+              <image src="{{item.avatar}}" mode="aspectFill" />
+            </view>
+          </view>
+          <view class="site"></view>
+        </scroll-view>
+      </view>
     </view>
   </PubMask>
 </view>

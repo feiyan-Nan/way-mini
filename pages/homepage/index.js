@@ -60,7 +60,7 @@ Page({
     if (c == 0) {
       this.setData({
         orderNums: ['', d.concernPeopleList.length],
-        _lovemeBabys: d.concernPeopleList
+        _lovemeBabys: d.concernPeopleList.filter(i => i.userJobTagDTO && i.userJobTagDTO.professionTags)
       })
     }
   },
