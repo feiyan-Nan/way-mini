@@ -1,6 +1,6 @@
 .homepage .tab-content {
   height: 100%;
-  background-color: #00C685;
+  background-color: #00c685;
 }
 .homepage .tab-content .sameway {
   margin: 35rpx 25rpx 0;
@@ -30,7 +30,7 @@
   margin-left: 15rpx;
 }
 .homepage .tab-content .sameway .header .left > view text {
-  color: #00C584;
+  color: #00c584;
 }
 .homepage .tab-content .sameway .header .right {
   line-height: 1;
@@ -60,14 +60,14 @@
   width: 139rpx;
   height: 139rpx;
   overflow: hidden;
-  border: 1rpx solid #EEE;
+  border: 1rpx solid #eee;
   border-radius: 50%;
 }
 .homepage .tab-content .sameway .box .scrollbox .avatar:last-child {
   margin-right: 0;
 }
 .homepage .tab-content .sameway .box .scrollbox .avatar .name {
-  color: #666B71;
+  color: #666b71;
   font-size: 22rpx;
   margin-top: 27rpx;
   text-align: center;
@@ -102,8 +102,8 @@
 }
 .homepage .pubmask .pub_mask_box .section {
   height: 100%;
-  color: #FFF;
-  background-color: #00C584;
+  color: #fff;
+  background-color: #00c584;
 }
 .homepage .pubmask .pub_mask_box .section .chart {
   text-align: center;
@@ -230,7 +230,7 @@
 .loveme .baby_box .baby .footer {
   padding-left: 25rpx;
   padding-top: 27rpx;
-  color: #00C584;
+  color: #00c584;
   font-size: 28rpx;
 }
 .loveme .baby_box .baby .footer .tip {
@@ -293,6 +293,11 @@
 }
 .loveme .empty {
   text-align: center;
+}
+.loveme .empty > image {
+  width: 80%;
+  height: auto;
+  margin-top: 200rpx;
 }
 .fadeIn {
   transition: all 0.3s linear;

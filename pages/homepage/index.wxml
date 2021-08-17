@@ -56,7 +56,7 @@
           </view>
         </view>
         <view class="empty" wx:if="{{  !_lovemeBabys.length }}">
-          <image src="../../../../../assets/images/homepage/love_me_empty.png" />
+          <image src="../../../../../assets/images/homepage/love_me_empty.png" mode="widthFix" />
         </view>
       </block>
     </scroll-view>
