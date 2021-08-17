@@ -202,6 +202,12 @@
           "pathName": "pages/my/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/start-page/index",
+          "pathName": "pages/start-page/index",
+          "query": "",
+          "scene": null
         }
       ]
     }

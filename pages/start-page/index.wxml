@@ -10,6 +10,12 @@
   <view class="login_btn">
     <custom-button text="一键登录" bind:tapHandle="login" openType="getPhoneNumber" class="btn" />
   </view>
+  <!-- <view class="" hover-class="none" hover-stop-propagation="false">
+    
+  </view> -->
+  <view style="margin-top: 20rpx;z-index:100;">
+    <custom-button text="取消" bind:tap="handleCancel"/>
+  </view>
   <view class="protocol" wx:if="{{showProtocol}}">
     <view class="protocol-box">
       <view class="title">温馨提示</view>
@@ -167,5 +173,5 @@
       </view>
     </view>
   </view>
-  <image class="bottom-train" src="/assets/images/start-page/bottom-train.png" />
+  <image class="bottom-train" src="/assets/images/start-page/bottom-train.png" style="z-index: -1" />
 </view>
