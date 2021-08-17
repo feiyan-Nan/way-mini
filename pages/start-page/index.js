@@ -84,6 +84,13 @@ Page({
     //   console.log('登录失败', res);
     // }
   },
+
+  handleCancel () {
+    // console.log(888999)
+    wx.reLaunch({
+      url: '/pages/homepage/index'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
