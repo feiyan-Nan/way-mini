@@ -61,6 +61,36 @@ Page({
     })
   },
 
+  saveFile () {
+    wx.downloadFile({
+      url: `https://shunlu-feed.oss-cn-beijing.aliyuncs.com/smallRoutine/qrcode.png`,
+      success(res) {
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function (data) {
+            wx.showToast({
+              title: '保存成功!',
+            })
+          },
+          fail: function (err) {
+            if (err.errMsg === "saveImageToPhotosAlbum:fail cancel") {
+              wx.showToast({
+                title: '保存失败!',
+                icon: 'none'
+              })
+            }
+          },
+        })
+      },
+      fail(err) {
+        wx.showModal({
+          title: '文件下载错误',
+          content: err.errMsg,
+        })
+      }
+    })
+  },
+
   changeNav(e) {
     console.log(e)
   },

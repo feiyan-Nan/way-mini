@@ -25,7 +25,7 @@
                 </view>
                 <view class="item">保密</view>
             </view>
-            <view class="li">
+            <view class="li" wx:if="{{userInfoDTO.height && userInfoDTO.weight}}">
                 <view>
                     <CustomIcon name='rule' size='34' />
                 </view>
@@ -34,25 +34,25 @@
                     <text>{{ userInfoDTO.weight }}</text>
                 </view>
             </view>
-            <view class="li">
+            <view class="li" wx:if="{{ userInfoDTO.signature }}">
                 <view>
                     <CustomIcon name='edit' size='34' />
                 </view>
                 <view class="item">{{ userInfoDTO.signature }}</view>
             </view>
-            <view class="li">
+            <view class="li" wx:if="{{userInfoDTO.home}}">
                 <view>
                     <CustomIcon name='home' size='34' />
                 </view>
                 <view class="item">{{ userInfoDTO.home }}</view>
             </view>
-            <view class="li">
+            <view class="li" wx:if="{{userInfoDTO.school}}">
                 <view>
                     <CustomIcon name='house' size='34' />
                 </view>
                 <view class="item">{{ userInfoDTO.school }}</view>
             </view>
-            <view class="li">
+            <view class="li" wx:if="{{userInfoDTO.education}}">
                 <view>
                     <CustomIcon name='school' size='34' />
                 </view>
@@ -98,7 +98,7 @@
         </view>
     </view>
 </view>
-<PubMask class="pubmask">
+<!-- <PubMask class="pubmask">
     <view class="tip_box">
         <view class="header">
             <image src="/assets/images/homepage/shunlu-heart.png" mode="heightFix" />
@@ -107,5 +107,20 @@
         <view class="tip">开启你们的聊天之旅</view>
         <view class="btn" bind:tap="goDown">下载我顺路</view>
         <view class="cancel" bind:tap="closeMask">好的，我知道了</view>
+    </view>
+</PubMask> -->
+
+<PubMask class="pubmask">
+    <view class="m_box">
+         <image src="/assets/images/baby/down.png" mode="withFix" />
+
+         <view class="btn" bind:tap="saveFile">
+             <image src="/assets/images/baby/btn_bg.png" mode="widthFix" />
+             <text>保存二维码至相册</text>
+         </view>
+
+         <view class="close" bind:tap="closeMask">
+             <image src="/assets/images/baby/close.png" mode="widthFix"/>
+         </view>
     </view>
 </PubMask>

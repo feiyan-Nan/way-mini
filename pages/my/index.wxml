@@ -1,6 +1,6 @@
 <view>
   <view class="avator-username">
-    <view class="avator">
+    <view class="avator" style="{{ avatar ? 'background:none;': '' }}">
       <image class="has-avatar" wx:if="{{avatar}}" src="{{avatar}}"/>
       <image wx:else src="../../assets/images/my/profile.png"/>
     </view>

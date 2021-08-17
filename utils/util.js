@@ -106,7 +106,7 @@ const formatNumber = (n) => {
 const chooseAddress = () => surface(wx.chooseAddress);
 
 const getGaoDeRoute = () => {
-  var myAmapFun = new amapFile.AMapWX({ key: '1bec4d50fba78fbb6153a12f88ab510e' });
+  var myAmapFun = new amapFile.AMapWX({ key: 'b89c3cf407d09fa71e80ccd0b04d7c6b' });
   return new Promise((resolve, reject) => {
     myAmapFun.getPoiAround({
       querytypes: '150500|150700',

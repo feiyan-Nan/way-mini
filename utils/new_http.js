@@ -17,7 +17,7 @@ const _refreshToken = () => {
   };
   const connect = () =>
     surface(wx.request, options).then((res) => {
-      // console.log('++++++++++++++++++++', res.data)
+      console.log('++++++++++++++++++++', res)
       const { code } = res.data;
 
       if (code == 2000) {
@@ -31,7 +31,7 @@ const _refreshToken = () => {
       if (code == 2018) {
         wx.clearStorageSync();
         surface(wx.navigateTo, {
-          url: '/pages/login/index',
+          url: '/pages/start-page/index',
           events: {
             onLoginSucc(data) {
               surface(wx.navigateBack);
@@ -42,7 +42,7 @@ const _refreshToken = () => {
       }
       if (code == 2125) {
         wx.clearStorageSync();
-        wx.switchTab({ url: '/pages/hone/index' });
+        wx.switchTab({ url: '/pages/homepage/index' });
         return Promise.reject();
       }
       return Promise.resolve();
@@ -54,10 +54,8 @@ const _refreshToken = () => {
 class HTTP {
   request({ url, data = {}, method = 'POST', header = {} } = {}) {
     const connect = () => {
-      const { globalData, getUserInfo } = getApp();
-      const userInfo = getUserInfo();
-
-      // const userInfo = globalData.userInfo
+      const { getUserInfo } = getApp();
+      const userInfo = getUserInfo()
       const options = {
         timeout: 10000,
         url: config.baseUrl + url,
@@ -74,30 +72,16 @@ class HTTP {
         },
       };
       return surface(wx.request, options)
-        .then(async (res) => {
-          const { code } = res.data;
-          // console.log('code*******', res)
-          // 重新刷新 token
-          switch (code) {
-            case 2126:
-              try {
-                console.log('遇到2126去刷新---------');
-                await _refreshToken();
-                return connect();
-              } catch (e) {
-                console.log('******* _refreshToken 2126 err', e);
-              }
-            case 2125:
-              wx.clearStorageSync();
-              surface(wx.switchTab, { url: '/pages/home/index' });
-              return Promise.reject(res);
-            default:
-              return Promise.resolve(res.data);
+        .then(res => {
+          const { m } = res.data
+          if (m == '请先登录') {
+            // wx.clearStorageSync();
+            surface(wx.navigateTo, { url: '/pages/start-page/index' });
+            return Promise.reject(res.data)
           }
+          return Promise.resolve(res.data)
         })
-        .catch((err) => {
-          return Promise.reject(err);
-        });
+        .catch(Promise.reject)
     };
     return connect();
   }
