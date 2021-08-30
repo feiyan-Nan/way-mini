@@ -3,5 +3,4 @@ miniprogram_npm/
 node_modules/
 .idea
 .vscode
-package-lock.json
 .DS_Store
